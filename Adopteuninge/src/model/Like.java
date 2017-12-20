@@ -1,3 +1,5 @@
+package model;
+
 public class Like {
 
   private int nbLikeRestant;

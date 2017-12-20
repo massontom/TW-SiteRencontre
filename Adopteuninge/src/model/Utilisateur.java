@@ -1,3 +1,4 @@
+package model;
 
 //Liste import
 import java.util.Date;
