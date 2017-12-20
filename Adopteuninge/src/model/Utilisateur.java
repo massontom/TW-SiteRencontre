@@ -1,3 +1,4 @@
+
 //Liste import
 import java.util.Date;
 import java.awt.Image;
@@ -16,48 +17,46 @@ public class Utilisateur {
   private int signalement;
   private Sexe sexe;
   private Sexe orientation;
-  private Image photo;
-
+  private String photoURL;
 
   public Utilisateur(String nom, String prenom, Date dateDeNaissance, Sexe sexe, Boolean admin, int id) {
-    this.nom=nom;
-    this.prenom=prenom;
-    this.dateDeNaissance=dateDeNaissance;
-    this.sexe=sexe;
-    this.id= id;
+    this.nom = nom;
+    this.prenom = prenom;
+    this.dateDeNaissance = dateDeNaissance;
+    this.sexe = sexe;
+    this.id = id;
   }
 
-
-  public int getId(){
+  public int getId() {
     return this.id;
   }
 
-  public void setNom (String nom) {
-    this.nom=nom;
+  public void setNom(String nom) {
+    this.nom = nom;
   }
 
-  public String getNom () {
+  public String getNom() {
     return this.nom;
   }
 
-  public void setPrenom (String prenom) {
-    this.prenom=prenom;
+  public void setPrenom(String prenom) {
+    this.prenom = prenom;
   }
 
-  public String getPrenom () {
+  public String getPrenom() {
     return this.prenom;
   }
 
-  public void setDateDeNaissance (Date dateDeNaissance) {
-    this.dateDeNaissance=dateDeNaissance;
+  public void setDateDeNaissance(Date dateDeNaissance) {
+    this.dateDeNaissance = dateDeNaissance;
   }
 
-  public Date getDateDeNaissance () {
+  public Date getDateDeNaissance() {
     return this.dateDeNaissance;
   }
 
   public void setVille(String ville) {
-    this.ville=ville;
+    this.ville = ville;
   }
 
   public String getVille() {
@@ -65,7 +64,7 @@ public class Utilisateur {
   }
 
   public void setDepartement(int departement) {
-    this.departement=departement;
+    this.departement = departement;
   }
 
   public int getDepartement() {
@@ -73,41 +72,42 @@ public class Utilisateur {
   }
 
   public void setSexe(Sexe sexe) {
-    this.sexe=sexe;
+    this.sexe = sexe;
   }
 
-  public Sexe getSexe () {
+  public Sexe getSexe() {
     return this.sexe;
   }
 
-  public void setOrientation(Sexe orientation){
-    this.orientation=orientation;
+  public void setOrientation(Sexe orientation) {
+    this.orientation = orientation;
   }
 
   public Sexe getOrientation() {
     return this.orientation;
   }
 
-  public void setPhoto(Image photo) {
-    this.photo=photo;
+  public void setPhotoURL(String photoURL) {
+    this.photoURL = photoURL;
   }
 
-  public Image getPhoto() {
-    return this.photo;
+  public String getPhotoURL() {
+    return this.photoURL;
   }
 
-  public void setAdmin(){
-    this.admin=true;
+  public void setAdmin() {
+    this.admin = true;
   }
 
   public Boolean isAdmin() {
     return this.admin;
   }
-  public void setValorisation(Valorisation valorisation){
-    this.valorisation=valorisation;
+
+  public void setValorisation(Valorisation valorisation) {
+    this.valorisation = valorisation;
   }
 
-  public Valorisation getValorisation(){
+  public Valorisation getValorisation() {
     return this.valorisation;
   }
 
