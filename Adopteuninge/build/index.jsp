@@ -5,11 +5,11 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-            <title>Dictionnaire</title>
+            <title>Super Dictionnaire</title>
             <s:head/> <!-- necessaire pour afficher les erreurs ! -->
     </head>
     <body>
-        <h1>Saisir le terme à rechercher</h1>
+        <h1>Bienvenue dans le super dictionnaire</h1>
         <s:form action="saisieTerme">
             <s:textfield name="terme" label="Terme"/>
             <s:submit/>

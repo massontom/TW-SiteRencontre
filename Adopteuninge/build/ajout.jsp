@@ -5,8 +5,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-            <title>Dictionnaire</title>
-            <s:head/> 
+            <title>Super Dictionnaire</title>
+            <s:head/> <!-- necessaire pour afficher les erreurs ! -->
     </head>
     <body>
         <h1>Ajouter un terme :</h1>
@@ -17,6 +17,6 @@
         </s:form>
     </body>
     <footer>
-        <a href="index.jsp">Retourner</a> a l'indexx
+        <a href="index.jsp">Retourner</a> a l'accueil
     </footer>
 </html>
