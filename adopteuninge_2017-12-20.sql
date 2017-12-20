@@ -7,7 +7,7 @@
 #
 # Hôte: 127.0.0.1 (MySQL 5.6.35)
 # Base de données: adopteuninge
-# Temps de génération: 2017-12-20 14:54:45 +0000
+# Temps de génération: 2017-12-20 16:50:44 +0000
 # ************************************************************
 
 
@@ -76,6 +76,7 @@ CREATE TABLE `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` tinytext NOT NULL,
   `nickname` tinytext NOT NULL,
+  `password` text CHARACTER SET utf8mb4 NOT NULL,
   `birth` date NOT NULL,
   `admin` tinyint(1) NOT NULL DEFAULT '0',
   `rank` tinyint(1) NOT NULL DEFAULT '0',
@@ -91,10 +92,10 @@ CREATE TABLE `user` (
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
 
-INSERT INTO `user` (`id`, `name`, `nickname`, `birth`, `admin`, `rank`, `city`, `zip`, `like`, `report`, `sex`, `orientation`)
+INSERT INTO `user` (`id`, `name`, `nickname`, `password`, `birth`, `admin`, `rank`, `city`, `zip`, `like`, `report`, `sex`, `orientation`)
 VALUES
-	(1,'Masson','Tom','1996-02-02',1,3,'MSA',12345,10,0,0,1),
-	(3,'Marchelidon','Hugo','1996-07-07',0,2,'Rouen',32767,10,0,0,0);
+	(1,'Masson','Tom','','1996-02-02',1,3,'MSA',12345,10,0,0,1),
+	(3,'Marchelidon','Hugo','','1996-07-07',0,2,'Rouen',32767,10,0,0,0);
 
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;

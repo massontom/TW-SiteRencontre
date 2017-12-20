@@ -1,3 +1,3 @@
 package model;
 
-enum Valorisation {GOLD,SILVER,BRONZE};
+public enum Valorisation {GOLD,SILVER,BRONZE};

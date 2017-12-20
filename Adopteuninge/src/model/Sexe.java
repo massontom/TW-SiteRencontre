@@ -1,3 +1,3 @@
 package model;
 
-enum Sexe {HOMME,FEMME};
+public enum Sexe {HOMME,FEMME};
