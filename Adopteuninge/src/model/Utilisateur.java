@@ -30,6 +30,7 @@ public class Utilisateur {
     this.id = id;
     this.mdp=mdp;
     this.email=email;
+    this.signalement=0;
   }
 
   public void setMDP (String nouveauMDP) {
@@ -129,6 +130,13 @@ public class Utilisateur {
 
   public Like getLike() {
     return this.like;
+  }
+
+  public void compteurSignalement() {
+    this.signalement++;
+  }
+  public int getSignalement() {
+    return this.signalement;
   }
 
 }
