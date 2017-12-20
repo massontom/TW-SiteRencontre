@@ -1,3 +1,5 @@
+package model;
+
 import java.util.Date;
 import java.lang.Integer;
 import java.lang.String;
