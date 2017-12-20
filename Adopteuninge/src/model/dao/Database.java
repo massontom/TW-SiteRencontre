@@ -75,7 +75,7 @@ public class Database {
 	public ResultSet fetchUserDetails(int id) throws SQLException, Exception {
 		ResultSet rs = null;
 		try {
-			String sql = "SELECT name, nickname, birth, orientation FROM STRUTS2CRUD WHERE id=?";
+			String sql = "SELECT name, nickname, birth, orientation FROM user WHERE id=?";
 			PreparedStatement ps = getConnection().prepareStatement(sql);
 			ps.setInt(1, id);
 			rs = ps.executeQuery();
