@@ -101,12 +101,20 @@ public class Utilisateur {
     return this.sexe;
   }
 
+  public int getSexeInt() {
+    return this.sexe.ordinal();
+  }
+
   public void setOrientation(Sexe orientation) {
     this.orientation = orientation;
   }
 
   public Sexe getOrientation() {
     return this.orientation;
+  }
+
+  public int getOrientationInt() {
+    return this.orientation.ordinal();
   }
 
   public void setPhotoURL(String photoURL) {
@@ -131,6 +139,10 @@ public class Utilisateur {
 
   public Valorisation getValorisation() {
     return this.valorisation;
+  }
+
+  public int getValorisationInt () {
+    return this.valorisation.ordinal();
   }
 
   public Like getLike() {
