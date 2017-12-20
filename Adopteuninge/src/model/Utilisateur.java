@@ -19,13 +19,28 @@ public class Utilisateur {
   private Sexe sexe;
   private Sexe orientation;
   private String photoURL;
+  private String mdp;
+  private String email;
 
-  public Utilisateur(String nom, String prenom, Date dateDeNaissance, Sexe sexe, Boolean admin, int id) {
+  public Utilisateur(String nom, String prenom, Date dateDeNaissance, Sexe sexe, Boolean admin, int id, String mdp, String email) {
     this.nom = nom;
     this.prenom = prenom;
     this.dateDeNaissance = dateDeNaissance;
     this.sexe = sexe;
     this.id = id;
+    this.mdp=mdp;
+    this.email=email;
+  }
+
+  public void setMDP (String nouveauMDP) {
+    this.mdp=nouveauMDP;
+  }
+  public  void setEmail (String email) {
+    this.email=email;
+  }
+
+  public String getEmail () {
+    return this.email;
   }
 
   public int getId() {
