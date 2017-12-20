@@ -36,6 +36,11 @@ public class Utilisateur {
   public void setMDP (String nouveauMDP) {
     this.mdp=nouveauMDP;
   }
+
+  public String getMDP () {
+    return this.mdp;
+  }
+
   public  void setEmail (String email) {
     this.email=email;
   }
