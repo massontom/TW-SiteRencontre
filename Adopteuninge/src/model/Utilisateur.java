@@ -127,4 +127,8 @@ public class Utilisateur {
     return this.valorisation;
   }
 
+  public Like getLike() {
+    return this.like;
+  }
+
 }
