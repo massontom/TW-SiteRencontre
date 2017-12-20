@@ -19,7 +19,7 @@ public class Utilisateur {
   private Image photo;
 
 
-  public void Utilisateur(String nom, String prenom, Date dateDeNaissance, Sexe sexe, Boolean admin) {
+  public Utilisateur(String nom, String prenom, Date dateDeNaissance, Sexe sexe, Boolean admin) {
     this.nom=nom;
     this.prenom=prenom;
     this.dateDeNaissance=dateDeNaissance;
