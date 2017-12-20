@@ -4,7 +4,7 @@ import java.awt.Image;
 import java.lang.Integer;
 
 public class Utilisateur {
-  private Integer id;
+  private int id;
   private String nom;
   private String prenom;
   private Date dateDeNaissance;
@@ -19,17 +19,15 @@ public class Utilisateur {
   private Image photo;
 
 
-  public Utilisateur(String nom, String prenom, Date dateDeNaissance, Sexe sexe, Boolean admin) {
+  public Utilisateur(String nom, String prenom, Date dateDeNaissance, Sexe sexe, Boolean admin, int id) {
     this.nom=nom;
     this.prenom=prenom;
     this.dateDeNaissance=dateDeNaissance;
     this.sexe=sexe;
-    this.id= null;
+    this.id= id;
   }
 
-  public void setId(int id) {
-    this.id=id;
-  }
+
   public int getId(){
     return this.id;
   }
