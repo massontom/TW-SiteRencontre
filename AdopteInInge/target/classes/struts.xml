@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="true" />
+
+    <package name="default" namespace="/" extends="struts-default">
+
+        <default-action-ref name="index" />
+
+        <global-results>
+            <result name="error">/WEB-INF/jsp/error.jsp</result>
+        </global-results>
+
+        <global-exception-mappings>
+            <exception-mapping exception="java.lang.Exception" result="error"/>
+        </global-exception-mappings>
+
+        <action name="index">
+            <result type="redirectAction">
+                <param name="actionName">Index</param>
+                <param name="namespace">/accueil</param>
+            </result>
+        </action>
+    </package>
+
+    <package name="accueil" namespace="/accueil" extends="json-default">
+
+            <action name="Index" class="controller.Index">
+                <result>/WEB-INF/jsp/index.jsp</result>
+            </action>
+
+            <action name="Login">  
+                <result >/WEB-INF/jsp/connexion.jsp</result>  
+            </action> 
+
+            <action name="LoginProcess" class="controller.Login">
+                <result name="success">/WEB-INF/jsp/loginsuccess.jsp</result>  
+                <result name="error">/WEB-INF/jsp/loginerror.jsp</result>  
+            </action>
+
+            <action name="Register">  
+                <result >/WEB-INF/jsp/inscription.jsp</result>  
+            </action> 
+
+            <action name="RegisterProcess" class="controller.Register">
+                <interceptor-ref name="jsonValidationWorkflowStack"/>
+                <result name="input">/WEB-INF/jsp/inscription.jsp</result>
+                <result name="error">/WEB-INF/jsp/loginerror.jsp</result>
+                <result>/WEB-INF/jsp/index.jsp</result>
+            </action>
+    </package>
+
+</struts>

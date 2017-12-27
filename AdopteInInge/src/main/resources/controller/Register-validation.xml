@@ -1,0 +1,41 @@
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN" "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+<validators>
+    <field name="prenom">
+        <field-validator type="requiredstring">
+            <message>Entrez votre prénom</message>
+        </field-validator>
+    </field>
+    <field name="nom">
+        <field-validator type="requiredstring">
+            <message>Entrez votre nom</message>
+        </field-validator>
+    </field>
+    <field name="ville">
+        <field-validator type="requiredstring">
+            <message>Entrez votre ville</message>
+        </field-validator>
+    </field>
+    <field name="departement">
+        <field-validator type="int">
+            <message>Entrez votre département</message>
+        </field-validator>
+    </field>
+    <field name="mdp">
+        <field-validator type="string">
+        <param name="min">6</param>
+        <param name="max">12</param>
+        <message>Le mot de passe doit faire entre ${min} et ${max} caractères.</message>
+    </field-validator>
+    </field>
+    <field name="mdp1">
+        <field-validator type="string">
+        <param name="min">6</param>
+        <param name="max">12</param>
+        <message>Le mot de passe doit faire entre ${min} et ${max} caractères.</message>
+    </field-validator>
+    </field>
+    <field name="email">
+        <field-validator type="email">        
+            <message>Entrez une adresse email valide</message>
+        </field-validator>     
+</validators>
