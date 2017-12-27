@@ -1,6 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="s" uri="/struts-tags"%>
-<%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -72,7 +71,7 @@
   						</div>
 
   						<div class="form-group">
-								<sj:submit value="Valider" validate="true" class="btn btn-2"> </sj:submit>
+								<s:submit value="Valider" validate="true" class="btn btn-2"> </s:submit>
   						</div>
 
   					</s:form>
