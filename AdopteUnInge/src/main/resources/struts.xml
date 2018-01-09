@@ -27,7 +27,7 @@
         </action>
     </package>
 
-    <package name="accueil" namespace="/accueil" extends="struts-default">
+    <package name="accueil" namespace="/accueil" extends="struts-default,json-default">
 
             <action name="Index" class="controller.Index">
                 <result>/WEB-INF/jsp/index.jsp</result>
@@ -38,8 +38,7 @@
             </action> 
 
             <action name="LoginProcess" class="controller.Login">
-                <result name="success">/WEB-INF/jsp/loginsuccess.jsp</result>  
-                <result name="error">/WEB-INF/jsp/loginerror.jsp</result>  
+                 <result name="input">/WEB-INF/jsp/connexion.jsp</result>
             </action>
 
             <action name="Register">  

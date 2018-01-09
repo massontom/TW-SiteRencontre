@@ -2,4 +2,4 @@
 <hr/>  
 <%@ taglib uri="/struts-tags" prefix="s" %>  
   
-<br/>Welcome, <s:property value="username"/>  
+<br/>Welcome, <s:property value="usermail"/>  
