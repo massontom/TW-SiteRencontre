@@ -1,16 +1,12 @@
-README.txt - blank
+TECHNO WEB
 
-This is an "empty" application that you can deploy as the basis of your own 
-application. 
+http://localhost:8080/AdopteUnInge-1.0.0/accueil
 
-For more on getting started with Struts, see 
-
-* http://cwiki.apache.org/WW/home.html
-
-I18N:
-=====
-Please note that this project was created with the assumption that it will be run
-in an environment where the default locale is set to English. This means that
-the default messages defined in package.properties are in English. If the default
-locale for your server is different, then rename package.properties to package_en.properties
-and create a new package.properties with proper values for your default locale.
+instructions lancer bd mysql :
+- installer un serveur mysql (pour ubuntu : sudo apt install mysql-serveur) (se souvenir du mot de passe maitre)
+- se placer dans le dossier TW-SiteRencontre
+- $ mysql -u root -p
+- $ create database adopteuninge
+- $ use adopteuninge
+- $ source adopteuninge_2017-12-27.mysql
+- à la ligne 19 de Database.java, adapter le port (3306 port mysql par défaut) et mettre son mot de passe maitre
