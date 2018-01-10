@@ -8,8 +8,8 @@ public class Utilisateur {
   private int id;
   private String nom;
   private String prenom;
-  private String mdp;
-  private String email;
+  private String password;
+  private String mail;
   private int age;
   private Sexe sexe;
   private String ville;
@@ -25,28 +25,28 @@ public class Utilisateur {
     this.like = new Like();
   }
 
-  public Utilisateur(String nom, String prenom, String mdp, String email, int age, Sexe sexe, String ville, int departement, Sexe orientation) {
+  public Utilisateur(String nom, String prenom, String password, String mail, int age, Sexe sexe, String ville, int departement, Sexe orientation) {
     this.nom = nom;
     this.prenom = prenom;
     this.age = age;
     this.sexe = sexe;
-    this.mdp = mdp;
-    this.email = email;
+    this.password = password;
+    this.mail = mail;
     this.ville = ville;
     this.orientation = orientation;
     this.departement = departement;
     this.like = new Like();
   }
 
-  public Utilisateur(int id, String nom, String prenom, String mdp, String email, int age, Sexe sexe,
+  public Utilisateur(int id, String nom, String prenom, String password, String mail, int age, Sexe sexe,
       Boolean admin, String ville, int departement, int signalement, Sexe orientation, Valorisation valorisation, Like like) {
     this.nom = nom;
     this.prenom = prenom;
     this.age = age;
     this.id = id;
     this.sexe = sexe;
-    this.mdp = mdp;
-    this.email = email;
+    this.password = password;
+    this.mail = mail;
     this.signalement = signalement;
     this.ville = ville;
     this.orientation = orientation;
@@ -55,15 +55,15 @@ public class Utilisateur {
     this.like = like;
   }
 
-  public Utilisateur(int id, String nom, String prenom, String mdp, String email, int age, int sexe,
+  public Utilisateur(int id, String nom, String prenom, String password, String mail, int age, int sexe,
       Boolean admin, String ville, int departement, int signalement, int orientation, int valorisation, int like) {
     this.nom = nom;
     this.prenom = prenom;
     this.age = age;
     setSexe(sexe);
     this.id = id;
-    this.mdp = mdp;
-    this.email = email;
+    this.password = password;
+    this.mail = mail;
     this.signalement = signalement;
     this.ville = ville;
     this.departement = departement;
@@ -72,20 +72,20 @@ public class Utilisateur {
     setLike(like);
   }
 
-  public void setMdp(String mdp) {
-    this.mdp = mdp;
+  public void setPassword(String password) {
+    this.password = password;
   }
 
-  public String getMdp() {
-    return this.mdp;
+  public String getPassword() {
+    return this.password;
   }
 
-  public void setEmail(String email) {
-    this.email = email;
+  public void setMail(String mail) {
+    this.mail = mail;
   }
 
-  public String getEmail() {
-    return this.email.trim();
+  public String getMail() {
+    return this.mail.trim();
   }
 
   public int getId() {
@@ -254,7 +254,9 @@ public class Utilisateur {
     sb.append(System.getProperty("line.separator"));
     sb.append("Nom: " + getNom());
     sb.append(System.getProperty("line.separator"));
-    sb.append("eMail: " + getEmail());
+    sb.append("Password: " + getPassword());
+    sb.append(System.getProperty("line.separator"));
+    sb.append("Mail: " + getMail());
     sb.append(System.getProperty("line.separator"));
     sb.append("Sexe: " + getSexe());
     sb.append(System.getProperty("line.separator"));

@@ -44,21 +44,21 @@ public class Database {
 	public static boolean registerUser(Utilisateur user) throws Exception {
 		try {
 
-			String sql = "INSERT INTO user VALUES (name,nickname,mail,password,age,admin,rank,city,zip,like,report,sex,orientation)";
+			String sql = "INSERT INTO user (name,nickname,mail,password,age,admin,rank,city,zip,like,report,sex,orientation) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
 			PreparedStatement ps = getConnection().prepareStatement(sql);
 			ps.setString(1, user.getNom());
 			ps.setString(2, user.getPrenom());
-			ps.setString(2, user.getEmail());
-			ps.setString(3, getGeneratedPassword(user.getMdp()));
-			ps.setInt(4, user.getAge());
-			ps.setInt(5, user.isAdmin() ? 1 : 0);
-			ps.setInt(6, user.getValorisationInt());
-			ps.setString(7, user.getVille());
-			ps.setInt(8, user.getDepartement());
-			ps.setInt(9, 10);
-			ps.setInt(10, 0);
-			ps.setInt(11, user.getSexeInt());
-			ps.setInt(12, user.getOrientationInt());
+			ps.setString(3, user.getMail());
+			ps.setString(4, getGeneratedPassword(user.getPassword()));
+			ps.setInt(5, user.getAge());
+			ps.setInt(6, user.isAdmin() ? 1 : 0);
+			ps.setInt(7, user.getValorisationInt());
+			ps.setString(8, user.getVille());
+			ps.setInt(9, user.getDepartement());
+			ps.setInt(10, 10);
+			ps.setInt(11, 0);
+			ps.setInt(12, user.getSexeInt());
+			ps.setInt(13, user.getOrientationInt());
 			ps.executeUpdate();
 			return true;
 		} catch (Exception e) {
@@ -124,7 +124,7 @@ public class Database {
 			PreparedStatement ps = getConnection().prepareStatement(sql);
 			ps.setString(1, user.getNom());
 			ps.setString(2, user.getPrenom());
-			ps.setString(3, user.getMdp());
+			ps.setString(3, user.getPassword());
 			ps.setInt(4, user.getAge());
 			ps.setInt(5, user.isAdmin() ? 1 : 0);
 			ps.setInt(6, user.getValorisationInt());

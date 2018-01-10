@@ -22,10 +22,10 @@
 								<legend><h2>Inscription</h2></legend>
 							<div class="row form-group">
   							<div class="col-md-6">
-  								<s:textfield label="Prénom" name="userBean.prenom" id="prenom" class="form-connexion" placeholder="Votre prénom" required="true"></s:textfield>
+  								<s:textfield label="Prénom" name="userBean.prenom" class="form-connexion" placeholder="Prénom" required="true"></s:textfield>
   							</div>
   							<div class="col-md-6">
-  								<s:textfield label="Nom" name="userBean.nom" id="nom" class="form-connexion" placeholder="Votre nom" required="true"></s:textfield>
+  								<s:textfield label="Nom" name="userBean.nom" class="form-connexion" placeholder="Nom" required="true"></s:textfield>
   							</div>
   						</div>
 
@@ -38,13 +38,13 @@
 
               <div class="row form-group">
                 <div class="col-md-12">
-                  <s:textfield label="Email" nname="userBean.email" id="email" class="form-connexion" placeholder="Votre adresse mail" required="true"></s:textfield>
+                  <s:textfield label="Adresse mail" name="userBean.mail" class="form-connexion" placeholder="example@example.com" required="true"></s:textfield>
                 </div>
               </div>
 
               <div class="row form-group">
                 <div class="col-md-12">
-                  <s:password label="Mot de passe" name="userBean.mdp" id="mdp1" class="form-connexion" placeholder="*****" required="true"/>
+                  <s:password label="Mot de passe" name="userBean.password" class="form-connexion" placeholder="******" required="true"/>
                 </div>
               </div>
 
@@ -56,10 +56,10 @@
 
               <div class="row form-group">
   							<div class="col-md-6">
-  								<s:textfield label="Ville" name="userBean.ville" id="ville" class="form-connexion" placeholder="Votre ville" required="true"></s:textfield>
+  								<s:textfield label="Ville" name="userBean.ville" class="form-connexion" placeholder="Votre ville" required="true"></s:textfield>
   							</div>
   							<div class="col-md-6">
-  								<s:textfield type="number" min="0" max="96" label="Département" name="userBean.departement" id="departement" class="form-connexion" placeholder="Votre département" required="true"></s:textfield>
+  								<s:textfield type="number" min="0" max="96" label="Département" name="userBean.departement" class="form-connexion" placeholder="Votre département" required="true"></s:textfield>
   							</div>
   						</div>
 							<s:submit value="S'inscrire" class="btn btn-2"/>
