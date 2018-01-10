@@ -52,7 +52,9 @@
             <action name="RegisterProcess" class="controller.Register">
                 <result name="input">/WEB-INF/jsp/inscription.jsp</result>
                 <result name="error">/WEB-INF/jsp/loginerror.jsp</result>
-                <result>/WEB-INF/jsp/index.jsp</result>
+                <result name="success" type="redirectAction">
+                  <param name="actionName">login</param>
+                </result>
             </action>
     </package>
 

@@ -1,81 +1,75 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
-<%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE HTML>
 <html>
 	<head>
     <meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Adopte un Ingé - Inscription</title>
-<script language="JavaScript" src="${pageContext.request.contextPath}/struts/utils.js" type="text/javascript"></script>
-	<script language="JavaScript" src="${pageContext.request.contextPath}/struts/xhtml/validation.js" type="text/javascript"></script>
 		<!-- Theme style  -->
 		<link rel="stylesheet" href="../css/style.css">
-		<sj:head jqueryui="true" />
   </head>
-	
+
   <body>
 	<header id="gtco-header" class="gtco-cover" role="banner" style="background-image:url(../images/img_bg_1.jpg);">
-    <div class="gtco-section">
-  		<div class="gtco-container">
-  			<div class="row">
-  				<div class="col-md-6 animate-box">
-  					<h2>Connexion</h2>
-						<p id="probleme"></p>
-  					<s:form name="formulaire" action="RegisterProcess">
-  						<div class="row form-group">
+		<div class="gtco-container">
+			<div class="row">
+				<div class="col-md-6 col-md-offset-3 text-center">
+					<div class="display-connexion">
+						<div class="type-text">
+							<fieldset>
+						<s:form id="form" action="RegisterProcess" method="post" validate="true" cssStyle="text-align: center;display: inline-block;">
+								<legend><h2>Inscription</h2></legend>
+							<div class="row form-group">
   							<div class="col-md-6">
-  								<s:textfield label="Prénom" name="prenom" id="prenom" class="form-control" placeholder="Votre prénom"></s:textfield>
+  								<s:textfield label="Prénom" name="userBean.prenom" id="prenom" class="form-connexion" placeholder="Votre prénom" required="true"></s:textfield>
   							</div>
   							<div class="col-md-6">
-  								<s:textfield label="Nom" name="nom" id="nom" class="form-control" placeholder="Votre nom"></s:textfield>
+  								<s:textfield label="Nom" name="userBean.nom" id="nom" class="form-connexion" placeholder="Votre nom" required="true"></s:textfield>
   							</div>
   						</div>
 
 							<div class="row form-group">
 								<div class="col-md-6">
-									<s:radio label="Sexe" name="sexe" list="#{'0':'Homme','1':'Femme'}" value="0" />									
+									<s:radio label="Sexe" name="userBean.sexe" list="@model.Sexe@values()"/>
+									<s:radio label="Orientation" name="userBean.orientation" list="@model.Sexe@values()"/>
 								</div>
 							</div>
 
               <div class="row form-group">
                 <div class="col-md-12">
-                  <s:textfield label="Email" name="email" id="email" class="form-control" placeholder="Votre adresse mail"></s:textfield>
+                  <s:textfield label="Email" nname="userBean.email" id="email" class="form-connexion" placeholder="Votre adresse mail" required="true"></s:textfield>
                 </div>
               </div>
 
               <div class="row form-group">
                 <div class="col-md-12">
-                  <s:password label="Mot de passe" name="mdp" id="mdp1" class="form-control" placeholder="Saisissez votre mot de passe"/>
+                  <s:password label="Mot de passe" name="userBean.mdp" id="mdp1" class="form-connexion" placeholder="*****" required="true"/>
                 </div>
               </div>
 
               <div class="row form-group">
                 <div class="col-md-12">
-                  <s:password label="Confirmation mot de passe" name="mdp1" id="mdp2" class="form-control" placeholder="Saisissez votre mot de passe"/>
-                </div>
-              </div>
-
-              <div class="row form-group">
-                <div class="col-md-12">
-									<s:date name="dateDeNaissance" format="yyyy-MM-dd"/>
+									<s:textfield label="Age" type="number" name="userBean.age" placeholder="18+" min="18" class="form-connexion" required="true"/>
                 </div>
               </div>
 
               <div class="row form-group">
   							<div class="col-md-6">
-  								<s:textfield label="Ville" name="ville" id="ville" class="form-control" placeholder="Votre ville"></s:textfield>
+  								<s:textfield label="Ville" name="userBean.ville" id="ville" class="form-connexion" placeholder="Votre ville" required="true"></s:textfield>
   							</div>
   							<div class="col-md-6">
-  								<s:textfield label="Département" name="departement" id="departement" class="form-control" placeholder="Votre département"></s:textfield>
+  								<s:textfield type="number" min="0" max="96" label="Département" name="userBean.departement" id="departement" class="form-connexion" placeholder="Votre département" required="true"></s:textfield>
   							</div>
   						</div>
-
-  						<div class="form-group">
-								<s:submit value="Valider" validate="true" class="btn btn-2"> </s:submit>
-  						</div>
-
+							<s:submit value="S'inscrire" class="btn btn-2"/>
   					</s:form>
-  				</div>
+					</fieldset>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 					</header>
   </body>
 </html>
