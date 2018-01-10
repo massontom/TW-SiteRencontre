@@ -44,7 +44,7 @@ public class Database {
 	public static boolean registerUser(Utilisateur user) throws Exception {
 		try {
 
-			String sql = "INSERT INTO user (name,nickname,mail,password,age,admin,rank,city,zip,like,report,sex,orientation) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+			String sql = "INSERT INTO user (name, nickname, mail, password, age, admin, rank, city, zip, sex, orientation) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
 			PreparedStatement ps = getConnection().prepareStatement(sql);
 			ps.setString(1, user.getNom());
 			ps.setString(2, user.getPrenom());
@@ -55,10 +55,8 @@ public class Database {
 			ps.setInt(7, user.getValorisationInt());
 			ps.setString(8, user.getVille());
 			ps.setInt(9, user.getDepartement());
-			ps.setInt(10, 10);
-			ps.setInt(11, 0);
-			ps.setInt(12, user.getSexeInt());
-			ps.setInt(13, user.getOrientationInt());
+			ps.setInt(10, user.getSexeInt());
+			ps.setInt(11, user.getOrientationInt());
 			ps.executeUpdate();
 			return true;
 		} catch (Exception e) {
