@@ -23,14 +23,16 @@ public class Database {
 		}
 	}
 
-	public static boolean validate(String usermail, String userpass) {
-		boolean status = false;
+	public static int validate(String usermail, String userpass) {
+		int status = 0;
 		try {
 			PreparedStatement ps = getConnection().prepareStatement("select * from user where mail=? and password=?");
 			ps.setString(1, usermail);
 			ps.setString(2, getGeneratedPassword(userpass));
 			ResultSet rs = ps.executeQuery();
-			status = rs.next();
+			if(rs.next()){
+            status = rs.getInt("id");
+			}
 			getConnection().close();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -69,12 +71,14 @@ public class Database {
 		}
 	}
 
-	// method for fetch saved user data
-	public ResultSet report() throws SQLException, Exception {
+
+	public static ResultSet reportUser(int id, int numberOfReports) throws SQLException, Exception {
 		ResultSet rs = null;
 		try {
-			String sql = "SELECT * FROM user";
+			String sql = "UPDATE user SET report = ? WHERE id = ?";
 			PreparedStatement ps = getConnection().prepareStatement(sql);
+			ps.setInt(1, id);
+			ps.setInt(2, numberOfReports);
 			rs = ps.executeQuery();
 			return rs;
 		} catch (Exception e) {
@@ -87,15 +91,20 @@ public class Database {
 		}
 	}
 
-	// method for fetch old data to be update
-	public ResultSet fetchUserDetails(int id) throws SQLException, Exception {
+
+	public static Utilisateur fetchUserDetailsByID(int id) throws SQLException, Exception {
 		ResultSet rs = null;
+		Utilisateur user = null;
 		try {
-			String sql = "SELECT name, nickname, birth, orientation FROM user WHERE id=?";
+			String sql = "SELECT * FROM user WHERE id=?";
 			PreparedStatement ps = getConnection().prepareStatement(sql);
 			ps.setInt(1, id);
 			rs = ps.executeQuery();
-			return rs;
+			while (rs.next()) {
+				user = new Utilisateur(id, rs.getString("name"), rs.getString("nickname"), rs.getString("password"), rs.getString("mail"), rs.getDate("birth"), rs.getInt("sex"), rs.getBoolean("admin"), rs.getString("city"),
+				rs.getInt("zip"), rs.getInt("report"), rs.getInt("orientation"), rs.getInt("rank"), rs.getInt("like"));
+        }
+			return user;
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;

@@ -15,11 +15,11 @@
       <div class="gtco-container">
         <div class="row">
           <div class="col-md-8 col-md-offset-2 text-center">
-            <div class="display-tc">              
+            <div class="display-tc">
               <h1><s:property value="title"/></h1>
               <h2><s:property value="message"/> <a href="http://insa-rouen.fr/" target="_blank">Insa Rouen</a></h2>
               <p><a href="./Register.action" class="btn btn-default">Inscription</a></p>
-              <p><a href="./Login.action" class="btn btn-default">Connexion</a></p>
+              <p><a href="./login" class="btn btn-default">Connexion</a></p>
             </div>
           </div>
         </div>

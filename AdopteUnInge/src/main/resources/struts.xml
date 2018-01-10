@@ -27,28 +27,51 @@
         </action>
     </package>
 
-    <package name="accueil" namespace="/accueil" extends="struts-default,json-default">
+    <package name="accueil" namespace="/accueil" extends="struts-default">
 
             <action name="Index" class="controller.Index">
                 <result>/WEB-INF/jsp/index.jsp</result>
             </action>
 
-            <action name="Login">  
-                <result >/WEB-INF/jsp/connexion.jsp</result>  
-            </action> 
-
-            <action name="LoginProcess" class="controller.Login">
-                 <result name="input">/WEB-INF/jsp/connexion.jsp</result>
+            <action name="login" class="controller.Authentication" method="login">
+              <result name="success" type="redirectAction">
+                <param name="actionName">indexUser</param>
+                <param name="namespace">/user</param>
+              </result>
+              <result name="input">/WEB-INF/jsp/connexion.jsp</result>
             </action>
 
-            <action name="Register">  
-                <result >/WEB-INF/jsp/inscription.jsp</result>  
-            </action> 
+            <action name="logout" class="controller.Authentication" method="logout">
+              <result name="success">/WEB-INF/jsp/index.jsp</result>
+            </action>
+
+            <action name="Register">
+                <result >/WEB-INF/jsp/inscription.jsp</result>
+            </action>
 
             <action name="RegisterProcess" class="controller.Register">
                 <result name="input">/WEB-INF/jsp/inscription.jsp</result>
                 <result name="error">/WEB-INF/jsp/loginerror.jsp</result>
                 <result>/WEB-INF/jsp/index.jsp</result>
+            </action>
+    </package>
+
+    <package name="userPlace" namespace="/user" extends="struts-default">
+            <interceptors>
+              <interceptor name="loginInterceptor" class="controller.LoginInterceptor"></interceptor>
+              <interceptor-stack name="loginStack">
+                <interceptor-ref name="loginInterceptor"></interceptor-ref>
+                <interceptor-ref name="defaultStack"></interceptor-ref>
+              </interceptor-stack>
+            </interceptors>
+
+            <action name="indexUser">
+                <interceptor-ref name="loginStack"></interceptor-ref>
+                <result name="login" type="redirectAction">
+                  <param name="actionName">login</param>
+                  <param name="namespace">/accueil</param>
+                </result>
+                <result>/WEB-INF/jsp/HelloWorld.jsp</result>
             </action>
     </package>
 

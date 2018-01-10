@@ -24,15 +24,37 @@ public class Utilisateur {
   }
 
   public Utilisateur(int id, String nom, String prenom, String mdp, String email, Date dateDeNaissance, Sexe sexe,
-      Boolean admin) {
+      Boolean admin, String ville, int departement, int signalement, Sexe orientation, Valorisation valorisation, Like like) {
     this.nom = nom;
     this.prenom = prenom;
     this.dateDeNaissance = dateDeNaissance;
+    this.id = id;
     this.sexe = sexe;
+    this.mdp = mdp;
+    this.email = email;
+    this.signalement = signalement;
+    this.ville = ville;
+    this.orientation = orientation;
+    this.departement = departement;
+    this.valorisation = valorisation;
+    this.like = like;
+  }
+
+  public Utilisateur(int id, String nom, String prenom, String mdp, String email, Date dateDeNaissance, int sexe,
+      Boolean admin, String ville, int departement, int signalement, int orientation, int valorisation, int like) {
+    this.nom = nom;
+    this.prenom = prenom;
+    this.dateDeNaissance = dateDeNaissance;
+    setSexe(sexe);
     this.id = id;
     this.mdp = mdp;
     this.email = email;
-    this.signalement = 0;
+    this.signalement = signalement;
+    this.ville = ville;
+    this.departement = departement;
+    setOrientation(orientation);
+    setValorisation(valorisation);
+    setLike(like);
   }
 
   public void setMDP(String nouveauMDP) {
@@ -115,6 +137,14 @@ public class Utilisateur {
     this.orientation = orientation;
   }
 
+  public void setOrientation(int sexe) {
+    if (sexe == 0) {
+      this.sexe = Sexe.HOMME;
+    } else {
+      this.sexe = Sexe.FEMME;
+    }
+  }
+
   public Sexe getOrientation() {
     return this.orientation;
   }
@@ -143,12 +173,33 @@ public class Utilisateur {
     this.valorisation = valorisation;
   }
 
+  public void setValorisation(int valorisation) {
+    switch(valorisation){
+      case 0:
+        this.valorisation = Valorisation.BRONZE;
+      break;
+
+      case 1:
+        this.valorisation = Valorisation.SILVER;
+      break;
+
+      case 2:
+        this.valorisation = Valorisation.GOLD;
+      break;
+    }
+
+  }
+
   public Valorisation getValorisation() {
     return this.valorisation;
   }
 
   public int getValorisationInt() {
     return this.valorisation.ordinal();
+  }
+
+  public void setLike(int likes){
+    this.like = new Like(likes);
   }
 
   public Like getLike() {

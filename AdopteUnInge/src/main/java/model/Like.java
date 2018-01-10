@@ -1,7 +1,7 @@
 package model;
 
 import java.util.List;
-
+import java.util.ArrayList;
 public class Like {
 
   private int nbLikeRestant;
@@ -12,6 +12,12 @@ public class Like {
     this.nbLikeRestant = nbLikeRestant;
     this.listePersonnesLike = listePersonnesLike;
     this.listePersonnesQuiMontLike = listePersonnesQuiMontLike;
+  }
+
+  public Like(int nbLikeRestant) {
+    this.nbLikeRestant = nbLikeRestant;
+    this.listePersonnesLike = new ArrayList<Utilisateur>();
+    this.listePersonnesQuiMontLike = new ArrayList<Utilisateur>();
   }
 
   public int getNbLikeRestant() {
