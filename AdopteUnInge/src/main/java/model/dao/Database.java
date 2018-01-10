@@ -44,13 +44,13 @@ public class Database {
 	public static boolean registerUser(Utilisateur user) throws Exception {
 		try {
 
-			String sql = "INSERT INTO user VALUES (name,nickname,mail,password,birth,admin,rank,city,zip,like,report,sex,orientation)";
+			String sql = "INSERT INTO user VALUES (name,nickname,mail,password,age,admin,rank,city,zip,like,report,sex,orientation)";
 			PreparedStatement ps = getConnection().prepareStatement(sql);
 			ps.setString(1, user.getNom());
 			ps.setString(2, user.getPrenom());
 			ps.setString(2, user.getEmail());
-			ps.setString(3, getGeneratedPassword(user.getMDP()));
-			ps.setDate(4, (Date) user.getDateDeNaissance());
+			ps.setString(3, getGeneratedPassword(user.getMdp()));
+			ps.setInt(4, user.getAge());
 			ps.setInt(5, user.isAdmin() ? 1 : 0);
 			ps.setInt(6, user.getValorisationInt());
 			ps.setString(7, user.getVille());
@@ -101,7 +101,7 @@ public class Database {
 			ps.setInt(1, id);
 			rs = ps.executeQuery();
 			while (rs.next()) {
-				user = new Utilisateur(id, rs.getString("name"), rs.getString("nickname"), rs.getString("password"), rs.getString("mail"), rs.getDate("birth"), rs.getInt("sex"), rs.getBoolean("admin"), rs.getString("city"),
+				user = new Utilisateur(id, rs.getString("name"), rs.getString("nickname"), rs.getString("password"), rs.getString("mail"), rs.getInt("age"), rs.getInt("sex"), rs.getBoolean("admin"), rs.getString("city"),
 				rs.getInt("zip"), rs.getInt("report"), rs.getInt("orientation"), rs.getInt("rank"), rs.getInt("like"));
         }
 			return user;
@@ -120,12 +120,12 @@ public class Database {
 		getConnection().setAutoCommit(false);
 		int i = 0;
 		try {
-			String sql = "UPDATE user SET name=?,nickname=?,password=?,birth=?,admin=?,rank=?,city=?,zip=?,like=?,report=?,sex=?,orientation=? WHERE id=?";
+			String sql = "UPDATE user SET name=?,nickname=?,password=?,age=?,admin=?,rank=?,city=?,zip=?,like=?,report=?,sex=?,orientation=? WHERE id=?";
 			PreparedStatement ps = getConnection().prepareStatement(sql);
 			ps.setString(1, user.getNom());
 			ps.setString(2, user.getPrenom());
-			ps.setString(3, user.getMDP());
-			ps.setDate(4, (Date) user.getDateDeNaissance());
+			ps.setString(3, user.getMdp());
+			ps.setInt(4, user.getAge());
 			ps.setInt(5, user.isAdmin() ? 1 : 0);
 			ps.setInt(6, user.getValorisationInt());
 			ps.setString(7, user.getVille());

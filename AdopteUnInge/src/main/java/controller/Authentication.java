@@ -32,6 +32,9 @@ public class Authentication extends ActionSupport implements SessionAware {
         this.userpass = userpass;
     }
 
+    /**
+    * action login permet de s'authentifier
+    */
     public String login() throws Exception {
       System.out.println("login");
         if ((this.userpass != null) && (this.usermail != null)) {
@@ -45,12 +48,19 @@ public class Authentication extends ActionSupport implements SessionAware {
         return INPUT;
     }
 
+    /**
+    * action de logout permet de quitter sa session
+    */
     public String logout() {
       System.out.println("logout");
         this.sessionmap.invalidate();
         return SUCCESS;
     }
 
+    /**
+   * set de la session au moment de l'authentification
+   * @param map session map
+   */
     @Override
     public void setSession(Map map) {
         sessionmap = (SessionMap) map;

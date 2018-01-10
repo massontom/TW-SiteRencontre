@@ -1,33 +1,48 @@
 package model;
 
 //Liste import
-import java.util.Date;
+import java.util.*;
+import java.lang.StringBuilder;
 
 public class Utilisateur {
   private int id;
   private String nom;
   private String prenom;
-  private Date dateDeNaissance;
-  private Boolean admin = false;
-  private Valorisation valorisation = Valorisation.BRONZE;
-  private String ville;
-  private int departement;
-  private Like like;
-  private int signalement = 0;
-  private Sexe sexe;
-  private Sexe orientation;
-  private String photoURL;
   private String mdp;
   private String email;
+  private int age;
+  private Sexe sexe;
+  private String ville;
+  private int departement;
+  private Sexe orientation;
+  private Valorisation valorisation = Valorisation.BRONZE;
+  private Like like;
+  private int signalement = 0;
+  private String photoURL;
+  private Boolean admin = false;
 
   public Utilisateur() {
+    this.like = new Like();
   }
 
-  public Utilisateur(int id, String nom, String prenom, String mdp, String email, Date dateDeNaissance, Sexe sexe,
+  public Utilisateur(String nom, String prenom, String mdp, String email, int age, Sexe sexe, String ville, int departement, Sexe orientation) {
+    this.nom = nom;
+    this.prenom = prenom;
+    this.age = age;
+    this.sexe = sexe;
+    this.mdp = mdp;
+    this.email = email;
+    this.ville = ville;
+    this.orientation = orientation;
+    this.departement = departement;
+    this.like = new Like();
+  }
+
+  public Utilisateur(int id, String nom, String prenom, String mdp, String email, int age, Sexe sexe,
       Boolean admin, String ville, int departement, int signalement, Sexe orientation, Valorisation valorisation, Like like) {
     this.nom = nom;
     this.prenom = prenom;
-    this.dateDeNaissance = dateDeNaissance;
+    this.age = age;
     this.id = id;
     this.sexe = sexe;
     this.mdp = mdp;
@@ -40,11 +55,11 @@ public class Utilisateur {
     this.like = like;
   }
 
-  public Utilisateur(int id, String nom, String prenom, String mdp, String email, Date dateDeNaissance, int sexe,
+  public Utilisateur(int id, String nom, String prenom, String mdp, String email, int age, int sexe,
       Boolean admin, String ville, int departement, int signalement, int orientation, int valorisation, int like) {
     this.nom = nom;
     this.prenom = prenom;
-    this.dateDeNaissance = dateDeNaissance;
+    this.age = age;
     setSexe(sexe);
     this.id = id;
     this.mdp = mdp;
@@ -57,11 +72,11 @@ public class Utilisateur {
     setLike(like);
   }
 
-  public void setMDP(String nouveauMDP) {
-    this.mdp = nouveauMDP;
+  public void setMdp(String mdp) {
+    this.mdp = mdp;
   }
 
-  public String getMDP() {
+  public String getMdp() {
     return this.mdp;
   }
 
@@ -70,7 +85,7 @@ public class Utilisateur {
   }
 
   public String getEmail() {
-    return this.email;
+    return this.email.trim();
   }
 
   public int getId() {
@@ -78,7 +93,7 @@ public class Utilisateur {
   }
 
   public void setNom(String nom) {
-    this.nom = nom;
+    this.nom = nom.trim();
   }
 
   public String getNom() {
@@ -86,23 +101,23 @@ public class Utilisateur {
   }
 
   public void setPrenom(String prenom) {
-    this.prenom = prenom;
+    this.prenom = prenom.trim();
   }
 
   public String getPrenom() {
     return this.prenom;
   }
 
-  public void setDateDeNaissance(Date dateDeNaissance) {
-    this.dateDeNaissance = dateDeNaissance;
+  public void setAge(int age) {
+    this.age = age;
   }
 
-  public Date getDateDeNaissance() {
-    return this.dateDeNaissance;
+  public int getAge() {
+    return this.age;
   }
 
   public void setVille(String ville) {
-    this.ville = ville;
+    this.ville = ville.trim();
   }
 
   public String getVille() {
@@ -125,6 +140,14 @@ public class Utilisateur {
     }
   }
 
+  public void setSexe(String sexe) {
+    if (sexe.trim().toLowerCase() == "homme") {
+      this.sexe = Sexe.HOMME;
+    } else {
+      this.sexe = Sexe.FEMME;
+    }
+  }
+
   public Sexe getSexe() {
     return this.sexe;
   }
@@ -139,9 +162,17 @@ public class Utilisateur {
 
   public void setOrientation(int sexe) {
     if (sexe == 0) {
-      this.sexe = Sexe.HOMME;
+      this.orientation = Sexe.HOMME;
     } else {
-      this.sexe = Sexe.FEMME;
+      this.orientation = Sexe.FEMME;
+    }
+  }
+
+  public void setOrientation(String sexe) {
+    if (sexe.trim().toLowerCase() == "homme") {
+      this.orientation = Sexe.HOMME;
+    } else {
+      this.orientation = Sexe.FEMME;
     }
   }
 
@@ -154,7 +185,7 @@ public class Utilisateur {
   }
 
   public void setPhotoURL(String photoURL) {
-    this.photoURL = photoURL;
+    this.photoURL = photoURL.trim();
   }
 
   public String getPhotoURL() {
@@ -214,4 +245,32 @@ public class Utilisateur {
     return this.signalement;
   }
 
+  @Override
+  public String toString(){
+    StringBuilder sb = new StringBuilder();
+    sb.append("====== Utilisateur ======");
+    sb.append(System.getProperty("line.separator"));
+    sb.append("Prénom: " + getPrenom());
+    sb.append(System.getProperty("line.separator"));
+    sb.append("Nom: " + getNom());
+    sb.append(System.getProperty("line.separator"));
+    sb.append("eMail: " + getEmail());
+    sb.append(System.getProperty("line.separator"));
+    sb.append("Sexe: " + getSexe());
+    sb.append(System.getProperty("line.separator"));
+    sb.append("Age: " + getAge());
+    sb.append(System.getProperty("line.separator"));
+    sb.append("Valorisation: " + getValorisation().toString());
+    sb.append(System.getProperty("line.separator"));
+    sb.append("Département: " + getDepartement());
+    sb.append(System.getProperty("line.separator"));
+    sb.append("Ville: " + getVille());
+    sb.append(System.getProperty("line.separator"));
+    sb.append("Orientation: " + getOrientation());
+    sb.append(System.getProperty("line.separator"));
+    sb.append("Admin: " + isAdmin().toString());
+    sb.append(System.getProperty("line.separator"));
+    sb.append("Like: " + getLike());
+    return sb.toString();
+  }
 }

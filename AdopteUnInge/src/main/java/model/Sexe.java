@@ -7,9 +7,9 @@ public enum Sexe {
   public String toString() {
     switch (this) {
     case HOMME:
-      return "homme";
+      return "HOMME";
     case FEMME:
-      return "femme";
+      return "FEMME";
     default:
       throw new IllegalArgumentException();
     }
