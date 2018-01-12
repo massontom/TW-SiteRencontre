@@ -42,7 +42,8 @@
             </action>
 
             <action name="logout" class="controller.Authentication" method="logout">
-              <result name="success">/WEB-INF/jsp/index.jsp</result>
+              <result name="success" type="redirectAction">Index</result>
+              <result name="input" type="redirectAction">/WEB-INF/jsp/error.jsp</result>
             </action>
 
             <action name="Register">
