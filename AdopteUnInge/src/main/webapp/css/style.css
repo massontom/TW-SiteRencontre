@@ -35,13 +35,14 @@ a:hover, a:active, a:focus {
 
 p {
   margin-bottom: 20px;
+  margin-left: 20px;
 }
 
 h1, h2, h3, h4, h5, h6, figure {
   color: #000;
   font-family: "Work Sans", Arial, sans-serif;
   font-weight: 400;
-  margin: 0 0 20px 0;
+  margin: 0 0 20px 20px;
 }
 
 ::-webkit-selection {
@@ -87,6 +88,7 @@ h1, h2, h3, h4, h5, h6, figure {
 
 form label {
   font-weight: normal !important;
+  font-size: 20px;
 }
 
 .gtco-cover .display-tc {
@@ -172,6 +174,7 @@ form label {
   color: #fff;
   border: 2px solid #123456;
   margin-top: 20px;
+  margin-left: 20px;
 }
 .btn-2:hover, .btn-primary:focus, .btn-primary:active {
   background: #123456 !important;
@@ -393,6 +396,7 @@ label {
   max-width: 100%;
   margin-bottom: 5px;
   font-weight: bold;
+  font-size: 50px;
 }
 
 
@@ -502,6 +506,7 @@ input[type=date]:focus, input[type=date]:active{
   -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
   -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  label.font-size: 40px;
 }
 
 .form-connexion:active, .form-connexion:focus {
@@ -512,11 +517,12 @@ input[type=date]:focus, input[type=date]:active{
 
 .txt-connexion {
   color:#fff;
-  font-size:20px;
+  font-size:30px;
+  margin-left: 30px;
 }
 
 .display-connexion {
-  margin-top:180px;
+  margin-top:40px;
   color:#fff;
 }
 
@@ -524,5 +530,6 @@ input[type=date]:focus, input[type=date]:active{
   font-size: 50px;
   line-height: 1.5;
   margin-bottom: 30px;
+  margin-left: 30px;
   color:#fff;
 }

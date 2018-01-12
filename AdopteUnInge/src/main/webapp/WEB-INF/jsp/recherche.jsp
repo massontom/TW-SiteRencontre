@@ -46,6 +46,7 @@
 			</style>
   </head>
   <body>
+		<header id="gtco-header" class="gtco-cover" role="banner" style="background-image:url(../images/img_bg_1.jpg);">
 			<nav class="navbar navbar-inverse">
   			<div class="container-fluid">
     			<div class="navbar-header">
@@ -147,5 +148,6 @@
 			    </div>
 			  </div>
 			</div>
+		</header>
   </body>
 </html>
