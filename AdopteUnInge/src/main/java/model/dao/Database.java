@@ -113,23 +113,21 @@ public class Database {
 	}
 
 	// method for update new data in database
-	public int updateUserDetails(Utilisateur user) throws SQLException, Exception {
+	public static int updateUserDetails(Utilisateur user) throws SQLException, Exception {
 		int i = 0;
 		try {
-			String sql = "UPDATE user SET name=?,nickname=?,password=?,age=?,admin=?,rank=?,city=?,zip=?,like=?,report=?,sex=?,orientation=? WHERE id=?";
+			String sql = "UPDATE user SET name=?,nickname=?,mail=?,age=?,city=?,zip=?,sex=?,orientation=?,password=? WHERE id=?";
 			PreparedStatement ps = getConnection().prepareStatement(sql);
 			ps.setString(1, user.getNom());
 			ps.setString(2, user.getPrenom());
-			ps.setString(3, user.getPassword());
+			ps.setString(3, user.getMail());
 			ps.setInt(4, user.getAge());
-			ps.setInt(5, user.isAdmin() ? 1 : 0);
-			ps.setInt(6, user.getValorisationInt());
-			ps.setString(7, user.getVille());
-			ps.setInt(8, user.getDepartement());
-			ps.setInt(9, user.getLike().getNbLikeRestant());
-			ps.setInt(10, user.getSignalement());
-			ps.setInt(11, user.getSexe());
-			ps.setInt(12, user.getOrientation());
+			ps.setString(5, user.getVille());
+			ps.setInt(6, user.getDepartement());
+			ps.setInt(7, user.getSexe());
+			ps.setInt(8, user.getOrientation());
+			ps.setString(9, getGeneratedPassword(user.getPassword()));
+			ps.setInt(10, user.getId());
 			i = ps.executeUpdate();
 			return i;
 		} catch (Exception e) {
