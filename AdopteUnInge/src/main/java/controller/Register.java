@@ -46,12 +46,12 @@ public static final Pattern VALID_EMAIL_ADDRESS_REGEX = Pattern.compile("^[A-Z0-
     if((userBean.getMail().length() > 0)&&(!validateMail(userBean.getMail()))){
       addFieldError( "userBean.mail", "Adresse mail valide obligatoire" );
     }
-   if(userBean.getSexe() == null){
+   if(userBean.getSexe()<0 || userBean.getSexe()>1){
       addFieldError( "userBean.sexe", "Sexe obligatoire" );
     }
-      if(userBean.getOrientation() == null){
-      addFieldError( "userBean.orientation", "Orientation obligatoire" );
-    }
+    if(userBean.getOrientation()<0 || userBean.getOrientation()>1){
+       addFieldError( "userBean.sexe", "Orientation obligatoire" );
+     }
 
     System.out.println(getUserBean().toString());
   }

@@ -11,10 +11,10 @@ public class Utilisateur {
   private String password;
   private String mail;
   private int age;
-  private Sexe sexe;
+  private int sexe; //0 homme 1 femme
   private String ville;
   private int departement;
-  private Sexe orientation;
+  private int orientation;
   private Valorisation valorisation = Valorisation.BRONZE;
   private Like like;
   private int signalement = 0;
@@ -25,7 +25,7 @@ public class Utilisateur {
     this.like = new Like();
   }
 
-  public Utilisateur(String nom, String prenom, String password, String mail, int age, Sexe sexe, String ville, int departement, Sexe orientation) {
+  public Utilisateur(String nom, String prenom, String password, String mail, int age, int sexe, String ville, int departement, int orientation) {
     this.nom = nom;
     this.prenom = prenom;
     this.age = age;
@@ -38,8 +38,8 @@ public class Utilisateur {
     this.like = new Like();
   }
 
-  public Utilisateur(int id, String nom, String prenom, String password, String mail, int age, Sexe sexe,
-      Boolean admin, String ville, int departement, int signalement, Sexe orientation, Valorisation valorisation, Like like) {
+  public Utilisateur(int id, String nom, String prenom, String password, String mail, int age, int sexe,
+      Boolean admin, String ville, int departement, int signalement, int orientation, Valorisation valorisation, Like like) {
     this.nom = nom;
     this.prenom = prenom;
     this.age = age;
@@ -133,55 +133,19 @@ public class Utilisateur {
   }
 
   public void setSexe(int sexe) {
-    if (sexe == 0) {
-      this.sexe = Sexe.HOMME;
-    } else {
-      this.sexe = Sexe.FEMME;
-    }
+      this.sexe = sexe;
   }
 
-  public void setSexe(String sexe) {
-    if (sexe.trim().toLowerCase() == "homme") {
-      this.sexe = Sexe.HOMME;
-    } else {
-      this.sexe = Sexe.FEMME;
-    }
-  }
-
-  public Sexe getSexe() {
+  public int getSexe() {
     return this.sexe;
   }
 
-  public int getSexeInt() {
-    return this.sexe.ordinal();
-  }
-
-  public void setOrientation(Sexe orientation) {
+  public void setOrientation(int orientation) {
     this.orientation = orientation;
   }
 
-  public void setOrientation(int sexe) {
-    if (sexe == 0) {
-      this.orientation = Sexe.HOMME;
-    } else {
-      this.orientation = Sexe.FEMME;
-    }
-  }
-
-  public void setOrientation(String sexe) {
-    if (sexe.trim().toLowerCase() == "homme") {
-      this.orientation = Sexe.HOMME;
-    } else {
-      this.orientation = Sexe.FEMME;
-    }
-  }
-
-  public Sexe getOrientation() {
+  public int getOrientation() {
     return this.orientation;
-  }
-
-  public int getOrientationInt() {
-    return this.orientation.ordinal();
   }
 
   public void setPhotoURL(String photoURL) {

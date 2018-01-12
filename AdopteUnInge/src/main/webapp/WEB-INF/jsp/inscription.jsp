@@ -31,8 +31,8 @@
 
 							<div class="row form-group">
 								<div class="col-md-6">
-									<s:radio label="Sexe" name="userBean.sexe" list="@model.Sexe@values()"/>
-									<s:radio label="Orientation" name="userBean.orientation" list="@model.Sexe@values()"/>
+									<s:radio label="Sexe" name="userBean.sexe" list="#{'0' : 'Homme', '1' : 'Femme'}" value="0" required="true"/>
+									<s:radio label="Orientation" name="userBean.orientation" list="#{'0' : 'Homme', '1' : 'Femme'}" value="0" required="true"/>
 								</div>
 							</div>
 
