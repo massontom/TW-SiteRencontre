@@ -25,12 +25,29 @@
                 <param name="namespace">/accueil</param>
             </result>
         </action>
+
+        <action name="profil">
+            <result type="redirectAction">
+                <param name="actionName">Profil</param>
+                <param name="namespace">/profil</param>
+            </result>
+        </action>
+    </package>
+
+    <package name="profil" namespace="/profil" extends="struts-default">
+      <action name="Profil">
+          <result>/WEB-INF/jsp/tableauBord.jsp</result>
+      </action>
     </package>
 
     <package name="accueil" namespace="/accueil" extends="struts-default">
 
             <action name="Index" class="controller.Index">
                 <result>/WEB-INF/jsp/index.jsp</result>
+            </action>
+
+            <action name="Recherche">
+                <result>/WEB-INF/jsp/recherche.jsp</result>
             </action>
 
             <action name="login" class="controller.Authentication" method="login">
@@ -47,7 +64,7 @@
             </action>
 
             <action name="Register">
-                <result >/WEB-INF/jsp/inscription.jsp</result>
+                <result>/WEB-INF/jsp/inscription.jsp</result>
             </action>
 
             <action name="RegisterProcess" class="controller.Register">
@@ -74,10 +91,10 @@
                   <param name="actionName">login</param>
                   <param name="namespace">/accueil</param>
                 </result>
-                <result>/WEB-INF/jsp/tableauBord.jsp</result>
+                <result>/WEB-INF/jsp/recherche.jsp</result>
             </action>
 
-	    <action name="edit" class="controller.EditProfil" method="input">
+	          <action name="edit" class="controller.EditProfil" method="input">
       	    	<result name="input">/WEB-INF/jsp/editProfil.jsp</result>
       	    </action>
 
