@@ -14,7 +14,7 @@ public class Database {
 	public static Connection getConnection() throws Exception {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			return DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/adopteuninge", "root", "$1m0nglhfcv");
+			return DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/adopteuninge", "root", "root");
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
