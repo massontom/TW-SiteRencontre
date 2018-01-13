@@ -1,6 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <%@ page import="model.dao.Database" %>
+<%@ page import="java.util.*" %>
+<%@ page import="model.*" %>
 <!DOCTYPE html>
 <html>
   <head>
@@ -26,14 +28,6 @@
         padding: 15px;
       }
     </style>
-		<script>
-			function likeClick() {
-				${sessionScope.user}.getLike().addPersonnesLike(Database.fetchUserDetailsByID(4));
-				Database.fetchUserDetailsByID(4).getLike().addPersonnesQuiMontLike(${sessionScope.user});
-				Database.updateUserDetails(Database.fetchUserDetailsByID(4));
-				Database.updateUserDetails(${sessionScope.user});
-			}
-		</script>
   </head>
   <body>
     <header id="gtco-header" class="gtco-cover" role="banner" style="background-image:url(../images/img_bg_1.jpg);">
@@ -57,14 +51,14 @@
           </div>
         </div>
       </nav>
-			<div class="text-center">
-				<h1><%=Database.fetchUserDetailsByID(4).getPrenom()%> <%=Database.fetchUserDetailsByID(4).getNom()%></h1>
-				<p><%=Database.fetchUserDetailsByID(4).getAge()%> ans</p>
-				<p><%=Database.fetchUserDetailsByID(4).getVille()%>, <%=Database.fetchUserDetailsByID(4).getDepartement()%></p>
-				<h3><a href="../accueil/AfficherProfil" onclick="likeClick()" class="btn btn-2">Liker</a></h3>
-				<h3><a href="../accueil/AfficherProfil" class="btn btn-2">Signaler</a></h3>
-				<h3><a href="#" class="btn btn-2">Contacter</a></h3>
-			</div>
+      <%
+        List<Utilisateur> users = Database.getAllUsers();
+      %>
+      <table>
+        <% for(Utilisateur user : users){ %>
+          <a href="../accueil/AfficherProfil"><%=user.getPrenom()%> <%=user.getNom()%></a>
+        <% } %>
+      </table>
     </header>
   </body>
 </html>

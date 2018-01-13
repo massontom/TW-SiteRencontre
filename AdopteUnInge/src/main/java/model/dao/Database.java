@@ -1,12 +1,8 @@
 package model.dao;
 
 import java.security.MessageDigest;
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.*;
 
 import model.Utilisateur;
 
@@ -89,6 +85,30 @@ public class Database {
 		}
 	}
 
+	public static List<Utilisateur> getAllUsers() throws SQLException, Exception {
+			ResultSet rs = null;
+			ResultSetMetaData rsmd = null;
+			Utilisateur user = null;
+			try {
+				String sql = "SELECT * FROM user";
+				PreparedStatement ps = getConnection().prepareStatement(sql);
+				rs = ps.executeQuery();
+				List<Utilisateur> users = new ArrayList<Utilisateur>();
+				while(rs.next()) {
+					user = new Utilisateur(rs.getInt("id"), rs.getString("name"), rs.getString("nickname"), rs.getString("password"), rs.getString("mail"), rs.getInt("age"), rs.getInt("sex"), rs.getBoolean("admin"), rs.getString("city"),
+					rs.getInt("zip"), rs.getInt("report"), rs.getInt("orientation"), rs.getInt("rank"), rs.getInt("like"), rs.getString("description"));
+					users.add(user);
+				}
+				return users;
+			} catch (Exception e) {
+				e.printStackTrace();
+				return null;
+			} finally {
+				if (getConnection() != null) {
+					getConnection().close();
+				}
+			}
+		}
 
 	public static Utilisateur fetchUserDetailsByID(int id) throws SQLException, Exception {
 		ResultSet rs = null;

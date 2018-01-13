@@ -54,6 +54,10 @@
                 <result >/WEB-INF/jsp/profil.jsp</result>
             </action>
 
+            <action name="ListeUtilisateurs">
+                <result >/WEB-INF/jsp/listUsers.jsp</result>
+            </action>
+
             <action name="login" class="controller.Authentication" method="login">
               <result name="success" type="redirectAction">
                 <param name="actionName">indexUser</param>
