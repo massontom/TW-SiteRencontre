@@ -69,7 +69,7 @@
             <ul class="nav nav-pills nav-stacked">
               <li><a href="../user/indexUser">Accueil</a></li>
               <li><a href="../profil">Mon Profil</a></li>
-              <li><a href="#section2">Chat</a></li>
+              <li><a href="../chat/chat">Chat</a></li>
             </ul><br>
             <div class="input-group">
               <input type="text" class="form-control" placeholder="Recherche...">
