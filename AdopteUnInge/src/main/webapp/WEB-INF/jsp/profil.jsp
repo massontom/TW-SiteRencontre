@@ -55,7 +55,7 @@
 				<p><%=request.getParameter("ville")%>, <%=request.getParameter("departement")%></p>
 				<h3><a href="../accueil/AfficherProfil" class="btn btn-2">Liker</a></h3>
 				<h3><a href="../accueil/AfficherProfil" class="btn btn-2">Signaler</a></h3>
-				<h3><a href="#" class="btn btn-2">Contacter</a></h3>
+				<h3><a href="../chat/chat" class="btn btn-2">Contacter</a></h3>
 			</div>
     </header>
   </body>

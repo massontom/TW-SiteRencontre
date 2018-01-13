@@ -110,5 +110,18 @@
       	    	<result name="success">/WEB-INF/jsp/tableauBord.jsp</result>
             </action>
     </package>
+    <package name="chat" namespace="/chat" extends ="struts-default">
 
+              <action name="chat">
+                  <result>/WEB-INF/jsp/chat.jsp</result>
+              </action>
+
+              <action name="message" class="controller.Chat" method="input">
+                  <result name="input">/WEB-INF/jsp/chat.jsp</result>
+              </action>
+
+              <action name="envoi" class="controller.Chat" method="execute">
+                  <result name="succes">/WEB-INF/jsp/chat.jsp</result>
+              </action>
+        </package>
 </struts>
