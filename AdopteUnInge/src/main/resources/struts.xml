@@ -35,7 +35,7 @@
     </package>
 
     <package name="profil" namespace="/profil" extends="struts-default">
-      <action name="Profil">
+      <action name="TableauBord">
           <result>/WEB-INF/jsp/tableauBord.jsp</result>
       </action>
     </package>
@@ -48,6 +48,10 @@
 
             <action name="Recherche">
                 <result>/WEB-INF/jsp/recherche.jsp</result>
+            </action>
+
+            <action name="Profil">
+                <result >/WEB-INF/jsp/profil.jsp</result>
             </action>
 
             <action name="login" class="controller.Authentication" method="login">
