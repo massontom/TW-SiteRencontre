@@ -43,7 +43,7 @@ public class Database {
 	// method for save user data in database
 	public static boolean registerUser(Utilisateur user) throws Exception {
 		try {
-			String sql = "INSERT INTO user (name, nickname, mail, password, age, admin, rank, city, zip, sex, orientation) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+			String sql = "INSERT INTO user (name, nickname, mail, password, age, admin, rank, city, zip, sex, orientation,description) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
 			PreparedStatement ps = getConnection().prepareStatement(sql);
 			ps.setString(1, user.getNom());
 			ps.setString(2, user.getPrenom());
@@ -56,6 +56,7 @@ public class Database {
 			ps.setInt(9, user.getDepartement());
 			ps.setInt(10, user.getSexe());
 			ps.setInt(11, user.getOrientation());
+			ps.setString(12, "Aucune description");
 			ps.executeUpdate();
 			return true;
 		} catch (Exception e) {
@@ -99,7 +100,7 @@ public class Database {
 			rs = ps.executeQuery();
 			while (rs.next()) {
 				user = new Utilisateur(id, rs.getString("name"), rs.getString("nickname"), rs.getString("password"), rs.getString("mail"), rs.getInt("age"), rs.getInt("sex"), rs.getBoolean("admin"), rs.getString("city"),
-				rs.getInt("zip"), rs.getInt("report"), rs.getInt("orientation"), rs.getInt("rank"), rs.getInt("like"));
+				rs.getInt("zip"), rs.getInt("report"), rs.getInt("orientation"), rs.getInt("rank"), rs.getInt("like"), rs.getString("description"));
         }
 			return user;
 		} catch (Exception e) {
@@ -116,7 +117,7 @@ public class Database {
 	public static int updateUserDetails(Utilisateur user) throws SQLException, Exception {
 		int i = 0;
 		try {
-			String sql = "UPDATE user SET name=?,nickname=?,mail=?,age=?,city=?,zip=?,sex=?,orientation=?,password=? WHERE id=?";
+			String sql = "UPDATE user SET name=?,nickname=?,mail=?,age=?,city=?,zip=?,sex=?,orientation=?,password=?,description=? WHERE id=?";
 			PreparedStatement ps = getConnection().prepareStatement(sql);
 			ps.setString(1, user.getNom());
 			ps.setString(2, user.getPrenom());
@@ -127,7 +128,8 @@ public class Database {
 			ps.setInt(7, user.getSexe());
 			ps.setInt(8, user.getOrientation());
 			ps.setString(9, getGeneratedPassword(user.getPassword()));
-			ps.setInt(10, user.getId());
+			ps.setString(10, user.getDescription());
+			ps.setInt(11, user.getId());
 			i = ps.executeUpdate();
 			return i;
 		} catch (Exception e) {

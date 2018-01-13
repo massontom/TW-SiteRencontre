@@ -109,6 +109,7 @@
             }
             var text = div.textContent;
           </script>
+          <p class="txt-connexion">Description : <i>${sessionScope.user.description}</i></p>
           <a href="../user/edit.action" class="btn btn-2">Editer votre profil</a>
         </div>
       </div>

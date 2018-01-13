@@ -488,12 +488,12 @@ input[type=date]:focus, input[type=date]:active{
 
 .form-connexion {
   display: block;
-  width: 100%;
+  width: 500px;
   height: 54px;
   padding: 10px;
   margin-bottom: 20px;
   font-size: 18px;
-  font-weight: 300;
+  font-weight: 300px;
   line-height: 1.42857;
   text-align: center;
   color: #555555;
@@ -506,10 +506,37 @@ input[type=date]:focus, input[type=date]:active{
   -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
   -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
-  label.font-size: 40px;
 }
 
 .form-connexion:active, .form-connexion:focus {
+  outline: none;
+  box-shadow: none;
+  border-color: #CA9210;
+}
+
+.textarea-connexion{
+  display: block;
+  width: 1000px;
+  height: 300px;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: 30px;
+  font-weight: 300px;
+  line-height: 1.42857;
+  text-align: left;
+  color: #555555;
+  background-color: #fff;
+  background-image: none;
+  border: 2px solid #123456;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+
+.textarea-connexion:active, .textarea-connexion:focus {
   outline: none;
   box-shadow: none;
   border-color: #CA9210;

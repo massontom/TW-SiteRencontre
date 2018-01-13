@@ -94,6 +94,7 @@
                 <s:radio label="Sexe" name="userBean.sexe" list="#{'0' : 'Homme', '1' : 'Femme'}" value="0" required="true"/>
                 <s:radio label="Intéressé par" name="userBean.orientation" list="#{'0' : 'Homme', '1' : 'Femme'}" value="0" required="true"/>
                 <s:password label="Mot de passe" name="userBean.password" class="form-connexion" placeholder="*********" required="true"/>
+                <s:textarea label="Description" name="userBean.description" class="textarea-connexion" placeholder="Description" required="true"/>
                 <s:submit value="Enregistrer les modifications" class="btn btn-2"/>
             </s:form>
         	</header>

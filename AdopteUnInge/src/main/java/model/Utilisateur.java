@@ -19,6 +19,7 @@ public class Utilisateur {
   private Like like;
   private int signalement = 0;
   private String photoURL;
+  private String description;
   private Boolean admin = false;
 
   public Utilisateur() {
@@ -39,7 +40,7 @@ public class Utilisateur {
   }
 
   public Utilisateur(int id, String nom, String prenom, String password, String mail, int age, int sexe,
-      Boolean admin, String ville, int departement, int signalement, int orientation, Valorisation valorisation, Like like) {
+      Boolean admin, String ville, int departement, int signalement, int orientation, Valorisation valorisation, Like like, String description) {
     this.nom = nom;
     this.prenom = prenom;
     this.age = age;
@@ -52,11 +53,12 @@ public class Utilisateur {
     this.orientation = orientation;
     this.departement = departement;
     this.valorisation = valorisation;
+    this.description = description;
     this.like = like;
   }
 
   public Utilisateur(int id, String nom, String prenom, String password, String mail, int age, int sexe,
-      Boolean admin, String ville, int departement, int signalement, int orientation, int valorisation, int like) {
+      Boolean admin, String ville, int departement, int signalement, int orientation, int valorisation, int like, String description) {
     this.nom = nom;
     this.prenom = prenom;
     this.age = age;
@@ -70,6 +72,7 @@ public class Utilisateur {
     setOrientation(orientation);
     setValorisation(valorisation);
     setLike(like);
+    setDescription(description);
   }
 
   public void setPassword(String password) {
@@ -199,6 +202,14 @@ public class Utilisateur {
 
   public Like getLike() {
     return this.like;
+  }
+
+  public void setDescription(String description){
+    this.description = description;
+  }
+
+  public String getDescription() {
+    return this.description;
   }
 
   public void compteurSignalement() {
