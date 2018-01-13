@@ -18,16 +18,33 @@
       background-attachment: fixed;
       }
 
+      /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+      .row.content {height: 1500px}
+
+      /* Set gray background color and 100% height */
+      .sidenav {
+        background-color: #f1f1f1;
+        height: 100%;
+      }
+
       /* Set black background color, white text and some padding */
       footer {
         background-color: #555;
         color: white;
         padding: 15px;
       }
+
+      /* On small screens, set height to 'auto' for sidenav and grid */
+      @media screen and (max-width: 767px) {
+        .sidenav {
+          height: auto;
+          padding: 15px;
+        }
+        .row.content {height: auto;}
     </style>
   </head>
-  <body>
-    <header id="gtco-header" class="gtco-cover" role="banner" style="background-image:url(../images/img_bg_1.jpg);">
+  <body id="gtco-header" class="gtco-cover" role="banner" style="background-image:url(../images/img_bg_1.jpg);">
+    <header>
       <nav class="navbar navbar-inverse">
         <div class="container-fluid">
           <div class="navbar-header">
@@ -39,29 +56,49 @@
             <a class="navbar-brand" href="#">Adopte un Ingé <span class="glyphicon glyphicon-heart"></span></a>
           </div>
           <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="../user/indexUser">Accueil</a></li>
-            </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="../accueil/logout.action"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+              <li><a href="../accueil/logout.action"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
             </ul>
           </div>
         </div>
       </nav>
-      <h1>Edition de votre profil</h1>
-      <hr/>
-      <s:form action="save" method="post" cssStyle="text-align: left;display: inline-block;">
-          <s:textfield label="Nom" name="userBean.nom" class="form-connexion" placeholder="Nom" required="true"></s:textfield>
-          <s:textfield label="Prénom" name="userBean.prenom" class="form-connexion" placeholder="Prénom" required="true"></s:textfield>
-          <s:textfield label="Age" type="number" class="form-connexion" name="userBean.age" placeholder="18+" min="18" required="true"/>
-          <s:textfield label="Adresse mail" name="userBean.mail" class="form-connexion" placeholder="example@example.com" required="true"></s:textfield>
-          <s:textfield label="Ville" name="userBean.ville" class="form-connexion" placeholder="Votre ville" required="true"></s:textfield>
-          <s:textfield type="number" min="0" max="96" class="form-connexion" label="Département" name="userBean.departement" placeholder="Votre département" required="true"></s:textfield>
-          <s:radio label="Sexe" name="userBean.sexe" list="#{'0' : 'Homme', '1' : 'Femme'}" value="0" required="true"/>
-          <s:radio label="Intéressé par" name="userBean.orientation" list="#{'0' : 'Homme', '1' : 'Femme'}" value="0" required="true"/>
-          <s:password label="Mot de passe" name="userBean.password" class="form-connexion" placeholder="*********" required="true"/>
-          <s:submit value="Enregistrer les modifications" class="btn btn-2"/>
-      </s:form>
-  	</header>
+      <div class="container-fluid">
+        <div class="row content">
+          <div class="col-sm-3 sidenav">
+            <h4>Profil de ${sessionScope.user.prenom}</h4>
+            <ul class="nav nav-pills nav-stacked">
+              <li><a href="../user/indexUser">Accueil</a></li>
+              <li><a href="../profil">Mon Profil</a></li>
+              <li><a href="#section2">Chat</a></li>
+            </ul><br>
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Recherche...">
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="button">
+                  <span class="glyphicon glyphicon-search"></span>
+                </button>
+              </span>
+            </div>
+          </div>
+
+          <div class="col-sm-9">
+            <h1>Edition de votre profil</h1>
+            <hr/>
+            <s:form action="save" method="post" cssStyle="text-align: left;display: inline-block;">
+                <s:textfield label="Nom" name="userBean.nom" class="form-connexion" placeholder="Nom" required="true"></s:textfield>
+                <s:textfield label="Prénom" name="userBean.prenom" class="form-connexion" placeholder="Prénom" required="true"></s:textfield>
+                <s:textfield label="Age" type="number" class="form-connexion" name="userBean.age" placeholder="18+" min="18" required="true"/>
+                <s:textfield label="Adresse mail" name="userBean.mail" class="form-connexion" placeholder="example@example.com" required="true"></s:textfield>
+                <s:textfield label="Ville" name="userBean.ville" class="form-connexion" placeholder="Votre ville" required="true"></s:textfield>
+                <s:textfield type="number" min="0" max="96" class="form-connexion" label="Département" name="userBean.departement" placeholder="Votre département" required="true"></s:textfield>
+                <s:radio label="Sexe" name="userBean.sexe" list="#{'0' : 'Homme', '1' : 'Femme'}" value="0" required="true"/>
+                <s:radio label="Intéressé par" name="userBean.orientation" list="#{'0' : 'Homme', '1' : 'Femme'}" value="0" required="true"/>
+                <s:password label="Mot de passe" name="userBean.password" class="form-connexion" placeholder="*********" required="true"/>
+                <s:submit value="Enregistrer les modifications" class="btn btn-2"/>
+            </s:form>
+        	</header>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

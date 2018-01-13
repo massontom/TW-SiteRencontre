@@ -45,8 +45,8 @@
 				  .row.content {height: auto;}
 			</style>
   </head>
-  <body>
-		<header id="gtco-header" class="gtco-cover" role="banner" style="background-image:url(../images/img_bg_1.jpg);">
+  <body id="gtco-header" class="gtco-cover" role="banner" style="background-image:url(../images/img_bg_1.jpg);">
+		<header>
 			<nav class="navbar navbar-inverse">
   			<div class="container-fluid">
     			<div class="navbar-header">
@@ -60,7 +60,6 @@
     			<div class="collapse navbar-collapse" id="myNavbar">
       			<ul class="nav navbar-nav">
         			<li class="active"><a href="/acceuil/Recherche">Recherche</a></li>
-        			<li><a href="../profil">Profil</a></li>
       			</ul>
       			<ul class="nav navbar-nav navbar-right">
         			<li><a href="../accueil/logout.action"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
@@ -71,15 +70,14 @@
 			<div class="container-fluid">
 			  <div class="row content">
 			    <div class="col-sm-3 sidenav">
-			      <h4>John's Blog</h4>
+			      <h4>Bienvenue ${sessionScope.user.prenom}</h4>
 			      <ul class="nav nav-pills nav-stacked">
-			        <li class="active"><a href="#section1">Home</a></li>
-			        <li><a href="#section2">Friends</a></li>
-			        <li><a href="#section3">Family</a></li>
-			        <li><a href="#section3">Photos</a></li>
+							<li class="active"><a href="../user/indexUser">Accueil</a></li>
+	            <li><a href="../profil">Mon Profil</a></li>
+	            <li><a href="#section2">Chat</a></li>
 			      </ul><br>
 			      <div class="input-group">
-			        <input type="text" class="form-control" placeholder="Search Blog..">
+			        <input type="text" class="form-control" placeholder="Recherche...">
 			        <span class="input-group-btn">
 			          <button class="btn btn-default" type="button">
 			            <span class="glyphicon glyphicon-search"></span>
