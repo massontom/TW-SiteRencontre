@@ -26,14 +26,6 @@
         padding: 15px;
       }
     </style>
-		<script>
-			function likeClick() {
-				${sessionScope.user}.getLike().addPersonnesLike(Database.fetchUserDetailsByID(4));
-				Database.fetchUserDetailsByID(4).getLike().addPersonnesQuiMontLike(${sessionScope.user});
-				Database.updateUserDetails(Database.fetchUserDetailsByID(4));
-				Database.updateUserDetails(${sessionScope.user});
-			}
-		</script>
   </head>
   <body>
     <header id="gtco-header" class="gtco-cover" role="banner" style="background-image:url(../images/img_bg_1.jpg);">
@@ -58,10 +50,10 @@
         </div>
       </nav>
 			<div class="text-center">
-				<h1><%=Database.fetchUserDetailsByID(4).getPrenom()%> <%=Database.fetchUserDetailsByID(4).getNom()%></h1>
-				<p><%=Database.fetchUserDetailsByID(4).getAge()%> ans</p>
-				<p><%=Database.fetchUserDetailsByID(4).getVille()%>, <%=Database.fetchUserDetailsByID(4).getDepartement()%></p>
-				<h3><a href="../accueil/AfficherProfil" onclick="likeClick()" class="btn btn-2">Liker</a></h3>
+				<h1><%=request.getParameter("prenom")%> <%=request.getParameter("nom")%></h1>
+				<p><%=request.getParameter("age")%> ans</p>
+				<p><%=request.getParameter("ville")%>, <%=request.getParameter("departement")%></p>
+				<h3><a href="../accueil/AfficherProfil" class="btn btn-2">Liker</a></h3>
 				<h3><a href="../accueil/AfficherProfil" class="btn btn-2">Signaler</a></h3>
 				<h3><a href="#" class="btn btn-2">Contacter</a></h3>
 			</div>

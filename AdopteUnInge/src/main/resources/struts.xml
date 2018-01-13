@@ -51,11 +51,11 @@
             </action>
 
             <action name="AfficherProfil">
-                <result >/WEB-INF/jsp/profil.jsp</result>
+                <result>/WEB-INF/jsp/profil.jsp</result>
             </action>
 
             <action name="ListeUtilisateurs">
-                <result >/WEB-INF/jsp/listUsers.jsp</result>
+                <result>/WEB-INF/jsp/listUsers.jsp</result>
             </action>
 
             <action name="login" class="controller.Authentication" method="login">

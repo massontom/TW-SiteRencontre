@@ -56,7 +56,14 @@
       %>
       <table>
         <% for(Utilisateur user : users){ %>
-          <a href="../accueil/AfficherProfil"><%=user.getPrenom()%> <%=user.getNom()%></a>
+        <form action="AfficherProfil">
+          <input type="hidden" value="<%=user.getPrenom()%>" name="prenom">
+          <input type="hidden" value="<%=user.getNom()%>" name="nom">
+          <input type="hidden" value="<%=user.getAge()%>" name="age">
+          <input type="hidden" value="<%=user.getVille()%>" name="ville">
+          <input type="hidden" value="<%=user.getDepartement()%>" name="departement">
+          <input type="submit" value="<%=user.getPrenom()%> <%=user.getNom()%>">
+        </form>
         <% } %>
       </table>
     </header>
