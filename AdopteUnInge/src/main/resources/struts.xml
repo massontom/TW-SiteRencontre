@@ -115,7 +115,7 @@
               <action name="chat">
                   <result>/WEB-INF/jsp/chat.jsp</result>
               </action>
-
+<!--
               <action name="voirMessages" class="controller.Chat" method="voirMessages">
 	               <interceptor-ref name="loginInterceptor" />
                  <result name="success">/chat.jsp</result>
@@ -131,7 +131,7 @@
               <action name="message" class="controller.Chat" method="input">
                   <result name="input">/WEB-INF/jsp/chat.jsp</result>
               </action>
-
+-->
               <action name="envoi" class="controller.Chat" method="execute">
                   <result name="succes">/WEB-INF/jsp/chat.jsp</result>
               </action>
