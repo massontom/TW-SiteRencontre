@@ -245,7 +245,7 @@ public static Messages getChat(Utilisateur auteur, Utilisateur destinataire) thr
 	ps.setInt(2, destinataireId);
 	rs = ps.executeQuery();
 	while (rs.next()) {
-		Message mess = new Message (rs.getInt("id"), auteur, destinataire, rs.getString("message"));
+		Message mess = new Message (rs.getInt("id"), auteur, destinataire, rs.getString("message"), "date");
 		chat.addMessage(mess);
 		}
 	return chat;

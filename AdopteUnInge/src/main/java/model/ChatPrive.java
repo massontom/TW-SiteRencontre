@@ -1,25 +1,47 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ChatPrive {
-        private Messages messages;
-        private int id;
-        private String nom;
+        private List<Messages> chat;
 
-        public ChatPrive(int id, String nom) {
-                this.id = id;
-                this.nom = nom;
-                this.messages = new Messages();
+        public ChatPrive() {
+                this.chat=new ArrayList<Messages>();
         }
 
-        public Messages getMessages() {
-                return this.messages;
+        public ChatPrive(ArrayList<Messages> conv) {
+          this.chat=conv;
+        }
+        public List<Messages> getMessages() {
+                return this.chat;
         }
 
-        public int getId() {
-                return this.id;
+        public void setMessages(ArrayList<Messages> conv) {
+          this.chat=conv;
         }
 
-        public String getNom() {
-                return this.nom;
-        }
+        public void addMessages(Messages mess) {
+		      this.chat.add(mess);
+	       }
+
+         public String toString() {
+           String ret = "";
+           for (Messages mess : chat) {
+             ret = ret + "Conversation avec " + mess.getDestinataire() + "\n";
+             for (Message m : mess.getMessages()) {
+               ret = ret + m + "\n";
+             }
+           }
+           return ret;
+         }
+
+         public Messages getMessagesParIdDuParticipant(int id) {
+           for (Messages mess : chat) {
+             if (mess.getDestinataire().getId() == id) {
+               return mess;
+             }
+           }
+           return null;
+         }
 }
