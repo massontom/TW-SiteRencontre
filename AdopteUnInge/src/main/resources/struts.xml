@@ -115,23 +115,21 @@
               <action name="chat">
                   <result>/WEB-INF/jsp/chat.jsp</result>
               </action>
-<!--
+
               <action name="voirMessages" class="controller.Chat" method="voirMessages">
-	               <interceptor-ref name="loginInterceptor" />
-                 <result name="success">/chat.jsp</result>
-	                <result name="login">/connexion.jsp</result>
+                 <result name="success">/conversation.jsp</result>
+	              <!--  <result name="login">/connexion.jsp</result> -->
               </action>
 
               <action name="ajouterMessage" class="controller.Chat" method="ajouterMessage">
-                <interceptor-ref name="loginInterceptor" />
-                <result name="success" type="redirectAction">/messagerie.action</result>
-                <result name="input">/chat.jsp</result>
-                <result name="login">/connexion.jsp</result>
+                <result name="success" type="redirectAction">/chat.action</result>
+                <result name="input">/conversation.jsp</result>
+              <!--  <result name="login">/connexion.jsp</result> -->
               </action>
               <action name="message" class="controller.Chat" method="input">
                   <result name="input">/WEB-INF/jsp/chat.jsp</result>
               </action>
--->
+
               <action name="envoi" class="controller.Chat" method="execute">
                   <result name="succes">/WEB-INF/jsp/chat.jsp</result>
               </action>

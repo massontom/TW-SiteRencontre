@@ -21,12 +21,13 @@ public class Utilisateur {
   private String photoURL;
   private String description;
   private Boolean admin = false;
+  private ChatPrive chat;
 
   public Utilisateur() {
     this.like = new Like();
   }
 
-  public Utilisateur(String nom, String prenom, String password, String mail, int age, int sexe, String ville, int departement, int orientation) {
+  public Utilisateur(int id, String nom, String prenom, String password, String mail, int age, int sexe, String ville, int departement, int orientation) {
     this.nom = nom;
     this.prenom = prenom;
     this.age = age;
@@ -37,6 +38,7 @@ public class Utilisateur {
     this.orientation = orientation;
     this.departement = departement;
     this.like = new Like();
+    this.id = id;
   }
 
   public Utilisateur(int id, String nom, String prenom, String password, String mail, int age, int sexe,
@@ -93,6 +95,10 @@ public class Utilisateur {
 
   public int getId() {
     return this.id;
+  }
+
+  public void setId(int id) {
+    this.id = id;
   }
 
   public void setNom(String nom) {
@@ -218,6 +224,18 @@ public class Utilisateur {
 
   public int getSignalement() {
     return this.signalement;
+  }
+
+  public ChatPrive getChatPrive() {
+		return this.chat;
+	}
+
+	public void setChatPrive(ChatPrive chat) {
+		this.chat = chat;
+	}
+
+  public boolean equals(Utilisateur utilisateur){
+    return (this.id==utilisateur.getId()); //réussir à le faire avec id
   }
 
   @Override

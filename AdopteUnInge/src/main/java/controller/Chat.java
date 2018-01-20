@@ -26,12 +26,12 @@ public class Chat extends ActionSupport implements SessionAware {
   			addFieldError( "contenu", "Veuillez saisir un message." );
   		}
   	}
-/*
+
   public String voirMessages() throws Exception {
 		Database db = Database.getInstance();
 		this.utilisateur = db.fetchUserDetailsByID(utilisateur.getId());
 		Utilisateur connecte = (Utilisateur)sessionmap.get("utilisateur");
-		this.messages = connecte.getChat().getConversationParIdDuParticipant(utilisateur.getId());
+		this.messages = connecte.getChatPrive().getMessagesByUserId(utilisateur.getId());
 		db.deconnexion();
 		return SUCCESS;
 	}
@@ -41,18 +41,15 @@ public class Chat extends ActionSupport implements SessionAware {
 		Utilisateur connecte = (Utilisateur)sessionmap.get("utilisateur");
 		this.utilisateur = db.fetchUserDetailsByID(utilisateur.getId());
 		Message msg = new Message(connecte, this.utilisateur, contenu);
-		db.uptdateMessages(msg);
+		db.updateMessages(msg, db.getChat(utilisateur,connecte));
 		return SUCCESS;
 	}
 
-  */
+
 
 
   @Override
-  public void setSession(Map map) {
-      sessionmap = (SessionMap) map;
-      utilisateur = (Utilisateur)this.sessionmap.get("user");
-      System.out.println("==============================================================");
-      utilisateur.toString();
-  }
+  public void setSession(Map<String, Object> session) {
+  		this.sessionmap=(SessionMap)session;
+  	}
 }

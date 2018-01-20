@@ -22,7 +22,7 @@
 								<h2>Voici la liste de vos messages</h2>
 								<s:iterator value="utilisateur.chatprive.messages" var="messages">
 									<s:url action="voirMessages.action" var="message" >
-										<s:param name="utilisateur.id"><s:property value="#conversation.destinataire.id"/></s:param>
+										<s:param name="utilisateur.id"><s:property value="#messages.destinataire.id"/></s:param>
 									</s:url>
 									<a href='<s:property value="#message" />'>
 									<div class="row">
@@ -34,14 +34,11 @@
 															</div>
 															<div class="panel-body">
 																<div class="row">
-																	<div class="col-md-3 col-lg-3 ">
-																		<img alt="Image de profil" src="img/<s:property value="#conversation.destinataire.uriPhoto"/>" class="photoRecherche img-circle img-responsive">
-																	</div>
 																	<div class="col-md-9 col-lg-9 ">
 																		<table class="table table-user-information">
 																			<tr>
-																				<td><strong>Date du dernier message : </strong><s:property value="#conversation.dernierMessage.date"/></td>
-																				<td><strong>Contenu du dernier message : </strong><s:property value="#conversation.dernierMessage.contenu"/></td>
+																				<td><strong>Date du dernier message : </strong><s:property value="#messages.dernierMessage.date"/></td>
+																				<td><strong>Contenu du dernier message : </strong><s:property value="#messages.dernierMessage.message"/></td>
 																			</tr>
 																		</table>
 

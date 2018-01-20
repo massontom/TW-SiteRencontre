@@ -36,7 +36,7 @@ public class ChatPrive {
            return ret;
          }
 
-         public Messages getMessagesParIdDuParticipant(int id) {
+         public Messages getMessagesByUserId(int id) {
            for (Messages mess : chat) {
              if (mess.getDestinataire().getId() == id) {
                return mess;
