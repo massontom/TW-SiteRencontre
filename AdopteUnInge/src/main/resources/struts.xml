@@ -112,20 +112,33 @@
     </package>
     <package name="chat" namespace="/chat" extends ="struts-default">
 
+      <interceptors>
+        <interceptor class="controller.LoginInterceptor" name="Interceptor">
+        </interceptor>
+
+        <interceptor-stack name="interceptors">
+          <interceptor-ref name="Interceptor" />
+          <interceptor-ref name="defaultStack" />
+        </interceptor-stack>
+      </interceptors>
+
               <action name="chat">
                   <result>/WEB-INF/jsp/chat.jsp</result>
               </action>
 
               <action name="voirMessages" class="controller.Chat" method="voirMessages">
+                <interceptor-ref name="interceptors" />
                  <result name="success">/conversation.jsp</result>
-	              <!--  <result name="login">/connexion.jsp</result> -->
+	               <result name="login">/accueil/connexion.jsp</result>
               </action>
 
               <action name="ajouterMessage" class="controller.Chat" method="ajouterMessage">
+                <interceptor-ref name="interceptors" />
                 <result name="success" type="redirectAction">/chat.action</result>
                 <result name="input">/conversation.jsp</result>
-              <!--  <result name="login">/connexion.jsp</result> -->
+                <result name="login">/accueil/connexion.jsp</result> 
               </action>
+
               <action name="message" class="controller.Chat" method="input">
                   <result name="input">/WEB-INF/jsp/chat.jsp</result>
               </action>
