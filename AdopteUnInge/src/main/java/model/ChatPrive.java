@@ -14,7 +14,7 @@ public class ChatPrive {
           this.chat=conv;
         }
         public List<Messages> getMessages() {
-                return this.chat;
+          return this.chat;
         }
 
         public void setMessages(ArrayList<Messages> conv) {

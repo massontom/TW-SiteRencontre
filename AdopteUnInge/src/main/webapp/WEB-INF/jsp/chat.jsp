@@ -12,8 +12,6 @@
 
   </head>
   <body>
-    <script type="text/javascript" src="js/jquery-2.2.4.min.js"></script>
-    <script type="text/javascript" src="js/chat.js"></script>
 		<header id="gtco-header" class="gtco-cover" role="banner" style="background-image:url(../images/img_bg_1.jpg);">
 			<div class="gtco-container">
 				<div class="row">
@@ -26,16 +24,13 @@
 									</s:url>
 									<a href='<s:property value="#message" />'>
 									<div class="row">
-														<div class="profil panel panel-info">
-															<div class="panel-heading">
-																<span class="panel-title">
+																<span>
 																	<strong><s:property value="#utilisateur.prenom"/></strong>
 																</span>
 															</div>
-															<div class="panel-body">
 																<div class="row">
 																	<div class="col-md-9 col-lg-9 ">
-																		<table class="table table-user-information">
+																		<table>
 																			<tr>
 																				<td><strong>Date du dernier message : </strong><s:property value="#messages.dernierMessage.date"/></td>
 																				<td><strong>Contenu du dernier message : </strong><s:property value="#messages.dernierMessage.message"/></td>
@@ -44,7 +39,6 @@
 
 																	</div>
 																</div>
-															</div>
 														</a>
 													</s:iterator>
 							</div>
