@@ -18,6 +18,7 @@
 					background-image: url(../images/img_bg_1.jpg);
 					background-repeat: no-repeat;
 					background-attachment: fixed;
+			    background-size: cover;
 				}
 				.navbar {
 		      margin-bottom: 0;
@@ -92,7 +93,7 @@
 							<div class="col-sm-3 well">
 								<div class="well">
   								<s:property value="#user.prenom"/> <s:property value="#user.nom"/></br>
-									<a href="consulterProfil?membre.id=<s:property value="#user.id"/>">Voir le profil</a>
+									<a href="../user/consulterProfil?membre.id=<s:property value="#user.id"/>">Voir le profil</a>
 								</div>
 							</div>
 						</s:iterator>
