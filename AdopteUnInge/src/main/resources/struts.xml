@@ -142,7 +142,7 @@
 	               <result type="redirect" name="login">/accueil/Index.action</result>
               </action>
 
-              <action name="ajouterMessage" class="controller.Chat" method="ajouterMessage">
+              <action name="ajouterMessage" class="controller.Chat" method="ajouterMessages">
                 <interceptor-ref name="interceptors" />
                 <result name="input">/conversation.jsp</result>
                 <result type="redirect" name="login">/accueil/Index.action</result>
