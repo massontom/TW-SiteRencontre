@@ -81,7 +81,7 @@
 							<li class="active"><a href="../user/ListeUtilisateurs">Liste des Membres</a></li>
 	          </ul><br>
           </div>
-          <div class="col-sm-9" name="recherche">
+          <div class="col-sm-9">
 						<div class="col-sm-3 well">
               <%List<Utilisateur> users = Database.getAllUsers();%>
               <table>

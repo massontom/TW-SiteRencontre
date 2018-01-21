@@ -29,4 +29,8 @@ public class ConsulterProfil extends ActionSupport implements SessionAware {
     Utilisateur user = (Utilisateur)this.sessionmap.get("user");
     return SUCCESS;
   }
+
+  public String input() throws Exception {
+    return INPUT;
+  }
 }

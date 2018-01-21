@@ -79,7 +79,7 @@
         <result name="input">/WEB-INF/jsp/recherche.jsp</result>
         <result name="error">/WEB-INF/jsp/loginerror.jsp</result>
         <result name="success">/WEB-INF/jsp/recherche.jsp</result>
-       </action>
+      </action>
 
        <action name="consulterProfil" class="controller.ConsulterProfil" method="execute">
          <result name="success">/WEB-INF/jsp/profil.jsp</result>
@@ -127,12 +127,8 @@
             </action>
 
             <action name="consulterProfil" class="controller.ConsulterProfil" method="execute">
-              <interceptor-ref name="loginInterceptor"></interceptor-ref>
               <result name="success">/WEB-INF/jsp/profil.jsp</result>
-              <result name="login" type="redirectAction">
-                <param name="actionName">login</param>
-                <param name="namespace">/accueil</param>
-              </result>
+              <result name="input">/WEB-INF/jsp/listUsers.jsp</result>
             </action>
 
             <action name="liker" class="controller.Liker" method="execute">
