@@ -14,16 +14,35 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <style>
       body {
-      background-image: url(../images/img_bg_1.jpg);
-      background-repeat: no-repeat;
-      background-attachment: fixed;
+        background-image: url(../images/img_bg_1.jpg);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+      }
+      .navbar {
+        margin-bottom: 0;
+        border-radius: 0;
       }
 
-      /* Set black background color, white text and some padding */
+      .row.content {height: 1500px}
+
+      .sidenav {
+        background-color: #f1f1f1;
+        height: 100%;
+      }
+
       footer {
         background-color: #555;
         color: white;
         padding: 15px;
+      }
+
+      @media screen and (max-width: 767px) {
+        .sidenav {
+          height: auto;
+          padding: 15px;
+        }
+
+        .row.content {height: auto;}
       }
     </style>
   </head>
@@ -49,18 +68,34 @@
           </div>
         </div>
       </nav>
-			<div class="text-center">
-        <h1><s:property value="membre.prenom"/> <s:property value="membre.nom"/></h1>
-        <p><s:property value="membre.age"/> ans</p>
-        <p><s:property value="membre.ville"/>, <s:property value="membre.departement"/></p>
-        <p><s:property value="membre.like"/></p>
-        <s:url action="liker" var="liker" >
-          <s:param name="membre.id"><s:property value="membre.id"/></s:param>
-        </s:url>
-        <h3><a href="<s:property value="#liker"/>" class="btn btn-2">Liker</a></h3>
-				<h3><a href="../accueil/AfficherProfil" class="btn btn-2">Signaler</a></h3>
-				<h3><a href="../chat/chat" class="btn btn-2">Contacter</a></h3>
-			</div>
+      <div class="container-fluid">
+	      <div class="row content">
+	        <div class="col-sm-3 sidenav">
+	          <h4>Bienvenue ${sessionScope.user.prenom}</h4>
+	          <ul class="nav nav-pills nav-stacked">
+	            <li class="active"><a href="../user/indexUser">Accueil</a></li>
+	            <li><a href="../profil">Mon Profil</a></li>
+              <li class="active"><a href="../profil">Mon Profil</a></li>
+							<li><a href="../accueil/ListeUtilisateurs">Liste des Membres</a></li>
+	          </ul><br>
+          </div>
+          <div class="col-sm-9" name="recherche">
+						<div class="col-sm-3 well">
+        			<div class="text-center">
+                <h1><s:property value="membre.prenom"/> <s:property value="membre.nom"/></h1>
+                <p><s:property value="membre.age"/> ans</p>
+                <p><s:property value="membre.ville"/>, <s:property value="membre.departement"/></p>
+                <s:url action="liker" var="liker" >
+                  <s:param name="membre.id"><s:property value="membre.id"/></s:param>
+                </s:url>
+                <h3><a href="<s:property value="#liker"/>" class="btn btn-2">Liker</a></h3>
+        				<h3><a href="#" class="btn btn-2">Signaler</a></h3>
+        				<h3><a href="../chat/chat" class="btn btn-2">Contacter</a></h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </header>
   </body>
 </html>

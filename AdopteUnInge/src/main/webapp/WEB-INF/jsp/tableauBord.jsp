@@ -69,6 +69,7 @@
             <li><a href="../user/indexUser">Accueil</a></li>
             <li class="active"><a href="../profil">Mon Profil</a></li>
             <li><a href="../chat/chat">Chat</a></li>
+            <li><a href="../accueil/ListeUtilisateurs">Liste des Membres</a></li>
           </ul><br>
           <div class="input-group">
             <input type="text" class="form-control" placeholder="Recherche...">

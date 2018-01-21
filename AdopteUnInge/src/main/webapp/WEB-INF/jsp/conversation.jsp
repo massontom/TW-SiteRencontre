@@ -70,6 +70,7 @@
               <li><a href="../user/indexUser">Accueil</a></li>
               <li><a href="../profil/Profil">Mon Profil</a></li>
               <li><a href="../chat/chat">Chat</a></li>
+							<li><a href="../accueil/ListeUtilisateurs">Liste des Membres</a></li>
             </ul><br>
           </div>
 
