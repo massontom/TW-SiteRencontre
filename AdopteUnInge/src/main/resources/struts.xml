@@ -35,34 +35,13 @@
     </package>
 
     <package name="profil" namespace="/profil" extends="struts-default">
-      <action name="Profil">
-          <result>/WEB-INF/jsp/tableauBord.jsp</result>
-      </action>
+
     </package>
 
     <package name="accueil" namespace="/accueil" extends="struts-default">
 
             <action name="Index" class="controller.Index">
                 <result>/WEB-INF/jsp/index.jsp</result>
-            </action>
-
-            <action name="AfficherProfil">
-                <result>/WEB-INF/jsp/profil.jsp</result>
-            </action>
-
-            <action name="ListeUtilisateurs">
-                <result>/WEB-INF/jsp/listUsers.jsp</result>
-            </action>
-
-            <action name="consulterProfil" class="controller.ConsulterProfil" method="execute">
-                <result name="success">/WEB-INF/jsp/profil.jsp</result>
-            </action>
-
-            <action name="liker" class="controller.Liker" method="execute">
-                <result name="success" type="redirectAction">
-                    <param name="actionName">consulterProfil</param>
-                    <param name="membre.id">${membre.id}</param>
-                </result>
             </action>
 
             <action name="login" class="controller.Authentication" method="login">
@@ -97,9 +76,9 @@
       </action>
 
       <action name="rechercher" class="controller.Recherche" method="setUserRecherche">
-        <result name="input">/WEB-INF/jsp/recherche.jsp</result>
-        <result name="error">/WEB-INF/jsp/loginerror.jsp</result>
-        <result name="success">/WEB-INF/jsp/recherche.jsp</result>
+        <result name="success" type="redirectAction">
+          <param name="actionName">Recherche</param>
+        </result>
       </action>
 
     </package>
@@ -125,8 +104,56 @@
                 </result>
             </action>
 
+            <action name="AfficherProfil">
+              <interceptor-ref name="loginInterceptor"></interceptor-ref>
+              <result>/WEB-INF/jsp/profil.jsp</result>
+              <result name="login" type="redirectAction">
+                <param name="actionName">login</param>
+                <param name="namespace">/accueil</param>
+              </result>
+            </action>
+
+            <action name="ListeUtilisateurs">
+              <interceptor-ref name="loginInterceptor"></interceptor-ref>
+              <result>/WEB-INF/jsp/listUsers.jsp</result>
+              <result name="login" type="redirectAction">
+                <param name="actionName">login</param>
+                <param name="namespace">/accueil</param>
+              </result>
+            </action>
+
+            <action name="consulterProfil" class="controller.ConsulterProfil" method="execute">
+              <interceptor-ref name="loginInterceptor"></interceptor-ref>
+              <result name="success">/WEB-INF/jsp/profil.jsp</result>
+              <result name="login" type="redirectAction">
+                <param name="actionName">login</param>
+                <param name="namespace">/accueil</param>
+              </result>
+            </action>
+
+            <action name="liker" class="controller.Liker" method="execute">
+              <interceptor-ref name="loginInterceptor"></interceptor-ref>
+              <result name="success" type="redirectAction">
+                  <param name="actionName">consulterProfil</param>
+                  <param name="membre.id">${membre.id}</param>
+              </result>
+              <result name="login" type="redirectAction">
+                <param name="actionName">login</param>
+                <param name="namespace">/accueil</param>
+              </result>
+            </action>
+
+            <action name="Profil">
+              <interceptor-ref name="loginInterceptor"></interceptor-ref>
+              <result>/WEB-INF/jsp/tableauBord.jsp</result>
+              <result name="login" type="redirectAction">
+                <param name="actionName">login</param>
+                <param name="namespace">/accueil</param>
+              </result>
+            </action>
+
 	          <action name="edit" class="controller.EditProfil" method="input">
-      	    	<result name="input">/WEB-INF/jsp/editProfil.jsp</result>
+            	<result name="input">/WEB-INF/jsp/editProfil.jsp</result>
       	    </action>
 
       	    <action name="save" class="controller.EditProfil" method="execute">
@@ -151,17 +178,14 @@
 
               <action name="voirMessages" class="controller.Chat" method="voirMessages">
                 <interceptor-ref name="interceptors" />
-                 <result name="success">/WEB-INF/jsp/conversation.jsp</result>
+                 <result name="success">/conversation.jsp</result>
 	               <result type="redirect" name="login">/accueil/Index.action</result>
               </action>
 
               <action name="ajouterMessage" class="controller.Chat" method="ajouterMessages">
                 <interceptor-ref name="interceptors" />
-                <result name="success" type="redirectAction">
-                  <param name="actionName">chat</param>
-                  <param name="namespace">/chat</param>
-                </result>
-                <result name="input">/WEB-INF/jsp/conversation.jsp</result>
+                <result name="input">/conversation.jsp</result>
+                <result type="redirect" name="login">/accueil/Index.action</result>
               </action>
 
               <action name="message" class="controller.Chat" method="input">

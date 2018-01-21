@@ -6,7 +6,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Edition profil</title>
+    <title>Adopte un Ingé - Chat</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -55,7 +55,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Adopte un Ingé <span class="glyphicon glyphicon-heart"></span></a>
+            <a class="navbar-brand" href="#">Adopte un Ingé - <span class="glyphicon glyphicon-heart"></span></a>
           </div>
           <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
@@ -73,9 +73,9 @@
 	          <h4>Vos Conversations</h4>
 	          <ul class="nav nav-pills nav-stacked">
 	            <li><a href="../user/indexUser">Accueil</a></li>
-	            <li><a href="../profil">Mon Profil</a></li>
+	            <li><a href="../user/Profil">Mon Profil</a></li>
               <li class="active"><a href="../chat/chat">Chat</a></li>
-							<li><a href="../accueil/ListeUtilisateurs">Liste des Membres</a></li>
+							<li><a href="../user/ListeUtilisateurs">Liste des Membres</a></li>
 	          </ul><br>
           </div>
 					<div class="gtco-container">

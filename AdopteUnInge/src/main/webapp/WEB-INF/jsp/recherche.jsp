@@ -5,7 +5,7 @@
 	<head>
     <meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title><s:property value="recherche"/></title>
+    <title>Adopte un Ingé</title>
 
 		<!-- Theme style  -->
 		<link rel="stylesheet" href="../css/style.css">
@@ -74,9 +74,9 @@
 	          <h4>Bienvenue ${sessionScope.user.prenom}</h4>
 	          <ul class="nav nav-pills nav-stacked">
 	            <li class="active"><a href="../user/indexUser">Accueil</a></li>
-	            <li><a href="../profil">Mon Profil</a></li>
-	            <li><a href="#section2">Chat</a></li>
-							<li><a href="../accueil/ListeUtilisateurs">Liste des Membres</a></li>
+	            <li><a href="../user/Profil">Mon Profil</a></li>
+	            <li><a href="../chat/chat">Chat</a></li>
+							<li><a href="../user/ListeUtilisateurs">Liste des Membres</a></li>
 	          </ul><br>
 	          <div class="input-group">
 	            <s:form method="post" action="rechercher">Recherche

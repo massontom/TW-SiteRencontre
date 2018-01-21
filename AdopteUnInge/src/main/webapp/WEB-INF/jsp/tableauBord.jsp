@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Profil</title>
+  <title>Adopte un Ingé - Mon Profil</title>
   <link rel="stylesheet" href="../css/style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -72,9 +72,9 @@
           <h4>Profil de ${sessionScope.user.prenom}</h4>
           <ul class="nav nav-pills nav-stacked">
             <li><a href="../user/indexUser">Accueil</a></li>
-            <li class="active"><a href="../profil">Mon Profil</a></li>
+            <li class="active"><a href="../user/Profil">Mon Profil</a></li>
             <li><a href="../chat/chat">Chat</a></li>
-            <li><a href="../accueil/ListeUtilisateurs">Liste des Membres</a></li>
+            <li><a href="../user/ListeUtilisateurs">Liste des Membres</a></li>
           </ul><br>
         </div>
 

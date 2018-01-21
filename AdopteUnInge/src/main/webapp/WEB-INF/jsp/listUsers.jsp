@@ -9,7 +9,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>Adopte un Ingé</title>
+		<title>Adopte un Ingé - Membres</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -76,9 +76,9 @@
 	          <h4>Rencontrez d'autres personnes !</h4>
 	          <ul class="nav nav-pills nav-stacked">
 	            <li><a href="../user/indexUser">Accueil</a></li>
-	            <li><a href="../profil">Mon Profil</a></li>
+	            <li><a href="../user/Profil">Mon Profil</a></li>
               <li><a href="../chat/chat">Chat</a></li>
-							<li class="active"><a href="../accueil/ListeUtilisateurs">Liste des Membres</a></li>
+							<li class="active"><a href="../user/ListeUtilisateurs">Liste des Membres</a></li>
 	          </ul><br>
           </div>
           <div class="col-sm-9" name="recherche">

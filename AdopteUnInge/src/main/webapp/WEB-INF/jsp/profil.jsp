@@ -74,9 +74,9 @@
 	          <h4>Voici <s:property value="membre.prenom"/></h4>
 	          <ul class="nav nav-pills nav-stacked">
 	            <li><a href="../user/indexUser">Accueil</a></li>
-	            <li><a href="../profil">Mon Profil</a></li>
+	            <li><a href="../user/Profil">Mon Profil</a></li>
               <li><a href="../chat/chat">Chat</a></li>
-							<li class="active"><a href="../accueil/ListeUtilisateurs">Liste des Membres</a></li>
+							<li class="active"><a href="../user/ListeUtilisateurs">Liste des Membres</a></li>
 	          </ul><br>
           </div>
           <div class="col-sm-9">
