@@ -18,7 +18,7 @@ public class Database {
 	private Database() {
 	try {
 		Class.forName("com.mysql.jdbc.Driver");
-		conn = DriverManager.getConnection("jdbc::mysql://127.0.0.1:3306/adopteuninge", "root", "$1m0nglhfcv");
+		conn = DriverManager.getConnection("jdbc::mysql://127.0.0.1:3306/adopteuninge", "root", "root");
 	}
 	catch(ClassNotFoundException ex) {
 		System.out.println(ex);
@@ -31,7 +31,7 @@ public class Database {
 	public static Connection getConnection() throws Exception {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			return DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/adopteuninge", "root", "$1m0nglhfcv");
+			return DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/adopteuninge", "root", "root");
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
@@ -271,7 +271,7 @@ public static Messages getChat(Utilisateur auteur, Utilisateur destinataire) thr
 	return null;
 }
 }
-private Utilisateur createUniqueUser(ResultSet rs) throws SQLException {
+private static Utilisateur createUniqueUser(ResultSet rs) throws SQLException {
 	if (!rs.next()) {
 		return null;
 	}
@@ -280,12 +280,16 @@ private Utilisateur createUniqueUser(ResultSet rs) throws SQLException {
 	}
 
 
-public Utilisateur getUserById(int id) throws SQLException {
-		PreparedStatement ps = this.conn.prepareStatement("Select * from membre where idMembre = ?");
+public static Utilisateur getUserById(int id) throws SQLException {
+	try {
+		PreparedStatement ps = getConnection().prepareStatement("Select * from user where id = ?");
 		ps.setInt(1, id);
         ResultSet rs = ps.executeQuery();
 		return createUniqueUser(rs);
-
+	} catch (Exception e) {
+		e.printStackTrace();
+		return null;
+	}
 	}
 
 public static Database getInstance(){
@@ -299,93 +303,118 @@ public static Database getInstance(){
          conn.close();
 		 instance = null;
     }
-	public ArrayList<Integer> getListAuteurMessagesForId(int id) throws SQLException {
-	PreparedStatement ps = this.conn.prepareStatement("select DISTINCT authorID from message where authorID != ?");
-	ps.setInt(1, id);
-			ResultSet rs = ps.executeQuery();
-	ArrayList<Integer> liste = new ArrayList<Integer>();
-	while (rs.next()) {
-		liste.add(rs.getInt(1));
-	}
-	return liste;
+
+	public static ArrayList<Integer> getListAuteurMessagesForId(int id) throws SQLException {
+		try {
+		PreparedStatement ps = getConnection().prepareStatement("select DISTINCT authorID from message where authorID != ?");
+		ps.setInt(1, id);
+				ResultSet rs = ps.executeQuery();
+		ArrayList<Integer> liste = new ArrayList<Integer>();
+		while (rs.next()) {
+			liste.add(rs.getInt(1));
+		}
+		return liste;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 
-	public ArrayList<Integer> getListDestinataireMessagesForId(int id) throws SQLException {
-	PreparedStatement ps = this.conn.prepareStatement("select DISTINCT receiver from message where receiver != ?");
-	ps.setInt(1, id);
-			ResultSet rs = ps.executeQuery();
-	ArrayList<Integer> liste = new ArrayList<Integer>();
-	while (rs.next()) {
-		liste.add(rs.getInt(1));
-	}
-	return liste;
+	public static ArrayList<Integer> getListDestinataireMessagesForId(int id) throws SQLException {
+		try {
+		PreparedStatement ps = getConnection().prepareStatement("select DISTINCT receiver from message where receiver != ?");
+		ps.setInt(1, id);
+				ResultSet rs = ps.executeQuery();
+		ArrayList<Integer> liste = new ArrayList<Integer>();
+		while (rs.next()) {
+			liste.add(rs.getInt(1));
+		}
+		return liste;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 
-	public ChatPrive getChatPriveById(int id) throws SQLException {
+	public static ChatPrive getChatPriveById(int id) throws SQLException {
 		return new ChatPrive(getMessagesById(id));
 	}
 
 
 
-	public ArrayList<Messages> getMessagesById(int id) throws SQLException {
+	public static ArrayList<Messages> getMessagesById(int id) throws SQLException {
+		try {
+			ArrayList<Integer> idAuteurs = getListAuteurMessagesForId(id);
+			ArrayList<Integer> idDestinataires = getListDestinataireMessagesForId(id);
+			ArrayList<Messages> chat = new ArrayList<Messages>();
 
-	ArrayList<Integer> idAuteurs = getListAuteurMessagesForId(id);
-	ArrayList<Integer> idDestinataires = getListDestinataireMessagesForId(id);
-	ArrayList<Messages> chat = new ArrayList<Messages>();
-
-	for (int i = 0; i < idDestinataires.size(); i++) {
-		if (!idAuteurs.contains(idDestinataires.get(i))) {
-			idAuteurs.add(idDestinataires.get(i));
-		}
-	}
-	for (Integer in : idAuteurs) {
-		chat.add(new Messages(getUserById(in)));
-	}
-
-	ArrayList<Message> listeMessage = getReceivedMessagesById(id);
-	for (Messages msg : chat) {
-		for (int j = 0; j < listeMessage.size(); j++) {
-			if (listeMessage.get(j).getDestinataire().getId() == msg.getDestinataire().getId()) {
-				msg.addMessage(listeMessage.get(j));
-				listeMessage.remove(j);
-				j--;
+			for (int i = 0; i < idDestinataires.size(); i++) {
+				if (!idAuteurs.contains(idDestinataires.get(i))) {
+					idAuteurs.add(idDestinataires.get(i));
+				}
 			}
-		}
-	}
-
-	listeMessage = getMessagesSentByIdId(id);
-	for (Messages msg : chat) {
-		for (int j = 0; j < listeMessage.size(); j++) {
-			if (listeMessage.get(j).getDestinataire().getId() == msg.getDestinataire().getId()) {
-				msg.addMessage(listeMessage.get(j));
-				listeMessage.remove(j);
-				j--;
+			for (Integer in : idAuteurs) {
+				chat.add(new Messages(fetchUserDetailsByID(in.intValue())));
 			}
-		}
-	}
 
-	return chat;
+			ArrayList<Message> listeMessage = getReceivedMessagesById(id);
+			for (Messages msg : chat) {
+				for (int j = 0; j < listeMessage.size(); j++) {
+					if (listeMessage.get(j).getDestinataire().getId() == msg.getDestinataire().getId()) {
+						msg.addMessage(listeMessage.get(j));
+						listeMessage.remove(j);
+						j--;
+					}
+				}
+			}
+
+			listeMessage = getMessagesSentByIdId(id);
+			for (Messages msg : chat) {
+				for (int j = 0; j < listeMessage.size(); j++) {
+					if (listeMessage.get(j).getDestinataire().getId() == msg.getDestinataire().getId()) {
+						msg.addMessage(listeMessage.get(j));
+						listeMessage.remove(j);
+						j--;
+					}
+				}
+			}
+
+			return chat;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
 }
 
-public ArrayList<Message> getReceivedMessagesById(int id) throws SQLException {
-	PreparedStatement ps = this.conn.prepareStatement("Select * from message where receiver = ?");
+public static ArrayList<Message> getReceivedMessagesById(int id) throws SQLException {
+	try {
+	PreparedStatement ps = getConnection().prepareStatement("Select * from message where receiver = ?");
 	ps.setInt(1, id);
 			ResultSet rs = ps.executeQuery();
 	ArrayList<Message> liste = new ArrayList<Message>();
 	while (rs.next()) {
-		liste.add(new Message(rs.getInt(1), getUserById(rs.getInt(2)), getUserById(rs.getInt(4)),rs.getString(5), rs.getString(3)));
+		liste.add(new Message(rs.getInt(1), fetchUserDetailsByID(rs.getInt(2)), fetchUserDetailsByID(rs.getInt(4)),rs.getString(5), rs.getString(3)));
 	}
 	return liste;
+	} catch (Exception e) {
+		e.printStackTrace();
+		return null;
+	}
 }
 
-public ArrayList<Message> getMessagesSentByIdId(int id) throws SQLException {
-	PreparedStatement ps = this.conn.prepareStatement("Select * from message where authorID = ?");
+public static ArrayList<Message> getMessagesSentByIdId(int id) throws SQLException {
+	try {
+	PreparedStatement ps = getConnection().prepareStatement("Select * from message where authorID = ?");
 	ps.setInt(1, id);
 			ResultSet rs = ps.executeQuery();
 	ArrayList<Message> liste = new ArrayList<Message>();
 	while (rs.next()) {
-		liste.add(new Message(rs.getInt(1), getUserById(rs.getInt(2)), getUserById(rs.getInt(4)),rs.getString(5), rs.getString(3)));
+		liste.add(new Message(rs.getInt(1), fetchUserDetailsByID(rs.getInt(2)), fetchUserDetailsByID(rs.getInt(4)),rs.getString(5), rs.getString(3)));
 	}
 	return liste;
+	} catch (Exception e) {
+		e.printStackTrace();
+		return null;
+	}
 }
 }

@@ -30,7 +30,7 @@ public class Chat extends ActionSupport implements SessionAware {
   public String voirMessages() throws Exception {
 		Database db = Database.getInstance();
 		this.utilisateur = db.fetchUserDetailsByID(utilisateur.getId());
-		Utilisateur connecte = (Utilisateur)sessionmap.get("utilisateur");
+		Utilisateur connecte = (Utilisateur)sessionmap.get("user");
 		this.messages = connecte.getChatPrive().getMessagesByUserId(utilisateur.getId());
 		db.deconnexion();
 		return SUCCESS;
@@ -38,14 +38,18 @@ public class Chat extends ActionSupport implements SessionAware {
 
   public String ajouterMessages() throws Exception {
 		Database db = Database.getInstance();
-		Utilisateur connecte = (Utilisateur)sessionmap.get("utilisateur");
+		Utilisateur connecte = (Utilisateur)sessionmap.get("user");
 		this.utilisateur = db.fetchUserDetailsByID(utilisateur.getId());
 		Message msg = new Message(connecte, this.utilisateur, contenu);
 		db.updateMessages(msg, db.getChat(utilisateur,connecte));
 		return SUCCESS;
 	}
 
-
+  public String execute() throws Exception {
+    this.utilisateur = (Utilisateur)sessionmap.get("user");
+		this.utilisateur.chargerDonnees();
+    return SUCCESS;
+  }
 
 
   @Override

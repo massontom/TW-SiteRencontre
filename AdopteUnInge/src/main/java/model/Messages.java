@@ -41,7 +41,7 @@ public class Messages {
     listeMessages.remove(msg);
   }
 
-  public Message getDernierMessage() {
+  public Message getLastMessage() {
     return listeMessages.get(listeMessages.size()-1);
   }
 }

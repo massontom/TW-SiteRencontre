@@ -122,7 +122,7 @@
         </interceptor-stack>
       </interceptors>
 
-              <action name="chat">
+              <action name="chat" class="controller.Chat" method="execute">
                   <result>/WEB-INF/jsp/chat.jsp</result>
               </action>
 
@@ -136,7 +136,7 @@
                 <interceptor-ref name="interceptors" />
                 <result name="success" type="redirectAction">/chat.action</result>
                 <result name="input">/conversation.jsp</result>
-                <result name="login">/accueil/connexion.jsp</result> 
+                <result name="login">/accueil/connexion.jsp</result>
               </action>
 
               <action name="message" class="controller.Chat" method="input">

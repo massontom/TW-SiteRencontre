@@ -4,30 +4,30 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ChatPrive {
-        private List<Messages> chat;
+        private List<Messages> chats;
 
         public ChatPrive() {
-                this.chat=new ArrayList<Messages>();
+                this.chats=new ArrayList<Messages>();
         }
 
         public ChatPrive(ArrayList<Messages> conv) {
-          this.chat=conv;
+          this.chats=conv;
         }
-        public List<Messages> getMessages() {
-          return this.chat;
-        }
-
-        public void setMessages(ArrayList<Messages> conv) {
-          this.chat=conv;
+        public List<Messages> getChats() {
+          return this.chats;
         }
 
-        public void addMessages(Messages mess) {
-		      this.chat.add(mess);
+        public void setChats(ArrayList<Messages> conv) {
+          this.chats=conv;
+        }
+
+        public void addChats(Messages mess) {
+		      this.chats.add(mess);
 	       }
 
          public String toString() {
            String ret = "";
-           for (Messages mess : chat) {
+           for (Messages mess : chats) {
              ret = ret + "Conversation avec " + mess.getDestinataire() + "\n";
              for (Message m : mess.getMessages()) {
                ret = ret + m + "\n";
@@ -37,7 +37,7 @@ public class ChatPrive {
          }
 
          public Messages getMessagesByUserId(int id) {
-           for (Messages mess : chat) {
+           for (Messages mess : chats) {
              if (mess.getDestinataire().getId() == id) {
                return mess;
              }

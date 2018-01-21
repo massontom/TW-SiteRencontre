@@ -39,7 +39,7 @@
         height: auto;
         padding: 15px;
       }
-      .row.content {height: auto;}
+      .row.content {height: auto;}}
   </style>
 </head>
 <body id="gtco-header" class="gtco-cover" role="banner" style="background-image:url(../images/img_bg_1.jpg);">

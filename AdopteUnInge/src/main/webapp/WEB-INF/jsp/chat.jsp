@@ -18,22 +18,23 @@
 					<div class="col-md-6 col-md-offset-3 text-center">
 							<div class="type-text">
 								<h2>Voici la liste de vos messages</h2>
-								<s:iterator value="utilisateur.chatprive.messages" var="messages">
+								<s:iterator value="utilisateur.chatPrive.chats" var="chat">
 									<s:url action="voirMessages.action" var="message" >
-										<s:param name="utilisateur.id"><s:property value="#messages.destinataire.id"/></s:param>
+										<s:param name="utilisateur.id"><s:property value="#chat.destinataire.id"/></s:param>
 									</s:url>
 									<a href='<s:property value="#message" />'>
 									<div class="row">
 																<span>
-																	<strong><s:property value="#utilisateur.prenom"/></strong>
+																	<strong><s:property value="#chat.destinataire.prenom"/></strong>
+																	<strong><s:property value="#chat.destinataire.nom"/></strong>
 																</span>
 															</div>
 																<div class="row">
 																	<div class="col-md-9 col-lg-9 ">
 																		<table>
 																			<tr>
-																				<td><strong>Date du dernier message : </strong><s:property value="#messages.dernierMessage.date"/></td>
-																				<td><strong>Contenu du dernier message : </strong><s:property value="#messages.dernierMessage.message"/></td>
+																				<td><strong>Date du dernier message : </strong><s:property value="#chat.lastMessage.date"/></td>
+																				<td><strong>Contenu du dernier message : </strong><s:property value="#chat.lasteMessage.message"/></td>
 																			</tr>
 																		</table>
 

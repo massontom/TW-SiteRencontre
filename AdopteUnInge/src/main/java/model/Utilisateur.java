@@ -3,6 +3,7 @@ package model;
 //Liste import
 import java.util.*;
 import java.lang.StringBuilder;
+import model.dao.Database;
 
 public class Utilisateur {
   private int id;
@@ -21,7 +22,7 @@ public class Utilisateur {
   private String photoURL;
   private String description;
   private Boolean admin = false;
-  private ChatPrive chat;
+  private ChatPrive chatPrive;
 
   public Utilisateur() {
     this.like = new Like();
@@ -227,16 +228,23 @@ public class Utilisateur {
   }
 
   public ChatPrive getChatPrive() {
-		return this.chat;
+		return this.chatPrive;
 	}
 
 	public void setChatPrive(ChatPrive chat) {
-		this.chat = chat;
+		this.chatPrive = chat;
 	}
 
   public boolean equals(Utilisateur utilisateur){
     return (this.id==utilisateur.getId()); //réussir à le faire avec id
   }
+
+  public void chargerDonnees() {
+		try {
+			setChatPrive(Database.getChatPriveById(this.getId()));
+		}
+		catch (Exception e) {}
+	}
 
   @Override
   public String toString(){
