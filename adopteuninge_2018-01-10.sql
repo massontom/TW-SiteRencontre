@@ -83,7 +83,7 @@ CREATE TABLE `user` (
   `rank` tinyint(1) NOT NULL DEFAULT '0',
   `city` tinytext NOT NULL,
   `zip` smallint(5) NOT NULL,
-  `like` tinyint(3) NOT NULL DEFAULT '10',
+  `likes` tinyint(3) NOT NULL DEFAULT '10',
   `report` tinyint(2) NOT NULL DEFAULT '0',
   `sex` tinyint(1) NOT NULL,
   `orientation` tinyint(1) NOT NULL,
@@ -94,7 +94,7 @@ CREATE TABLE `user` (
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
 
-INSERT INTO `user` (`id`, `name`, `nickname`, `mail`, `password`, `age`, `admin`, `rank`, `city`, `zip`, `like`, `report`, `sex`, `orientation`,`description`)
+INSERT INTO `user` (`id`, `name`, `nickname`, `mail`, `password`, `age`, `admin`, `rank`, `city`, `zip`, `likes`, `report`, `sex`, `orientation`,`description`)
 VALUES
 	(1,'Masson','Tom','tom.masson@insa-rouen.fr','0cc175b9c0f1b6a831c399e269772661',21,1,3,'MSA',76,10,0,0,1,'Je m\'appel Tom, est je suis en manque d\'amour. Likez mois vp...'),
 	(3,'Marchelidon','Hugo','hugo.marchelidon@insa-rouen.fr','22b6a3594cac7fbbade97039f91f201f',21,0,2,'Rouen',76,10,0,0,0,'Je m\'appel Hugo, bg et intelligent!');
