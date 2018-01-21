@@ -115,7 +115,7 @@ public class Database {
 				List<Utilisateur> users = new ArrayList<Utilisateur>();
 				while(rs.next()) {
 					user = new Utilisateur(rs.getInt("id"), rs.getString("name"), rs.getString("nickname"), rs.getString("password"), rs.getString("mail"), rs.getInt("age"), rs.getInt("sex"), rs.getBoolean("admin"), rs.getString("city"),
-					rs.getInt("zip"), rs.getInt("report"), rs.getInt("orientation"), rs.getInt("rank"), rs.getInt("like"), rs.getString("description"));
+					rs.getInt("zip"), rs.getInt("report"), rs.getInt("orientation"), rs.getInt("rank"), rs.getInt("likes"), rs.getString("description"));
 					users.add(user);
 				}
 				return users;
@@ -139,7 +139,7 @@ public class Database {
 			rs = ps.executeQuery();
 			while (rs.next()) {
 				user = new Utilisateur(id, rs.getString("name"), rs.getString("nickname"), rs.getString("password"), rs.getString("mail"), rs.getInt("age"), rs.getInt("sex"), rs.getBoolean("admin"), rs.getString("city"),
-				rs.getInt("zip"), rs.getInt("report"), rs.getInt("orientation"), rs.getInt("rank"), rs.getInt("like"), rs.getString("description"));
+				rs.getInt("zip"), rs.getInt("report"), rs.getInt("orientation"), rs.getInt("rank"), rs.getInt("likes"), rs.getString("description"));
         }
 			return user;
 		} catch (Exception e) {

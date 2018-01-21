@@ -79,9 +79,9 @@
 	          </ul><br>
 	          <div class="input-group">
 	            <form>Recherche
-								<input type="number"  min="0" max="96" label="departement"  placeholder="département" value="%{Recherche.departement}" ></input>
-								<input type="text"  label="ville"  placeholder="ville" ></input>
-								<input type="number" label="age" min="18" max="99" placeholder="Age"></input>
+								<input type="number"  min="0" max="96" label="departement" id="departement" placeholder="département" value="%{Recherche.departement}" ></input>
+								<input type="text"  label="ville" id="ville" placeholder="ville" ></input>
+								<input type="number" label="age" id="age" min="18" max="99" placeholder="Age"></input>
 							</form>
 	          </div>
 	        </div>
@@ -94,6 +94,19 @@
 	</body>
 	<footer>
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"> </script>
+		<script>
 
+			function affichageRecherche() {
+				var data = {departement : $("#departement").val(), ville : $("#ville").val() , age : $("#age").val() };
+				console.log(data);
+				$.post("<s:url action="rechercher"/>", data, function(resp){
+
+				});
+			}
+
+			$( "input" ).keyup( function() { affichageRecherche() } );
+			$( "input" ).change(function() { affichageRecherche() } );
+
+		</script>
 	</footer>
 </html>
