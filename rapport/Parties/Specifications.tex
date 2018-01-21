@@ -1,1 +1,62 @@
 \chapter{Spécifications}
+
+\paragraph{}
+Dans ce chapitre nous allons expliqué les fonctionnalités du site de rencontre \textit{Adopte Un Inge}. Certaines d'entre elles n'ont malheuresement pas eu le temps d'être implémenter par manque de temps car nous voulions essayer au maximum de faire marcher d'une manière propre les fonctionnalités déjà développées.
+\section{Fonctionnalités}
+
+\nomFonction{Création d'un compte}
+\begin{itemize}
+ \item Un compte utilisateur est défini par un numéro d'identification, un nom, un prénom, un age, si il est administrateur, une valorisation, une ville, un département, un nombre de likes, un nombre de signalement, son sexe, son orientation, une photo de profil, un mot de passe, une description et un email. Tous les champs ne sont pas obligatoires. En effet lors de la création une description n'est pas demandé par exemple.
+ \item Si tous les champs ne sont pas remplis ou si le email n'est pas un email valide, des messages d'erreurs doivent être affichés.
+\end{itemize}
+
+\nomFonction{Connexion}
+\begin{itemize}
+ \item L'utilisateur doit entrer son adresse mail et son mot de passe dans un formulaire et valider afin de se connecter.
+ \item Le site vérifie le couple email / mot de passe ; en cas d'erreur, l'utilisateur est redirigé vers la page de connexion.
+ En cas de succès, il est connecté et redirigé vers la page de recherche du site.
+\end{itemize}
+
+\nomFonction{Affichage du profil}
+\begin{itemize}
+ \item L'utilisateur peut visualiser son profil via un bouton placé sur la barre de navigation situé sur la gauche du site.
+ \item Les informations affichées sont celles utiles à l'utilisateur, soit son nom, son prénom, son age, son adresse e-mail, sa ville, son département, son sexe, son orientation et sa description.
+\end{itemize}
+
+\nomFonction{Editer un profil}
+\begin{itemize}
+ \item L'accès à la page d'édition d'un profil s'effectue via un bouton placé sur la page de profil de l'utilisateur (il ne peut modifier un profil autre que le sien).
+ \item L'utilisateur modifie ses informations (celles affichées sur son profil et son mot de passe).
+ \item Afin d'enregistrer ses modifications il appuie sur un bouton confirmant sa modification.
+\end{itemize}
+
+
+\nomFonction{Rechercher}
+\begin{itemize}
+ \item La recherche s'effectue via la barre de navigation.
+ \item La recherche est filtrée à l'aide des critères suivants : âge, ville et département.
+ \item La recherche affiche utilisateurs satisfaisants les critères renseignés.
+\end{itemize}
+
+\nomFonction{Afficher un profil autre que le sien}
+\begin{itemize}
+ \item L'accès à la page de profil d'un utilisateur s'effectue par un clic sur un membre affiché par la recherche.
+ \item Affiche la page de profil du membre.
+\end{itemize}
+
+\nomFonction{Liker}
+\begin{itemize}
+ \item Un utilisateur peut "liker" un autre utilisateur.
+ \item Le nombre de "like" s'incrémente de un en fonction de si l'utilisateur a "liké" ou non le deuxième utilisateur.
+\end{itemize}
+
+
+\nomFonction{Réception et envoi de message}
+\begin{itemize}
+\item A remplir
+\end{itemize}
+
+\nomFonction{Déconnexion}
+\begin{itemize}
+ \item L'utilisateur peut se déconnecter via un bouton placé sur la barre de navigation logout. L'utilisateur est alors redirigé vers la page de connexion et d'inscription.
+\end{itemize}

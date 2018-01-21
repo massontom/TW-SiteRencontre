@@ -18,7 +18,7 @@ public class Database {
 	private Database() {
 	try {
 		Class.forName("com.mysql.jdbc.Driver");
-		conn = DriverManager.getConnection("jdbc::mysql://127.0.0.1:3306/adopteuninge", "root", "root");
+		conn = DriverManager.getConnection("jdbc::mysql://127.0.0.1:3306/adopteuninge", "root", "$1m0nglhfcv");
 	}
 	catch(ClassNotFoundException ex) {
 		System.out.println(ex);
@@ -31,7 +31,7 @@ public class Database {
 	public static Connection getConnection() throws Exception {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			return DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/adopteuninge", "root", "root");
+			return DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/adopteuninge", "root", "$1m0nglhfcv");
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
