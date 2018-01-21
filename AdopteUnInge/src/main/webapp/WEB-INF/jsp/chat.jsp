@@ -24,24 +24,22 @@
 									</s:url>
 									<a href='<s:property value="#message" />'>
 									<div class="row">
-																<span>
-																	<strong><s:property value="#chat.destinataire.prenom"/></strong>
-																	<strong><s:property value="#chat.destinataire.nom"/></strong>
-																</span>
-															</div>
-																<div class="row">
-																	<div class="col-md-9 col-lg-9 ">
-																		<table>
-																			<tr>
-																				<td><strong>Date du dernier message : </strong><s:property value="#chat.lastMessage.date"/></td>
-																				<td><strong>Contenu du dernier message : </strong><s:property value="#chat.lasteMessage.message"/></td>
-																			</tr>
-																		</table>
-
-																	</div>
-																</div>
-														</a>
-													</s:iterator>
+										<span>
+											<strong><s:property value="#chat.destinataire.prenom"/></strong>
+											<strong><s:property value="#chat.destinataire.nom"/></strong>
+										</span>
+									</div>
+										<div class="row">
+											<div class="col-md-9 col-lg-9 ">
+												<table>
+													<tr>
+														<td><strong>Date du dernier message : </strong><s:property value="#chat.lastMessage.dateText"/></td>
+														<td><strong>Contenu du dernier message : </strong><s:property value="#chat.lastMessage.message"/></td>
+													</tr>
+												</table>
+											</div>
+										</div>
+									</s:iterator>
 							</div>
 						</div>
 					</div>

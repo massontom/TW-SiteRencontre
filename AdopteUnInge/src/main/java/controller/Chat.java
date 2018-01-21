@@ -48,6 +48,8 @@ public class Chat extends ActionSupport implements SessionAware {
   public String execute() throws Exception {
     this.utilisateur = (Utilisateur)sessionmap.get("user");
 		this.utilisateur.chargerDonnees();
+    System.out.println("============================yo==================================");
+    System.out.println(utilisateur.toString());
     return SUCCESS;
   }
 
@@ -56,4 +58,8 @@ public class Chat extends ActionSupport implements SessionAware {
   public void setSession(Map<String, Object> session) {
   		this.sessionmap=(SessionMap)session;
   	}
+
+    public Utilisateur getUtilisateur(){
+      return this.utilisateur;
+    }
 }

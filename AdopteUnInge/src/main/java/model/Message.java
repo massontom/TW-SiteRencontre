@@ -14,13 +14,13 @@ public class Message implements Comparable {
         private String message;
         private int id;
 
-        public Message(int id, Utilisateur auteur, Utilisateur destinataire, String message, String date) {
+        public Message(int id, Utilisateur auteur, Utilisateur destinataire, String message, String d) {
                 this.auteur = auteur;
                 this.destinataire = destinataire;
                 this.message = message;
                 this.id = id;
                 try {
-                  this.date = new SimpleDateFormat("EEE MMM dd kk:mm:ss z yyyy", Locale.ENGLISH).parse(date);
+                  this.date = (new SimpleDateFormat("EEE, d MMM yyyy HH:mm:ss", Locale.US)).parse(d);
                 }
                 catch (ParseException e) {
                   System.out.println(e);
