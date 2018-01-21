@@ -45,8 +45,8 @@
       }
     </style>
   </head>
-  <body>
-    <header id="gtco-header" class="gtco-cover" role="banner" style="background-image:url(../images/img_bg_1.jpg);">
+  <body id="gtco-header" class="gtco-cover" role="banner" style="background-image:url(../images/img_bg_1.jpg);">
+    <header>
       <nav class="navbar navbar-inverse">
         <div class="container-fluid">
           <div class="navbar-header">
@@ -55,7 +55,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Adopte un Ingé - <span class="glyphicon glyphicon-heart"></span></a>
+            <a class="navbar-brand" href="#">Adopte un Ingé  <span class="glyphicon glyphicon-heart"></span></a>
           </div>
           <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">

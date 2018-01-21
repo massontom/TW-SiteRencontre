@@ -178,22 +178,19 @@
 
               <action name="voirMessages" class="controller.Chat" method="voirMessages">
                 <interceptor-ref name="interceptors" />
-                 <result name="success">/conversation.jsp</result>
+                 <result name="success">/WEB-INF/jsp/conversation.jsp</result>
 	               <result type="redirect" name="login">/accueil/Index.action</result>
               </action>
 
               <action name="ajouterMessage" class="controller.Chat" method="ajouterMessages">
                 <interceptor-ref name="interceptors" />
-                <result name="input">/conversation.jsp</result>
+                <result name="success" type="redirectAction">
+                  <param name="actionName">chat</param>
+                  <param name="namespace">/chat</param>
+                </result>
+                <result name="input">/WEB-INF/jsp/conversation.jsp</result>
                 <result type="redirect" name="login">/accueil/Index.action</result>
               </action>
 
-              <action name="message" class="controller.Chat" method="input">
-                  <result name="input">/WEB-INF/jsp/chat.jsp</result>
-              </action>
-
-              <action name="envoi" class="controller.Chat" method="execute">
-                  <result name="succes">/WEB-INF/jsp/chat.jsp</result>
-              </action>
         </package>
 </struts>
