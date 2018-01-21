@@ -78,16 +78,22 @@
 	            <li><a href="#section2">Chat</a></li>
 	          </ul><br>
 	          <div class="input-group">
-	            <form>Recherche
-								<input type="number"  min="0" max="96" label="departement" id="departement" placeholder="département" value="%{Recherche.departement}" ></input>
-								<input type="text"  label="ville" id="ville" placeholder="ville" ></input>
-								<input type="number" label="age" id="age" min="18" max="99" placeholder="Age"></input>
-							</form>
+	            <s:form method="post" action="rechercher">Recherche
+								<s:textfield type="number"  min="0" max="96" label="departement" id="departement" placeholder="département" value="%{Recherche.departement}" ></s:textfield>
+								<s:textfield type="text"  label="ville" id="ville" placeholder="ville" ></s:textfield>
+								<s:textfield type="number" label="age" id="age" min="18" max="99" placeholder="Age"></s:textfield>
+								<s:submit value="Rechercher" class="btn btn-2"/>
+							</s:form>
 	          </div>
 	        </div>
 
 
 	        <div class="col-sm-9" name="recherche">
+						<div class="col-sm-3 well">
+      				<div class="well">
+        				<p>ville <s:property value="ville"/></p>
+      				</div>
+						</div>
 	        </div>
 	      </div>
 	    </div>

@@ -97,7 +97,9 @@
       </action>
 
       <action name="rechercher" class="controller.Recherche" method="setUserRecherche">
-        <result name="input"></result>
+        <result name="success" type="redirectAction">
+          <param name="actionName">Recherche</param>
+        </result>
       </action>
 
     </package>

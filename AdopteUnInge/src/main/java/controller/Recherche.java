@@ -8,15 +8,14 @@ import java.sql.SQLException;
 import org.apache.struts2.dispatcher.SessionMap;
 import org.apache.struts2.interceptor.SessionAware;
 import org.apache.struts2.ServletActionContext;
-import com.opensymphony.xwork2.ActionSupport;
 
 public class Recherche extends ActionSupport implements SessionAware {
 
   private List<Utilisateur> allUsers;
   private List<Utilisateur> userRecherche;
-  private int departement =0 ;
+  private String departement;
   private String ville;
-  private int age=0;
+  private String age;
   private SessionMap<String, Object> session;
 
   public String input() throws Exception {
@@ -24,26 +23,30 @@ public class Recherche extends ActionSupport implements SessionAware {
   }
 
   public void setUtilisateurs() throws SQLException, Exception {
+    System.out.println("setUtilisateurs");
     this.allUsers = Database.getAllUsers();
   }
 
-  public void setDepartement(int dpt) {
+  public void setDepartement(String dpt) {
     this.departement = dpt;
+    System.out.println("dpt: "+this.departement);
   }
 
   public void setVille(String ville) {
     this.ville = ville;
+    System.out.println("ville: "+this.ville);
   }
 
-  public void setAge(int agep) {
+  public void setAge(String age) {
     this.age = age;
+    System.out.println("age: "+this.age);
   }
 
   public List<Utilisateur> getUtilisateurs(){
     return this.allUsers;
   }
 
-  public int getDepartement() {
+  public String getDepartement() {
     return this.departement;
   }
 
@@ -51,30 +54,25 @@ public class Recherche extends ActionSupport implements SessionAware {
     return this.ville;
   }
 
-  public int getAge() {
+  public String getAge() {
     return this.age;
   }
 
-  public void setUserRecherche() throws SQLException, Exception {
+  public String setUserRecherche() throws SQLException, Exception {
+    System.out.println("setUserRecherche");
     setUtilisateurs();
     this.userRecherche = new ArrayList<>();
     for(Utilisateur user : allUsers){
-      if (user.getVille().equals(this.ville) && !(this.ville.equals(null))){
+      if (!(this.ville.equals(null))){
         userRecherche.add(user);
-      } else if (user.getDepartement()==this.departement && !(this.departement==0)) {
+      } else if (!(this.departement.equals(null))) {
         userRecherche.add(user);
       } else {
         userRecherche.add(user);
       }
     }
 
-    for (Utilisateur user : userRecherche) {
-      if (this.age!=0){
-        if (user.getAge() >= this.age+5 || user.getAge() <= this.age-5) {
-          this.userRecherche.remove(user);
-        }
-      }
-    }
+    return SUCCESS;
   }
 
   public List<Utilisateur> getUserRecherche() {
