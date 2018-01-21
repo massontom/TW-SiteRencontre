@@ -18,7 +18,7 @@ public class Database {
 	private Database() {
 	try {
 		Class.forName("com.mysql.jdbc.Driver");
-		conn = DriverManager.getConnection("jdbc::mysql://127.0.0.1:3306/adopteuninge", "root", "root");
+		conn = DriverManager.getConnection("jdbc::mysql://127.0.0.1:3306/adopteuninge", "root", "$1m0nglhfcv");
 	}
 	catch(ClassNotFoundException ex) {
 		System.out.println(ex);
@@ -31,7 +31,7 @@ public class Database {
 	public static Connection getConnection() throws Exception {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			return DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/adopteuninge", "root", "root");
+			return DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/adopteuninge", "root", "$1m0nglhfcv");
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
@@ -222,31 +222,14 @@ public class Database {
 			return "";
 		}
 	}
-public static Messages updateMessages(Message message, Messages chat) throws SQLException, Exception {
-	int i = 0;
-	chat.addMessage(message);
-	for (Message mess:  chat.getMessages()){
-	try {
-		String sql = "UPDATE message SET authorID=?,date=?,receiver=?,message=? WHERE id=?";
-		PreparedStatement ps = getConnection().prepareStatement(sql);
-		ps.setInt(1, mess.getAuteur().getId());
-		ps.setString(2,mess.getDate().toString());
-		ps.setInt(3, mess.getDestinataire().getId());
-		ps.setString(4, mess.getMessage());
-		ps.setInt(5, mess.getId());
-		i = ps.executeUpdate();
-		return chat;
-	} catch (Exception e) {
-		e.printStackTrace();
-		return null;
-	} finally {
-		if (getConnection() != null) {
-			getConnection().close();
-		}
-	}
-}
-
-return chat;
+public void updateMessages(Message message) throws SQLException, Exception {
+	PreparedStatement ps = this.conn.prepareStatement("Insert into message(id,authorID,date,receiver,message) values (?,?,?,?,?)");
+	ps.setInt(1, message.getId());
+	ps.setInt(2, message.getAuteur().getId());
+	ps.setString(3, message.getDateText());
+	ps.setInt(4, message.getDestinataire().getId());
+	ps.setString(5, message.getMessage());
+	ps.executeUpdate();
 }
 
 

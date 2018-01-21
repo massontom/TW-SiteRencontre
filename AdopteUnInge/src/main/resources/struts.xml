@@ -139,14 +139,13 @@
               <action name="voirMessages" class="controller.Chat" method="voirMessages">
                 <interceptor-ref name="interceptors" />
                  <result name="success">/conversation.jsp</result>
-	               <result name="login">/accueil/connexion.jsp</result>
+	               <result type="redirect" name="login">/accueil/Index.action</result>
               </action>
 
               <action name="ajouterMessage" class="controller.Chat" method="ajouterMessage">
                 <interceptor-ref name="interceptors" />
-                <result name="success" type="redirectAction">/chat.action</result>
                 <result name="input">/conversation.jsp</result>
-                <result name="login">/accueil/connexion.jsp</result>
+                <result type="redirect" name="login">/accueil/Index.action</result>
               </action>
 
               <action name="message" class="controller.Chat" method="input">
