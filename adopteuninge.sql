@@ -61,7 +61,13 @@ LOCK TABLES `message` WRITE;
 
 INSERT INTO `message` (`id`, `authorID`, `date`, `receiver`, `message`)
 VALUES
-	(1,1,'2017-12-12 00:00:00',3,'ceci est un message test');
+	(1,1,'2017/12/12 01:00:00',2,'Salut Hugo'),
+	(2,1,'2017/12/12 02:00:00',4,'Salut Pamela'),
+
+	
+	(3,2,'2017/12/12 07:00:00',1,'Salut Tom'),
+	(4,4,'2017/12/12 07:00:00',1,'Salut Tom');
+
 
 /*!40000 ALTER TABLE `message` ENABLE KEYS */;
 UNLOCK TABLES;
