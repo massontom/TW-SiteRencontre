@@ -81,10 +81,6 @@
         <result name="success">/WEB-INF/jsp/recherche.jsp</result>
       </action>
 
-       <action name="consulterProfil" class="controller.ConsulterProfil" method="execute">
-         <result name="success">/WEB-INF/jsp/profil.jsp</result>
-       </action>
-
     </package>
 
     <package name="userPlace" namespace="/user" extends="struts-default">
