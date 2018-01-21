@@ -73,12 +73,12 @@
       <div class="container-fluid">
 	      <div class="row content">
 	        <div class="col-sm-3 sidenav">
-	          <h4>Bienvenue ${sessionScope.user.prenom}</h4>
+	          <h4>Rencontrez d'autres personnes !</h4>
 	          <ul class="nav nav-pills nav-stacked">
-	            <li class="active"><a href="../user/indexUser">Accueil</a></li>
+	            <li><a href="../user/indexUser">Accueil</a></li>
 	            <li><a href="../profil">Mon Profil</a></li>
-              <li class="active"><a href="../profil">Mon Profil</a></li>
-							<li><a href="../accueil/ListeUtilisateurs">Liste des Membres</a></li>
+              <li><a href="../chat/chat">Chat</a></li>
+							<li class="active"><a href="../accueil/ListeUtilisateurs">Liste des Membres</a></li>
 	          </ul><br>
           </div>
           <div class="col-sm-9" name="recherche">

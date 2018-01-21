@@ -71,15 +71,15 @@
       <div class="container-fluid">
 	      <div class="row content">
 	        <div class="col-sm-3 sidenav">
-	          <h4>Bienvenue ${sessionScope.user.prenom}</h4>
+	          <h4>Voici <s:property value="membre.prenom"/></h4>
 	          <ul class="nav nav-pills nav-stacked">
-	            <li class="active"><a href="../user/indexUser">Accueil</a></li>
+	            <li><a href="../user/indexUser">Accueil</a></li>
 	            <li><a href="../profil">Mon Profil</a></li>
-              <li class="active"><a href="../profil">Mon Profil</a></li>
-							<li><a href="../accueil/ListeUtilisateurs">Liste des Membres</a></li>
+              <li><a href="../chat/chat">Chat</a></li>
+							<li class="active"><a href="../accueil/ListeUtilisateurs">Liste des Membres</a></li>
 	          </ul><br>
           </div>
-          <div class="col-sm-9" name="recherche">
+          <div class="col-sm-9">
 						<div class="col-sm-3 well">
         			<div class="text-center">
                 <h1><s:property value="membre.prenom"/> <s:property value="membre.nom"/></h1>
@@ -89,7 +89,6 @@
                   <s:param name="membre.id"><s:property value="membre.id"/></s:param>
                 </s:url>
                 <h3><a href="<s:property value="#liker"/>" class="btn btn-2">Liker</a></h3>
-        				<h3><a href="#" class="btn btn-2">Signaler</a></h3>
         				<h3><a href="../chat/chat" class="btn btn-2">Contacter</a></h3>
               </div>
             </div>
