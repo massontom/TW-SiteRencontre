@@ -9,7 +9,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>Adopte un Ingé - <%=Database.fetchUserDetailsByID(4).getPrenom()%> <%=Database.fetchUserDetailsByID(4).getNom()%></title>
+		<title>Adopte un Ingé</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -57,11 +57,13 @@
       <table>
         <% for(Utilisateur user : users){ %>
         <form action="AfficherProfil">
+          <input type="hidden" value="<%=user.getId()%>" name="id">
           <input type="hidden" value="<%=user.getPrenom()%>" name="prenom">
           <input type="hidden" value="<%=user.getNom()%>" name="nom">
           <input type="hidden" value="<%=user.getAge()%>" name="age">
           <input type="hidden" value="<%=user.getVille()%>" name="ville">
           <input type="hidden" value="<%=user.getDepartement()%>" name="departement">
+          <input type="hidden" value="<%=user.getLike()%>" name="likes">
           <input type="submit" value="<%=user.getPrenom()%> <%=user.getNom()%>">
         </form>
         <% } %>
