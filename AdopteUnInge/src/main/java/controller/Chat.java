@@ -16,57 +16,40 @@ import model.Messages;
 
 public class Chat extends ActionSupport implements SessionAware {
   private Messages messages;
-  private Utilisateur auteur;
-  private Utilisateur destinataire;
+  private Utilisateur utilisateur;
   private SessionMap<String, Object> sessionmap;
-  private Message message;
+  private String contenu;
 
-public Message getMessage() {
-  return message;
-}
-  public void setMessage(Message msg) {
-    message=msg;
-  }
 
-  public Messages getMessages() {
-    return messages;
-  }
+  public void validate() {
+  		if (contenu != null && contenu.length() == 0) {
+  			addFieldError( "contenu", "Veuillez saisir un message." );
+  		}
+  	}
 
-  public void setMessages(Messages mess) {
-    messages = mess;
-  }
+  public String voirMessages() throws Exception {
+		Database db = Database.getInstance();
+		this.utilisateur = db.fetchUserDetailsByID(utilisateur.getId());
+		Utilisateur connecte = (Utilisateur)sessionmap.get("utilisateur");
+		this.messages = connecte.getChatPrive().getMessagesByUserId(utilisateur.getId());
+		db.deconnexion();
+		return SUCCESS;
+	}
 
-  public Utilisateur getAuteur () {
-    return auteur;
-  }
+  public String ajouterMessages() throws Exception {
+		Database db = Database.getInstance();
+		Utilisateur connecte = (Utilisateur)sessionmap.get("utilisateur");
+		this.utilisateur = db.fetchUserDetailsByID(utilisateur.getId());
+		Message msg = new Message(connecte, this.utilisateur, contenu);
+		db.updateMessages(msg, db.getChat(utilisateur,connecte));
+		return SUCCESS;
+	}
 
-  public void setAuteur (Utilisateur aut) {
-    auteur=aut;
-  }
 
-  public Utilisateur getDestinataire () {
-    return destinataire;
-  }
 
-  public void setDestinataire (Utilisateur dest) {
-    destinataire =dest;
-  }
-
-  public String execute() throws Exception {
-    Database.updateMessages(message, messages);
-    Database.getChat(auteur, destinataire);
-    return SUCCESS;
-  }
-
-  public String input() throws Exception {
-    return INPUT;
-  }
 
   @Override
-  public void setSession(Map map) {
-      sessionmap = (SessionMap) map;
-      auteur = (Utilisateur)this.sessionmap.get("user");
-      System.out.println("==============================================================");
-      auteur.toString();
-  }
+  public void setSession(Map<String, Object> session) {
+  		this.sessionmap=(SessionMap)session;
+  	}
 }

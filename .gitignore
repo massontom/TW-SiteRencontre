@@ -21,6 +21,15 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 
+#latex
+*.toc
+*.synctex.gz
+*.out
+*.lof
+*.fls
+*.fdb_latexmk
+*.aux
+
 Adopteuninge/target
 Adopteuninge/build/*
 Adopteuninge/dist/*
