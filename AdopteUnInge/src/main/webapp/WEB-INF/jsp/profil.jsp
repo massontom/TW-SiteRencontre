@@ -50,10 +50,14 @@
         </div>
       </nav>
 			<div class="text-center">
-				<h1><%=request.getParameter("prenom")%> <%=request.getParameter("nom")%></h1>
-				<p><%=request.getParameter("age")%> ans</p>
-				<p><%=request.getParameter("ville")%>, <%=request.getParameter("departement")%></p>
-				<h3><a href="../accueil/AfficherProfil" class="btn btn-2">Liker</a></h3>
+        <h1><s:property value="membre.prenom"/> <s:property value="membre.nom"/></h1>
+        <p><s:property value="membre.age"/> ans</p>
+        <p><s:property value="membre.ville"/>, <s:property value="membre.departement"/></p>
+        <p><s:property value="membre.like"/></p>
+        <s:url action="liker" var="liker" >
+          <s:param name="membre.id"><s:property value="membre.id"/></s:param>
+        </s:url>
+        <h3><a href="<s:property value="#liker"/>" class="btn btn-2">Liker</a></h3>
 				<h3><a href="../accueil/AfficherProfil" class="btn btn-2">Signaler</a></h3>
 				<h3><a href="../chat/chat" class="btn btn-2">Contacter</a></h3>
 			</div>

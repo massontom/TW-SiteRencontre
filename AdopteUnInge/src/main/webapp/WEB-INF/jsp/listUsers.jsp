@@ -51,22 +51,14 @@
           </div>
         </div>
       </nav>
-      <%
-        List<Utilisateur> users = Database.getAllUsers();
-      %>
+      <%List<Utilisateur> users = Database.getAllUsers();%>
       <table>
-        <% for(Utilisateur user : users){ %>
-        <form action="AfficherProfil">
-          <input type="hidden" value="<%=user.getId()%>" name="id">
-          <input type="hidden" value="<%=user.getPrenom()%>" name="prenom">
-          <input type="hidden" value="<%=user.getNom()%>" name="nom">
-          <input type="hidden" value="<%=user.getAge()%>" name="age">
-          <input type="hidden" value="<%=user.getVille()%>" name="ville">
-          <input type="hidden" value="<%=user.getDepartement()%>" name="departement">
-          <input type="hidden" value="<%=user.getLike()%>" name="likes">
-          <input type="submit" value="<%=user.getPrenom()%> <%=user.getNom()%>">
-        </form>
-        <% } %>
+      <% for(Utilisateur membre : users){ %>
+        <s:url action="ConsulterProfil.action?membre.id=<%=membre.getId()%>" var="consulterProfil" >
+          <s:param name="membre.id"><s:property value="membre.id"/></s:param>
+        </s:url>
+        <a href="consulterProfil"><%=membre.getPrenom()%> <%=membre.getNom()%></a><br>
+      <%}%>
       </table>
     </header>
   </body>
