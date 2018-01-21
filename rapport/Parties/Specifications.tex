@@ -1,13 +1,13 @@
 \chapter{Spécifications}
 
 \paragraph{}
-Dans ce chapitre nous allons expliqué les fonctionnalités du site de rencontre \textit{Adopte Un Inge}. Certaines d'entre elles n'ont malheureusement pas eu le temps d'être implémenter par manque de temps car nous voulions essayer au maximum de faire marcher d'une manière propre les fonctionnalités déjà développées.
+Dans ce chapitre nous allons expliquer les fonctionnalités du site de rencontre \textit{Adopte Un Inge}. Certaines d'entre elles ne sont malheureusement pas implémentées par manque de temps car nous avons préféré privilégier la qualité du code pour les fonctionnalités déjà développées.
 \section{Fonctionnalités}
 
 \nomFonction{Création d'un compte}
 \begin{itemize}
- \item Un compte utilisateur est défini par un numéro d'identification, un nom, un prénom, un age, si il est administrateur, une valorisation, une ville, un département, un nombre de likes, un nombre de signalement, son sexe, son orientation, une photo de profil, un mot de passe, une description et un email. Tous les champs ne sont pas obligatoires. En effet lors de la création une description n'est pas demandé par exemple.
- \item Si tous les champs ne sont pas remplis ou si le email n'est pas un email valide, des messages d'erreurs doivent être affichés.
+ \item Un compte utilisateur est défini par un numéro d'identification, un nom, un prénom, un age, si il est administrateur, une valorisation, une ville, un département, un nombre de likes, un nombre de signalement, son sexe, son orientation, une photo de profil, un mot de passe, une description et un email. Tous les champs ne sont pas obligatoires. En effet lors de la création une description n'est pas demandée par exemple.
+ \item Si tous les champs ne sont pas remplis ou si l'email n'est pas un email valide, des messages d'erreurs doivent être affichés.
 \end{itemize}
 
 \nomFonction{Connexion}
@@ -27,7 +27,7 @@ Dans ce chapitre nous allons expliqué les fonctionnalités du site de rencontre
 \begin{itemize}
  \item L'accès à la page d'édition d'un profil s'effectue via un bouton placé sur la page de profil de l'utilisateur (il ne peut modifier un profil autre que le sien).
  \item L'utilisateur modifie ses informations (celles affichées sur son profil et son mot de passe).
- \item Afin d'enregistrer ses modifications il appuie sur un bouton confirmant sa modification.
+ \item Afin d'enregistrer ses modifications il appuie sur un bouton confirmant sa ou ses modifications.
 \end{itemize}
 
 
@@ -35,7 +35,7 @@ Dans ce chapitre nous allons expliqué les fonctionnalités du site de rencontre
 \begin{itemize}
  \item La recherche s'effectue via la barre de navigation.
  \item La recherche est filtrée à l'aide des critères suivants : âge, ville et département.
- \item La recherche affiche utilisateurs satisfaisants les critères renseignés.
+ \item La recherche affiche les utilisateurs satisfaisants les critères renseignés.
 \end{itemize}
 
 \nomFonction{Afficher un profil autre que le sien}
@@ -53,7 +53,7 @@ Dans ce chapitre nous allons expliqué les fonctionnalités du site de rencontre
 
 \nomFonction{Chat}
 \begin{itemize}
-\item Pour avoir accès au chat on peut :cliquer sur chat sur la barre de navigation, cliquer sur un bouton contacter sur un profil utilisateur.
+\item Pour avoir accès au chat on peut: cliquer sur chat sur la barre de navigation, cliquer sur un bouton contacter sur un profil utilisateur.
 \item Si on clique sur la barre de navigation on est redirigé vers une page contenant toutes les conversations.
 \item Si on clique sur une conversation on est alors redirigé sur le chat liant les deux utilisateurs entre eux.
 \item Nous n'avons malheureusement pas réussi à finir cette fonctionnalité de manière optimale.
@@ -62,7 +62,7 @@ Dans ce chapitre nous allons expliqué les fonctionnalités du site de rencontre
 \nomFonction{Déconnexion}
 \begin{itemize}
  \item L'utilisateur peut se déconnecter via un bouton placé sur la barre de navigation logout.
-  L'utilisateur est alors redirigé vers la page de connexion et d'inscription (cette fonctionnalité bug car si on utilise le retour du navigateur nous sommes de nouveau connecté bien que nous avons essayé la fonction logout de struts2 sans succès).
+  L'utilisateur est alors redirigé vers la page de connexion et d'inscription (cette fonctionnalité bugue car si on utilise le retour du navigateur nous sommes de nouveau connecté bien que nous avons utilisé la fonction invalidate() de struts2 sans succès).
 \end{itemize}
 
 \nomFonction{Fonctionnalités non créées}
