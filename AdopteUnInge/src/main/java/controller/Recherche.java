@@ -50,7 +50,7 @@ public class Recherche extends ActionSupport implements SessionAware {
     return this.departement;
   }
 
-  public String setVille() {
+  public String getVille() {
     return this.ville;
   }
 
@@ -62,13 +62,17 @@ public class Recherche extends ActionSupport implements SessionAware {
     System.out.println("setUserRecherche");
     setUtilisateurs();
     this.userRecherche = new ArrayList<>();
-    for(Utilisateur user : allUsers){
-      if (!(this.ville.equals(null))){
-        userRecherche.add(user);
+    System.out.println("nb total d'utilisateurs :"+allUsers.size());
+
+    for(Utilisateur user : allUsers) {
+      if (!(this.ville.equals(null))) {
+        if (this.ville.toLowerCase().equals(user.getVille().toLowerCase())) {
+          userRecherche.add(user);
+        }
       } else if (!(this.departement.equals(null))) {
-        userRecherche.add(user);
-      } else {
-        userRecherche.add(user);
+        if (this.departement.equals(Integer.toString(user.getDepartement()))) {
+          userRecherche.add(user);
+        }
       }
     }
 

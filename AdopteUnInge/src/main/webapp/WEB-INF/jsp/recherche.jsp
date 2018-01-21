@@ -59,9 +59,6 @@
 	          <a class="navbar-brand" href="#">Adopte un Ingé <span class="glyphicon glyphicon-heart"></span></a>
 	        </div>
 	        <div class="collapse navbar-collapse" id="myNavbar">
-	          <ul class="nav navbar-nav">
-	            <li class="active"><a href="/acceuil/Recherche">Recherche</a></li>
-	          </ul>
 	          <ul class="nav navbar-nav navbar-right">
 	            <li><a href="../accueil/logout.action"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
 	          </ul>
@@ -78,25 +75,28 @@
 	            <li><a href="../chat/chat">Chat</a></li>
 							<li><a href="../user/ListeUtilisateurs">Liste des Membres</a></li>
 	          </ul><br>
-	          <div class="input-group">
+						<div class="input-group">
 	            <s:form method="post" action="rechercher">Recherche
-								<s:textfield type="number"  min="0" max="96" label="departement" name="departement" placeholder="département" value="%{Recherche.departement}" ></s:textfield>
-								<s:textfield type="text"  label="ville" name="ville" placeholder="ville" ></s:textfield>
-								<s:textfield type="number" label="age" name="age" min="18" max="99" placeholder="Age"></s:textfield>
+								<s:textfield type="number"  min="0" max="96" label="Département :" name="departement" placeholder="departement"></s:textfield>
+								<s:textfield type="text"  label="Ville :" name="ville" placeholder="ville" ></s:textfield>
+								<s:textfield type="number" label="Age :" name="age" min="18" max="99" placeholder="Age"></s:textfield>
 								<s:submit value="Rechercher" class="btn btn-2"/>
 							</s:form>
 	          </div>
 	        </div>
 
 
-	        <div class="col-sm-9" name="recherche">
-						<div class="col-sm-3 well">
-      				<div class="well">
-        				ville = <s:property value="ville" />
-								<p>departement <s:property value="%{departement}"/></p>
-								<p>age <s:property value="%{age}"/>  </p>
-      				</div>
-						</div>
+					<div class="col-sm-9" name="recherche">
+
+						<s:iterator value="userRecherche" var="user">
+							<div class="col-sm-3 well">
+								<div class="well">
+  								<s:property value="#user.prenom"/> <s:property value="#user.nom"/></br>
+									<a href="consulterProfil?membre.id=<s:property value="#user.id"/>">Voir le profil</a>
+								</div>
+							</div>
+						</s:iterator>
+
 	        </div>
 	      </div>
 	    </div>
