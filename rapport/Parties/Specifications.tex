@@ -1,7 +1,7 @@
 \chapter{Spécifications}
 
 \paragraph{}
-Dans ce chapitre nous allons expliqué les fonctionnalités du site de rencontre \textit{Adopte Un Inge}. Certaines d'entre elles n'ont malheuresement pas eu le temps d'être implémenter par manque de temps car nous voulions essayer au maximum de faire marcher d'une manière propre les fonctionnalités déjà développées.
+Dans ce chapitre nous allons expliqué les fonctionnalités du site de rencontre \textit{Adopte Un Inge}. Certaines d'entre elles n'ont malheureusement pas eu le temps d'être implémenter par manque de temps car nous voulions essayer au maximum de faire marcher d'une manière propre les fonctionnalités déjà développées.
 \section{Fonctionnalités}
 
 \nomFonction{Création d'un compte}
@@ -51,12 +51,74 @@ Dans ce chapitre nous allons expliqué les fonctionnalités du site de rencontre
 \end{itemize}
 
 
-\nomFonction{Réception et envoi de message}
+\nomFonction{Chat}
 \begin{itemize}
-\item A remplir
+\item Pour avoir accès au chat on peut :cliquer sur chat sur la barre de navigation, cliquer sur un bouton contacter sur un profil utilisateur.
+\item Si on clique sur la barre de navigation on est redirigé vers une page contenant toutes les conversations.
+\item Si on clique sur une conversation on est alors redirigé sur le chat liant les deux utilisateurs entre eux.
+\item Nous n'avons malheureusement pas réussi à finir cette fonctionnalité de manière optimale.
 \end{itemize}
 
 \nomFonction{Déconnexion}
 \begin{itemize}
- \item L'utilisateur peut se déconnecter via un bouton placé sur la barre de navigation logout. L'utilisateur est alors redirigé vers la page de connexion et d'inscription.
+ \item L'utilisateur peut se déconnecter via un bouton placé sur la barre de navigation logout.
+  L'utilisateur est alors redirigé vers la page de connexion et d'inscription (cette fonctionnalité bug car si on utilise le retour du navigateur nous sommes de nouveau connecté bien que nous avons essayé la fonction logout de struts2 sans succès).
 \end{itemize}
+
+\nomFonction{Fonctionnalités non créées}
+Comme dit dans l'introduction du chapitre nous n'avons pas pu implémenter toutes les fonctionnalités que nous voulions en début de projet par manque de temps.
+\begin{itemize}
+\item La fonctionnalité de valorisation d'un utilisateur n'a ainsi pas pu être faite.
+\item La fonctionnalité de création d'évènements n'a ainsi pas pu être faite.
+\item La fonctionnalité de signalisation d'un utilisateur n'a ainsi pas pu être faite.
+
+\end{itemize}
+
+\newpage
+\section{Diagrammes de cas d'utilisation et diagramme de navigation}
+
+Voici quelques diagrammes de cas d'utilisation et le diagramme de navigation réalisés lors de la conception du projet.
+\vfill
+\begin{figure}[ht!]
+  \centering
+   \caption{Diagramme de cas d'utilisation de création d'un compte}
+   \includegraphics[scale=0.7]{cuCC}
+\end{figure}
+
+\begin{figure}[ht!]
+  \centering
+   \caption{Diagramme de cas d'utilisation du chat}
+   \includegraphics[scale=0.6]{cucp}
+\end{figure}
+
+\begin{figure}[ht!]
+  \centering
+   \caption{Diagramme de cas d'utilisation d'affichage d'un profil}
+   \includegraphics[scale=0.6]{cuAP}
+\end{figure}
+
+\begin{figure}[ht!]
+  \centering
+   \caption{Diagramme de cas d'utilisation d'édition d'un profil}
+   \includegraphics[scale=0.6]{cuEP}
+\end{figure}
+
+\begin{figure}[ht!]
+  \centering
+   \caption{Diagramme de cas d'utilisation de recherche d'un profil}
+   \includegraphics[scale=0.6]{cuRP}
+\end{figure}
+
+\begin{figure}[ht!]
+  \centering
+   \caption{Diagramme de cas d'utilisation d'identification}
+   \includegraphics[scale=0.6]{cuId}
+\end{figure}
+
+\newpage
+
+  \begin{figure}[ht!]
+    \centering
+    \caption{Diagramme de navigation}
+    \includegraphics[scale=0.4]{dNav}
+  \end{figure}
