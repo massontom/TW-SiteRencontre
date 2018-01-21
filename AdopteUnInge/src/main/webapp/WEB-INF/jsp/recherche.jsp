@@ -77,9 +77,10 @@
 	          </ul><br>
 						<div class="input-group">
 	            <s:form method="post" action="rechercher">Recherche
+								<s:hidden type="number" value="${sessionScope.user.oreintation}">></s:hidden>
 								<s:textfield type="number"  min="0" max="96" label="Département :" name="departement" placeholder="departement"></s:textfield>
 								<s:textfield type="text"  label="Ville :" name="ville" placeholder="ville" ></s:textfield>
-								<s:textfield type="number" label="Age :" name="age" min="18" max="99" placeholder="Age"></s:textfield>
+								<s:textfield type="number" label="Age (+/-5) :" name="age" min="18" max="99" placeholder="Age"></s:textfield>
 								<s:submit value="Rechercher" class="btn btn-2"/>
 							</s:form>
 	          </div>
