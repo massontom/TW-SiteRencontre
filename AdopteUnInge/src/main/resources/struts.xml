@@ -133,7 +133,7 @@
       </interceptors>
 
               <action name="chat" class="controller.Chat" method="execute">
-                  <result>/WEB-INF/jsp/chat.jsp</result>
+                  <result name="success">/WEB-INF/jsp/chat.jsp</result>
               </action>
 
               <action name="voirMessages" class="controller.Chat" method="voirMessages">

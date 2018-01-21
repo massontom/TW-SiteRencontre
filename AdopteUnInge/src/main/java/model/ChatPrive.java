@@ -4,16 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ChatPrive {
-        private List<Messages> chats;
+        private ArrayList<Messages> chats;
 
         public ChatPrive() {
                 this.chats=new ArrayList<Messages>();
         }
 
         public ChatPrive(ArrayList<Messages> conv) {
+          this.chats=new ArrayList<Messages>();
           this.chats=conv;
         }
-        public List<Messages> getChats() {
+        public ArrayList<Messages> getChats() {
           return this.chats;
         }
 
