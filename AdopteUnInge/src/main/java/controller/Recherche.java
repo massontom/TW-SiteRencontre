@@ -13,9 +13,8 @@ public class Recherche extends ActionSupport implements SessionAware {
 
   private List<Utilisateur> allUsers;
   private List<Utilisateur> userRecherche;
-  private String departement;
-  private String ville;
-  private String age;
+  private String departement, ville, age;
+  private int ageInt;
   private SessionMap<String, Object> session;
 
   public String input() throws Exception {
@@ -63,18 +62,40 @@ public class Recherche extends ActionSupport implements SessionAware {
     setUtilisateurs();
     this.userRecherche = new ArrayList<>();
     System.out.println("nb total d'utilisateurs :"+allUsers.size());
-
     for(Utilisateur user : allUsers) {
-      if (!(this.ville.equals(null))) {
-        if (this.ville.toLowerCase().equals(user.getVille().toLowerCase())) {
-          userRecherche.add(user);
+      if (!(this.age.equals(""))) {
+        ageInt=Integer.parseInt(this.age);
+          System.out.println("Age :"+ageInt + user.getAge());
+        if ((user.getAge()<=ageInt+5) || (user.getAge()>=ageInt-5)) {
+          if (!(this.ville.equals(""))) {
+            System.out.println("ville");
+            if (this.ville.toLowerCase().equals(user.getVille().toLowerCase())) {
+              userRecherche.add(user);
+            }
+          } else if (!(this.departement.equals(""))) {
+            System.out.println("dpt");
+            if (this.departement.equals(Integer.toString(user.getDepartement()))) {
+              userRecherche.add(user);
+            }
+          } else {
+            System.out.println("juste age");
+            userRecherche.add(user);
+          }
         }
-      } else if (!(this.departement.equals(null))) {
-        if (this.departement.equals(Integer.toString(user.getDepartement()))) {
-          userRecherche.add(user);
+
+      } else {
+          System.out.println("2");
+          if (!(this.ville.equals(""))) {
+            if (this.ville.toLowerCase().equals(user.getVille().toLowerCase())) {
+              userRecherche.add(user);
+            }
+          } else if (!(this.departement.equals(""))) {
+            if (this.departement.equals(Integer.toString(user.getDepartement()))) {
+              userRecherche.add(user);
+            }
+          }
         }
       }
-    }
 
     return SUCCESS;
   }
