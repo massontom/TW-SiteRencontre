@@ -12,38 +12,40 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <style>
     body {
-    background-image: url(../images/img_bg_1.jpg);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+      background-image: url(../images/img_bg_1.jpg);
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
     }
 
-    /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
     .row.content {height: 1500px}
 
-    /* Set gray background color and 100% height */
     .sidenav {
       background-color: #f1f1f1;
       height: 100%;
     }
 
-    /* Set black background color, white text and some padding */
     footer {
       background-color: #555;
       color: white;
       padding: 15px;
     }
 
-    /* On small screens, set height to 'auto' for sidenav and grid */
     @media screen and (max-width: 767px) {
       .sidenav {
         height: auto;
         padding: 15px;
       }
-      .row.content {height: auto;}}
+
+      .row.content {height: auto;}
+    }
   </style>
 </head>
-<body id="gtco-header" class="gtco-cover" role="banner" style="background-image:url(../images/img_bg_1.jpg);">
-  <header>
+<body>
+  <header id="gtco-header" class="gtco-cover" role="banner" style="background-image:url(../images/img_bg_1.jpg);">
     <nav class="navbar navbar-inverse">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -55,8 +57,11 @@
           <a class="navbar-brand" href="#">Adopte un Ingé <span class="glyphicon glyphicon-heart"></span></a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="../user/indexUser">Accueil</a></li>
+          </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="../accueil/logout.action"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+            <li><a href="../accueil/logout.action"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
           </ul>
         </div>
       </div>
@@ -69,15 +74,8 @@
             <li><a href="../user/indexUser">Accueil</a></li>
             <li class="active"><a href="../profil">Mon Profil</a></li>
             <li><a href="../chat/chat">Chat</a></li>
+            <li><a href="../accueil/ListeUtilisateurs">Liste des Membres</a></li>
           </ul><br>
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Recherche...">
-            <span class="input-group-btn">
-              <button class="btn btn-default" type="button">
-                <span class="glyphicon glyphicon-search"></span>
-              </button>
-            </span>
-          </div>
         </div>
 
         <div class="col-sm-9">
