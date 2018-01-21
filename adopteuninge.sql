@@ -97,7 +97,15 @@ LOCK TABLES `user` WRITE;
 INSERT INTO `user` (`id`, `name`, `nickname`, `mail`, `password`, `age`, `admin`, `rank`, `city`, `zip`, `likes`, `report`, `sex`, `orientation`,`description`)
 VALUES
 	(1,'Masson','Tom','tom.masson@insa-rouen.fr','0cc175b9c0f1b6a831c399e269772661',21,1,3,'MSA',76,10,0,0,1,'Je m\'appel Tom, est je suis en manque d\'amour. Likez mois vp...'),
-	(3,'Marchelidon','Hugo','hugo.marchelidon@insa-rouen.fr','22b6a3594cac7fbbade97039f91f201f',21,0,2,'Rouen',76,10,0,0,0,'Je m\'appel Hugo, bg et intelligent!');
+	(2,'Marchelidon','Hugo','hugo.marchelidon@insa-rouen.fr','22b6a3594cac7fbbade97039f91f201f',21,0,2,'Rouen',76,10,0,0,0,'Je m\'appel Hugo, bg et intelligent!'),
+  ( 4 , 'anderson'    , 'pamela'     , 'pampam@pam.pam   '    , '14ce1924b9954365c29b7593faea2237' ,  50 ,     0 ,    2 , 'Miami'  ,  96 ,    10 ,      0 ,   1 ,  0 , 'Aucune description'),
+  (5 , 'Stieffler'   , 'Jeanine'    , 'jeanine@pam.pam '       , '3a17a1893999ea69c48536aa16bd2cba' ,  59 ,     0 ,    2 , 'Rouen'  ,  76 ,    10 ,      0 ,   1 ,           0 , 'Aucune description'),
+  (6 , 'Kidman'      , 'Nicole'     , 'nicole@pam.pam   '    , 'fc63f87c08d505264caba37514cd0cfd' ,  50 ,     0 ,    2 , 'Paris'  ,  75 ,    10 ,      0 ,   1 ,           0 , 'Aucune description' ),
+  (7 , 'Boucher'     , 'Thomas'     , 'thomas.boucher@insa-rouen.fr'   , '827ccb0eea8a706c4c34a16891f84e7b' ,  23 ,     0 ,    2 , 'Evreux' ,  27 ,    10 ,      0 ,   0 , 1 ,' Aucune description'),
+  (8 , 'Hiron'       , 'Camille'    , 'camille@pam.pam  ' , 'e9fd92b4e8a79b1c0b046ec770197f60' ,  21 ,     0 ,    2 , 'Rouen'  ,  76 ,    10 ,      0 ,   1 ,      0 , 'Aucune description'),
+  (9 , 'Germon'      , 'MainGauche' , 'maingauche@pam.pam ', '827ccb0eea8a706c4c34a16891f84e7b' ,  21 ,     0 ,    2 , 'Rouen'  ,  76 ,    10 ,      0 ,   0 ,        0 , 'Aucune description' ),
+  (10 , 'Khalifa'     , 'Mia'        , 'mia@pam.pam '           , '827ccb0eea8a706c4c34a16891f84e7b' ,  24 ,     0 ,    2 , 'Paris'  ,  75 ,    10 ,      0 ,   1 ,           0 , 'Aucune description ' ),
+  (11 , 'inconnu'     , 'Bobby'      , 'bobby@insa-rouen.Fr '    , '827ccb0eea8a706c4c34a16891f84e7b' ,  21 ,     0 ,    2 , 'Rouen'  ,  76 ,    10 ,      0 ,   1 ,           0 , 'Aucune description' );
 
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
