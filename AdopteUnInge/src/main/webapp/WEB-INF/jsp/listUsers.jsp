@@ -54,10 +54,7 @@
       <%List<Utilisateur> users = Database.getAllUsers();%>
       <table>
       <% for(Utilisateur membre : users){ %>
-        <s:url action="ConsulterProfil.action?membre.id=<%=membre.getId()%>" var="consulterProfil" >
-          <s:param name="membre.id"><s:property value="membre.id"/></s:param>
-        </s:url>
-        <a href="consulterProfil"><%=membre.getPrenom()%> <%=membre.getNom()%></a><br>
+        <a href="consulterProfil?membre.id=<%=membre.getId()%>"><%=membre.getPrenom()%> <%=membre.getNom()%></a><br>
       <%}%>
       </table>
     </header>

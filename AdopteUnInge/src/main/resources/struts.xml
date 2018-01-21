@@ -55,12 +55,12 @@
             </action>
 
             <action name="consulterProfil" class="controller.ConsulterProfil" method="execute">
-                <result name="success">AfficherProfil</result>
+                <result name="success">/WEB-INF/jsp/profil.jsp</result>
             </action>
 
             <action name="liker" class="controller.Liker" method="execute">
                 <result name="success" type="redirectAction">
-                    <param name="actionName">consulterProfilAutreMembre</param>
+                    <param name="actionName">consulterProfil</param>
                     <param name="membre.id">${membre.id}</param>
                 </result>
             </action>

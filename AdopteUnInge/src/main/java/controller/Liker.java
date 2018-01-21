@@ -26,7 +26,7 @@ public class Liker extends ActionSupport implements SessionAware {
 
   public String execute() throws Exception {
     this.membre = Database.fetchUserDetailsByID(membre.getId());
-    Utilisateur user = (Utilisateur)this.sessionmap.get("membre");
+    Utilisateur user = (Utilisateur)this.sessionmap.get("user");
     user.getLike().addPersonnesLike(this.membre);
     this.membre.getLike().addPersonnesQuiMontLike(user);
     Database.updateUserDetails(user);

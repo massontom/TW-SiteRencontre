@@ -26,7 +26,7 @@ public class ConsulterProfil extends ActionSupport implements SessionAware {
 
   public String execute() throws Exception {
     this.membre = Database.fetchUserDetailsByID(membre.getId());
-    Utilisateur user = (Utilisateur)this.sessionmap.get("membre");
+    Utilisateur user = (Utilisateur)this.sessionmap.get("user");
     return SUCCESS;
   }
 }
