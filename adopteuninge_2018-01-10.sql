@@ -46,7 +46,7 @@ DROP TABLE IF EXISTS `message`;
 CREATE TABLE `message` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `authorID` int(11) NOT NULL,
-  `date` datetime NOT NULL,
+  `date` text NOT NULL,
   `receiver` int(11) NOT NULL,
   `message` text NOT NULL,
   PRIMARY KEY (`id`),

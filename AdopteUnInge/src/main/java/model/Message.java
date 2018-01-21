@@ -20,7 +20,7 @@ public class Message implements Comparable {
                 this.message = message;
                 this.id = id;
                 try {
-                  this.date = (new SimpleDateFormat("EEE, d MMM yyyy HH:mm:ss", Locale.US)).parse(d);
+                  this.date = (new SimpleDateFormat("dd/MM/yyyy, HH:mm:ss", Locale.US)).parse(d);
                 }
                 catch (ParseException e) {
                   System.out.println(e);
@@ -51,7 +51,7 @@ public class Message implements Comparable {
         }
 
         public String getDateText(){
-          return new SimpleDateFormat("'Le' dd/MM/yyyy, HH:mm:ss").format(this.date);
+          return new SimpleDateFormat("dd/MM/yyyy, HH:mm:ss").format(this.date);
         }
 
         public Utilisateur getDestinataire() {

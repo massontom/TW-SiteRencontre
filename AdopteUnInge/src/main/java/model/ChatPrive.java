@@ -37,12 +37,15 @@ public class ChatPrive {
            return ret;
          }
 
-         public Messages getMessagesByUserId(int id) {
+         public ArrayList<Message> getMessagesByUserId(int id) {
+           ArrayList<Message> messages=new ArrayList<Message>();
            for (Messages mess : chats) {
-             if (mess.getDestinataire().getId() == id) {
-               return mess;
+             for (int i = 0; i < mess.getMessages().size(); i++){
+               if (mess.getMessages().get(i).getAuteur().getId() == id || mess.getMessages().get(i).getDestinataire().getId() == id) {
+                 messages.add(mess.getMessages().get(i));
+               }
              }
            }
-           return null;
+           return messages;
          }
 }

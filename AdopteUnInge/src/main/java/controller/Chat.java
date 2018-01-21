@@ -5,6 +5,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import java.util.concurrent.TimeUnit;
 import model.Utilisateur;
 import java.util.Date;
+import java.util.ArrayList;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 import java.util.Map;
@@ -15,7 +16,7 @@ import model.Message;
 import model.Messages;
 
 public class Chat extends ActionSupport implements SessionAware {
-  private Messages messages;
+  private ArrayList<Message> messages;
   private Utilisateur utilisateur;
   private SessionMap<String, Object> sessionmap;
   private String contenu;
@@ -28,22 +29,19 @@ public class Chat extends ActionSupport implements SessionAware {
   	}
 
   public String voirMessages() throws Exception {
-		Database db = Database.getInstance();
-		this.utilisateur = db.fetchUserDetailsByID(utilisateur.getId());
+		this.utilisateur = Database.fetchUserDetailsByID(utilisateur.getId());
     this.utilisateur.chargerDonnees();
 		Utilisateur connecte = (Utilisateur)sessionmap.get("user");
+    connecte.chargerDonnees();
 		this.messages = connecte.getChatPrive().getMessagesByUserId(utilisateur.getId());
-		db.deconnexion();
 		return SUCCESS;
 	}
 
   public String ajouterMessages() throws Exception {
-		Database db = Database.getInstance();
 		Utilisateur connecte = (Utilisateur)sessionmap.get("user");
-		this.utilisateur = db.fetchUserDetailsByID(utilisateur.getId());
+		this.utilisateur = Database.fetchUserDetailsByID(utilisateur.getId());
 		Message msg = new Message(connecte, this.utilisateur, contenu);
-		db.updateMessages(msg);
-    db.deconnexion();
+		Database.updateMessages(msg);
 		return SUCCESS;
 	}
 
@@ -63,5 +61,25 @@ public class Chat extends ActionSupport implements SessionAware {
 
     public Utilisateur getUtilisateur(){
       return this.utilisateur;
+    }
+
+    public void setUtilisateur(Utilisateur u){
+      this.utilisateur=u;
+    }
+
+    public ArrayList<Message> getMessages(){
+      return this.messages;
+    }
+
+    public void setMessages(ArrayList<Message> messages){
+      this.messages=messages;
+    }
+
+    public String getContenu(){
+      return this.contenu;
+    }
+
+    public void setContenu(String msg){
+      this.contenu=msg;
     }
 }
