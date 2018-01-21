@@ -79,9 +79,9 @@
 	          </ul><br>
 	          <div class="input-group">
 	            <form>Recherche
-								<input type="number"  min="0" max="96" label="Département"  placeholder="département" value="%{Recherche.departement}" ></input>
-								<input type="text"  label="Ville"  placeholder="ville" ></input>
-								<input type="number" label="Age" min="18" max="99" placeholder="Age"></input>
+								<input type="number"  min="0" max="96" label="departement"  placeholder="département" value="%{Recherche.departement}" ></input>
+								<input type="text"  label="ville"  placeholder="ville" ></input>
+								<input type="number" label="age" min="18" max="99" placeholder="Age"></input>
 							</form>
 	          </div>
 	        </div>
