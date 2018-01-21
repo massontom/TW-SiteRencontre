@@ -54,6 +54,17 @@
                 <result>/WEB-INF/jsp/listUsers.jsp</result>
             </action>
 
+            <action name="consulterProfil" class="controller.ConsulterProfil" method="execute">
+                <result name="success">/WEB-INF/jsp/profil.jsp</result>
+            </action>
+
+            <action name="liker" class="controller.Liker" method="execute">
+                <result name="success" type="redirectAction">
+                    <param name="actionName">consulterProfil</param>
+                    <param name="membre.id">${membre.id}</param>
+                </result>
+            </action>
+
             <action name="login" class="controller.Authentication" method="login">
               <result name="success" type="redirectAction">
                 <param name="actionName">indexUser</param>
@@ -86,7 +97,9 @@
       </action>
 
       <action name="rechercher" class="controller.Recherche" method="setUserRecherche">
-        <result name="input"></result>
+        <result name="input">/WEB-INF/jsp/recherche.jsp</result>
+        <result name="error">/WEB-INF/jsp/loginerror.jsp</result>
+        <result name="success">/WEB-INF/jsp/recherche.jsp</result>
       </action>
 
     </package>
