@@ -1,8 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
-<%@ page import="model.dao.Database" %>
-<%@ page import="java.util.*" %>
-<%@ page import="model.*" %>
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -51,7 +48,6 @@
 			</style>
   </head>
 	<body id="gtco-header" class="gtco-cover">
-	  <header>
 	    <nav class="navbar navbar-inverse">
 	      <div class="container-fluid">
 	        <div class="navbar-header">
@@ -82,42 +78,22 @@
 	            <li><a href="#section2">Chat</a></li>
 	          </ul><br>
 	          <div class="input-group">
-	            <h4>Recherche </h4>
-							<s:form>
-								<s:textfield type="number" min="0" max="96" label="Département : "  placeholder="département" ></s:textfield>
-								<s:textfield label="Ville : "  placeholder="ville" ></s:textfield>
-							</s:form>
+	            <form>Recherche
+								<input type="number"  min="0" max="96" label="departement"  placeholder="département" value="%{Recherche.departement}" ></input>
+								<input type="text"  label="ville"  placeholder="ville" ></input>
+								<input type="number" label="age" min="18" max="99" placeholder="Age"></input>
+							</form>
 	          </div>
 	        </div>
 
 
-	        <div class="col-sm-9">
-
-	          <%
-	            List<Utilisateur> users = Database.getAllUsers();
-	          %>
-
-	            <%
-	            for(Utilisateur user : users){
-	              %>
-	              <div class="col-sm-3">
-	                <div class="well">
-	                  <form action="AfficherProfil">
-	                    <input type="hidden" value="<%=user.getPrenom()%>" name="prenom">
-	                    <input type="hidden" value="<%=user.getNom()%>" name="nom">
-	                    <input type="hidden" value="<%=user.getAge()%>" name="age">
-	                    <input type="hidden" value="<%=user.getVille()%>" name="ville">
-	                    <input type="hidden" value="<%=user.getDepartement()%>" name="departement">
-	                    <input type="submit" value="<%=user.getPrenom()%> <%=user.getNom()%>">
-	                  </form>
-	                  <%=user.getPrenom()%>
-	                </div>
-	              </div>
-	            <% } %>
-
+	        <div class="col-sm-9" name="recherche">
 	        </div>
 	      </div>
 	    </div>
-	  </header>
 	</body>
+	<footer>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"> </script>
+
+	</footer>
 </html>

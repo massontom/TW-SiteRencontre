@@ -46,10 +46,6 @@
                 <result>/WEB-INF/jsp/index.jsp</result>
             </action>
 
-            <action name="Recherche">
-                <result>/WEB-INF/jsp/recherche.jsp</result>
-            </action>
-
             <action name="AfficherProfil">
                 <result>/WEB-INF/jsp/profil.jsp</result>
             </action>
@@ -84,6 +80,17 @@
             </action>
     </package>
 
+    <package name="recherche" namespace="/recherche" extends="struts-default">
+      <action name="Recherche">
+          <result>/WEB-INF/jsp/recherche.jsp</result>
+      </action>
+
+      <action name="rechercher" class="controller.Recherche" method="setUserRecherche">
+        <result name="input"></result>
+      </action>
+
+    </package>
+
     <package name="userPlace" namespace="/user" extends="struts-default">
             <interceptors>
               <interceptor name="loginInterceptor" class="controller.LoginInterceptor"></interceptor>
@@ -99,7 +106,10 @@
                   <param name="actionName">login</param>
                   <param name="namespace">/accueil</param>
                 </result>
-                <result>/WEB-INF/jsp/recherche.jsp</result>
+                <result type="redirectAction">
+                  <param name="actionName">Recherche</param>
+                  <param name="namespace">/recherche</param>
+                </result>
             </action>
 
 	          <action name="edit" class="controller.EditProfil" method="input">
