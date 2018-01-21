@@ -12,39 +12,40 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <style>
-      body {
-      background-image: url(../images/img_bg_1.jpg);
-      background-repeat: no-repeat;
-      background-attachment: fixed;
+			body {
+        background-image: url(../images/img_bg_1.jpg);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+      }
+      .navbar {
+        margin-bottom: 0;
+        border-radius: 0;
       }
 
-      /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
       .row.content {height: 1500px}
 
-      /* Set gray background color and 100% height */
       .sidenav {
         background-color: #f1f1f1;
         height: 100%;
       }
 
-      /* Set black background color, white text and some padding */
       footer {
         background-color: #555;
         color: white;
         padding: 15px;
       }
 
-      /* On small screens, set height to 'auto' for sidenav and grid */
       @media screen and (max-width: 767px) {
         .sidenav {
           height: auto;
           padding: 15px;
         }
-        .row.content {height: auto;}}
+
+        .row.content {height: auto;}
+      }
     </style>
   </head>
-  <body id="gtco-header" class="gtco-cover" role="banner" style="background-image:url(../images/img_bg_1.jpg);">
-    <header>
+  <body id="gtco-header" class="gtco-cover" role="banner">
       <nav class="navbar navbar-inverse">
         <div class="container-fluid">
           <div class="navbar-header">
@@ -81,7 +82,7 @@
 									<h2>Contenu de vos échanges</h2>
 						      <s:iterator value="messages" var="message">
 										<s:if test="#message.auteur.id == utilisateur.id">
-											<div class="row text-right">
+											<div class="row text-right col-sm-12 well">
 												<span>
 													<strong><s:property value="#message.auteur.prenom"/></strong><br/>
 												</span>
@@ -90,7 +91,7 @@
 											</div>
 										</s:if>
 										<s:else>
-											<div class="row text-left">
+											<div class="row text-left col-sm-12 well">
 												<span>
 													<strong><s:property value="#message.auteur.prenom"/></strong><br/>
 												</span>
@@ -102,7 +103,7 @@
 									<div class="row text-center">
 										<s:form action="ajouterMessage" theme="simple">
 												<s:property  value="fieldErrors.get('messageEcrit').get(0)"  />
-											<s:textarea name="contenu" rows="5" placeholder="Saisissez votre message" />
+											<s:textarea name="contenu" class="well" rows="5" placeholder="Saisissez votre message" />
 											<s:hidden name="utilisateur.id" value="%{utilisateur.id}" />
 											<s:submit key="submit" cssClass="btn btn-2" value="Envoyer"/>
 										</s:form>
@@ -113,6 +114,5 @@
 					</div>
 				</div>
 			</div>
-		</header>
 	</body>
 </html>
