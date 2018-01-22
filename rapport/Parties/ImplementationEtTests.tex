@@ -1,1 +1,36 @@
 \chapter{Implémentation et tests}
+\section{Implémentation}
+
+	Pour réaliser ce projet, nous avons utilisé le framework Struts 2 pour développer notre application J2EE. Le framework Struts 2 suit le pattern modèle-vue-controller (MVC). Ce patern permet de dissocier les différentes couches de l'application. Le framework Struts à été vu en cours de TechnoWeb.\\
+	Pour stocker toutes les données de notre application, nous avons utilisé une base de données MYSQL. \\
+	
+\section{Guide d'utilisation}
+\subsection{Base de données MYSQL}
+	Pour utiliser la base de donnée mysql fournie avec le projet, nous pouvons réaliser les étapes suivantes :
+	\begin{enumerate}
+		\item installer un serveur mysql (pour ubuntu : sudo apt install mysql-serveur) (se souvenir du mot de passe maitre)
+		\item se placer dans le dossier TW-SiteRencontre et effectuer les commandes suivantes :
+		\item \$ mysql -u root -p
+		\item \$ create database adopteuninge 
+		\item \$ use adopteuninge
+		\item \$ source adopteuning.sql
+	\end{enumerate}
+
+\subsection{compilation de l'application}
+	Pour compiler notre application J2EE, nous pouvons réliaser les étpaes suivantes:
+	
+	\begin{enumerate}
+		\item dans le fichier src/main/java/model/dao/Database.java, il faut modifier les lignes 21 et 34 pour régler : le port, l'utilisateur de la base de donnée, le mot de passe
+		\item Dans le dossier AdopteUnInge, effectuer les commandes suivantes :
+		\begin{itemize}
+			\item \$ mvn clean
+			\item \$ mvn ant:ant
+			\item \$ ant
+		\end{itemize}
+		\item Ensuite, copier l'archive AdopteUnInge-1.0.0.war dans le dossier deployements du serveur wildfly
+		\item se rendre à l'adresse \emph{http://localhost:8080/AdopteUnInge-1.0.0/accueil} pour commencer la navigation
+		\item pour accéder au site, vous pouvez créer un nouvel utilisateur
+	\end{enumerate}
+
+\section{Tests}
+	Dans un soucis de temps, les tests n'ont pas été réalisés pour ce projet.
