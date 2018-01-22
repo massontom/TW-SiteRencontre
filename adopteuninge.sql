@@ -116,6 +116,17 @@ VALUES
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
+# Affichage de la table likes
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `likes`;
+CREATE TABLE `likes` (
+  	`idQuiLike` int(11) NOT NULL,
+	`idLike` int(11) NOT NULL,
+	PRIMARY KEY (`idQuiLike`, `idLike`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
 
 
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;

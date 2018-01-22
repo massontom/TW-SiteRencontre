@@ -168,8 +168,8 @@ public class Database {
 			ps.setInt(8, user.getOrientation());
 			ps.setString(9, getGeneratedPassword(user.getPassword()));
 			ps.setString(10, user.getDescription());
-			ps.setInt(11, user.getId());
-			ps.setInt(12, user.getLike().getNbLikeRestant());
+			ps.setInt(11, user.getLike().getNbLikeRestant());
+			ps.setInt(12, user.getId());
 			i = ps.executeUpdate();
 			return i;
 		} catch (Exception e) {
@@ -214,6 +214,8 @@ public class Database {
 		ps.setInt(2, idUserLike);
 		ps.executeUpdate();
 	}
+
+
 
 	private static String getGeneratedPassword(String password) {
 		try {
