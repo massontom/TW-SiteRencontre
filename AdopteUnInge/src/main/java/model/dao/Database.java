@@ -182,6 +182,31 @@ public class Database {
 		}
 	}
 
+	public static List<Utilisateur> getUserLike(int id) throws SQLException, Exception {
+			ResultSet rs = null;
+			ResultSetMetaData rsmd = null;
+			Utilisateur user = null;
+			try {
+				String sql = "SELECT idLike FROM likes WHERE idQuiLike = ?";
+				PreparedStatement ps = getConnection().prepareStatement(sql);
+				ps.setInt(1, id);
+				rs = ps.executeQuery();
+				List<Utilisateur> users = new ArrayList<Utilisateur>();
+				while(rs.next()) {
+					user = fetchUserDetailsByID(rs.getInt("idLike"));
+					users.add(user);
+				}
+				return users;
+			} catch (Exception e) {
+				e.printStackTrace();
+				return null;
+			} finally {
+				if (getConnection() != null) {
+					getConnection().close();
+				}
+			}
+		}
+
 	// method for delete the record
 	public int deleteUserDetails(int id) throws SQLException, Exception {
 		getConnection().setAutoCommit(false);

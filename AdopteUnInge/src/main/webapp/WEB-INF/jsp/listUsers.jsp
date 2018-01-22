@@ -9,7 +9,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>Adopte un Ingé - Membres</title>
+		<title>Adopte un Ingé - Coups de Coeur</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -48,8 +48,8 @@
       }
     </style>
   </head>
-  <body id="gtco-header" class="gtco-cover" role="banner" style="background-image:url(../images/img_bg_1.jpg);">
-    <header>
+  <body>
+    <header id="gtco-header" class="gtco-cover" role="banner" style="background-image:url(../images/img_bg_1.jpg);">
       <nav class="navbar navbar-inverse">
         <div class="container-fluid">
           <div class="navbar-header">
@@ -58,7 +58,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Adopte un Ingé <span class="glyphicon glyphicon-heart"></span></a>
+            <a class="navbar-brand" href="#">Adopte un Ingé - Coups de Coeur<span class="glyphicon glyphicon-heart"></span></a>
           </div>
           <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
@@ -73,17 +73,19 @@
       <div class="container-fluid">
 	      <div class="row content">
 	        <div class="col-sm-3 sidenav">
-	          <h4>Rencontrez d'autres personnes !</h4>
+	          <h4>Coups de Coeur</h4>
 	          <ul class="nav nav-pills nav-stacked">
 	            <li><a href="../user/indexUser">Accueil</a></li>
 	            <li><a href="../user/Profil">Mon Profil</a></li>
               <li><a href="../chat/chat">Chat</a></li>
-							<li class="active"><a href="../user/ListeUtilisateurs">Liste des Membres</a></li>
+							<li class="active"><a href="../user/ListeUtilisateurs">Coups de Coeur</a></li>
 	          </ul><br>
           </div>
           <div class="col-sm-9">
 						<div class="col-sm-3 well">
-              <%List<Utilisateur> users = Database.getAllUsers();%>
+              <%int id = ((Utilisateur)request.getSession().getAttribute("user")).getId();
+                List<Utilisateur> users = Database.getUserLike(id);
+              %>
               <table>
               <% for(Utilisateur membre : users){ %>
                 <a href="consulterProfil?membre.id=<%=membre.getId()%>"><%=membre.getPrenom()%> <%=membre.getNom()%></a><br>

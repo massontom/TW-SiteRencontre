@@ -74,7 +74,7 @@
 	            <li class="active"><a href="../user/indexUser">Accueil</a></li>
 	            <li><a href="../user/Profil">Mon Profil</a></li>
 	            <li><a href="../chat/chat">Chat</a></li>
-							<li><a href="../user/ListeUtilisateurs">Liste des Membres</a></li>
+							<li><a href="../user/ListeUtilisateurs">Coups de Coeur</a></li>
 	          </ul><br>
 						<div class="input-group">
 	            <s:form method="post" action="rechercher">Recherche
