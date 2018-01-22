@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ page import="model.*" %>
 <%@ page import="model.dao.Database" %>
 <!DOCTYPE html>
 <html>
@@ -78,6 +79,7 @@
               <li><a href="../chat/chat">Chat</a></li>
 							<li><a href="../user/ListeUtilisateurs">Coups de Coeur</a></li>
 	          </ul><br>
+            <ul><li>Nombre de Like restants : <%=((Utilisateur)request.getSession().getAttribute("user")).getLike().getNbLikeRestant()%></li><ul>
           </div>
           <div class="col-sm-9">
 						<div class="col-sm-3 well">
@@ -85,7 +87,6 @@
                 <h1><s:property value="membre.prenom"/> <s:property value="membre.nom"/></h1>
                 <p><s:property value="membre.age"/> ans</p>
                 <p><s:property value="membre.ville"/>, <s:property value="membre.departement"/></p>
-                <p>${sessionScope.user.like}</p>
                 <s:url action="liker" var="liker" >
                   <s:param name="membre.id"><s:property value="membre.id"/></s:param>
                 </s:url>

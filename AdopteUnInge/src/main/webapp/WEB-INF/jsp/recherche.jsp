@@ -1,5 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ page import="model.*" %>
+
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -83,8 +85,10 @@
 								<s:textfield type="number" label="Age (+/-5) :" name="age" min="18" max="99" placeholder="Age"></s:textfield>
 								<s:submit value="Rechercher" class="btn btn-2"/>
 							</s:form>
-	          </div>
+	          </div><br>
+						<ul><li>Nombre de Like restants : <%=((Utilisateur)request.getSession().getAttribute("user")).getLike().getNbLikeRestant()%></li><ul>
 	        </div>
+
 
 
 					<div class="col-sm-9" name="recherche">

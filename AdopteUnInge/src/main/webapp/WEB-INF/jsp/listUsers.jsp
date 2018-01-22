@@ -80,7 +80,9 @@
               <li><a href="../chat/chat">Chat</a></li>
 							<li class="active"><a href="../user/ListeUtilisateurs">Coups de Coeur</a></li>
 	          </ul><br>
+            <ul><li>Nombre de Like restants : <%=((Utilisateur)request.getSession().getAttribute("user")).getLike().getNbLikeRestant()%></li><ul>
           </div>
+          
           <div class="col-sm-9">
 						<div class="col-sm-3 well">
               <%int id = ((Utilisateur)request.getSession().getAttribute("user")).getId();
