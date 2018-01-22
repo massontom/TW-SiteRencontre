@@ -156,7 +156,7 @@ public class Database {
 	public static int updateUserDetails(Utilisateur user) throws SQLException, Exception {
 		int i = 0;
 		try {
-			String sql = "UPDATE user SET name=?,nickname=?,mail=?,age=?,city=?,zip=?,sex=?,orientation=?,password=?,description=? WHERE id=?";
+			String sql = "UPDATE user SET name=?,nickname=?,mail=?,age=?,city=?,zip=?,sex=?,orientation=?,password=?,description=?, likes=? WHERE id=?";
 			PreparedStatement ps = getConnection().prepareStatement(sql);
 			ps.setString(1, user.getNom());
 			ps.setString(2, user.getPrenom());
@@ -169,6 +169,7 @@ public class Database {
 			ps.setString(9, getGeneratedPassword(user.getPassword()));
 			ps.setString(10, user.getDescription());
 			ps.setInt(11, user.getId());
+			ps.setInt(12, user.getLike().getNbLikeRestant());
 			i = ps.executeUpdate();
 			return i;
 		} catch (Exception e) {
@@ -200,6 +201,18 @@ public class Database {
 				getConnection().close();
 			}
 		}
+	}
+
+	public void likerMembre(int idUserQuiLike, int idUserLike) throws SQLException, Exception {
+		PreparedStatement ps = getConnection().prepareStatement("Delete from likes where idQuiLike = ? and idLike = ?");
+		ps.setInt(1, idUserQuiLike);
+		ps.setInt(2, idUserLike);
+		ps.executeUpdate();
+
+		ps = getConnection().prepareStatement("Insert into likes (idQuiLike, idLike) values (?,?)");
+		ps.setInt(1, idUserQuiLike);
+		ps.setInt(2, idUserLike);
+		ps.executeUpdate();
 	}
 
 	private static String getGeneratedPassword(String password) {

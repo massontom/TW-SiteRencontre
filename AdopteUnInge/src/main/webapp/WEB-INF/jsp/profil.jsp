@@ -85,6 +85,7 @@
                 <h1><s:property value="membre.prenom"/> <s:property value="membre.nom"/></h1>
                 <p><s:property value="membre.age"/> ans</p>
                 <p><s:property value="membre.ville"/>, <s:property value="membre.departement"/></p>
+                <p>${sessionScope.user.like}</p>
                 <s:url action="liker" var="liker" >
                   <s:param name="membre.id"><s:property value="membre.id"/></s:param>
                 </s:url>

@@ -26,6 +26,10 @@ public class Like {
     this.listePersonnesQuiMontLike = new ArrayList<Utilisateur>();
   }
 
+  public void decrementer() {
+    this.nbLikeRestant -= 1;
+  }
+
   public int getNbLikeRestant() {
     return nbLikeRestant;
   }
@@ -36,7 +40,7 @@ public class Like {
 
   public void addPersonnesLike(Utilisateur utilisateur) {
     listePersonnesLike.add(utilisateur);
-    nbLikeRestant -= 1;
+    this.decrementer();
   }
 
   public void addPersonnesQuiMontLike(Utilisateur utilisateur) {
