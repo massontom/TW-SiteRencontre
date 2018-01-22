@@ -90,7 +90,7 @@
 					<div class="col-sm-9" name="recherche">
 
 						<s:iterator value="userRecherche" var="user">
-							<div class="col-sm-3 well">
+							<div class="col-sm-4 well">
 								<div class="well">
   								<s:property value="#user.prenom"/> <s:property value="#user.nom"/></br>
 									<a href="../user/consulterProfil?membre.id=<s:property value="#user.id"/>">Voir le profil</a>
