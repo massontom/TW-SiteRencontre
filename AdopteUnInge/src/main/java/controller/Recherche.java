@@ -57,12 +57,26 @@ public class Recherche extends ActionSupport implements SessionAware {
     Utilisateur myuser = (Utilisateur)this.sessionmap.get("user");
     setUtilisateurs();
     this.userRecherche = new ArrayList<>();
-    System.out.println("nb total d'utilisateurs :"+allUsers.size());
     for(Utilisateur user : allUsers) {
-      if (user.getSexe()==myuser.getOrientation()){
-        if (!(this.age.equals(""))) {
-          ageInt=Integer.parseInt(this.age);
-          if ((user.getAge()<=ageInt+5) || (user.getAge()>=ageInt-5)) {
+      if (user.getId()!=myuser.getId()){
+        if ((user.getSexe()==myuser.getOrientation())&& (myuser.getSexe()==user.getOrientation())){
+          if (!(this.age.equals(""))) {
+            ageInt=Integer.parseInt(this.age);
+            if ((user.getAge()<=ageInt+5) && (user.getAge()>=ageInt-5)) {
+              if (!(this.ville.equals(""))) {
+                if (this.ville.toLowerCase().equals(user.getVille().toLowerCase())) {
+                  userRecherche.add(user);
+                }
+              } else if (!(this.departement.equals(""))) {
+                if (this.departement.equals(Integer.toString(user.getDepartement()))) {
+                  userRecherche.add(user);
+                }
+              } else {
+                userRecherche.add(user);
+              }
+            }
+
+          } else {
             if (!(this.ville.equals(""))) {
               if (this.ville.toLowerCase().equals(user.getVille().toLowerCase())) {
                 userRecherche.add(user);
@@ -71,19 +85,6 @@ public class Recherche extends ActionSupport implements SessionAware {
               if (this.departement.equals(Integer.toString(user.getDepartement()))) {
                 userRecherche.add(user);
               }
-            } else {
-              userRecherche.add(user);
-            }
-          }
-
-        } else {
-          if (!(this.ville.equals(""))) {
-            if (this.ville.toLowerCase().equals(user.getVille().toLowerCase())) {
-              userRecherche.add(user);
-            }
-          } else if (!(this.departement.equals(""))) {
-            if (this.departement.equals(Integer.toString(user.getDepartement()))) {
-              userRecherche.add(user);
             }
           }
         }
